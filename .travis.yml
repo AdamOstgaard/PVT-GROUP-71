@@ -8,6 +8,7 @@ cache:
 before_script:
   - cd pvt71
   - npm install -g npm@latest
+  - npm install -g yarn
 script:
-  - npm ci
+  - yarn
   - npx jest --ci
