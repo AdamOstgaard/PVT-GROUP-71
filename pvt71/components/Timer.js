@@ -8,7 +8,7 @@ export class Timer extends React.Component {
     super(props);
     this.state = {
       timerRunning: false,
-      time: 0
+      time: this.props.startTime
     };
   }
   render() {
@@ -29,8 +29,8 @@ export class Timer extends React.Component {
   }
 
   handlePress() {
-    this.startTimer(moment.duration(2, "h").asMilliseconds());
-    return;
+    this.stopTimer();
+    this.startTimer(this.props.startTime);
   }
 
   startTimer(time) {
@@ -58,6 +58,11 @@ export class Timer extends React.Component {
       clearTimeout(this.timer);
     }
     this.setState({ timerRunning: false });
+  }
+
+  stopTimer() {
+    this.pauseTimer();
+    this.setState({ timerRunning: false, time: this.props.startTime });
   }
 
   resumeTimer() {

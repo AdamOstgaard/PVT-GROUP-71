@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Timer } from "../components/Timer";
+import moment from "moment";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,7 +12,10 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.timerContainer}>
-          <Timer style={styles.timer} />
+          <Timer
+            style={styles.timer}
+            startTime={moment.duration(2, "h").asMilliseconds()}
+          />
         </View>
       </View>
     );
