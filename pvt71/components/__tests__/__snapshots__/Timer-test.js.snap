@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer Test Timer Snapshot Renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 1000,
+      "borderStyle": "solid",
+      "borderWidth": 2,
+      "flexDirection": "column",
+      "height": 280,
+      "justifyContent": "center",
+      "textAlign": "center",
+      "textAlignVertical": "center",
+      "width": 280,
+    }
+  }
+>
+  <Text
+    onPress={[Function]}
+    style={
+      Object {
+        "display": "flex",
+        "fontSize": 64,
+      }
+    }
+  >
+    0
+  </Text>
+  <Text
+    style={
+      Object {
+        "borderWidth": 0,
+        "display": "flex",
+        "fontSize": 12,
+      }
+    }
+  >
+    Press to reset
+  </Text>
+</View>
+`;
