@@ -6,9 +6,6 @@ cache:
   directories:
     - ~/.npm
 before_script:
-  - cd pvt71
-  - npm install -g npm@latest
-  - npm install -g yarn
+  - cd pvt71 && npm install -g npm@latest && npm install -g yarn && cd ..
 script:
-  - yarn
-  - npx jest --ci
+  - cd pvt71 && yarn && npx jest --ci
