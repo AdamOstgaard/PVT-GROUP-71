@@ -10,12 +10,14 @@ describe('Timer Test', () => {
             expect(tree).toMatchSnapshot();
         });
     });
+    
     describe('Timer start', () => {
         it('timer start successful', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer(10);
             expect(timerData.state.timerRunning).toEqual(true);
             expect(timerData.state.time).toEqual(10);
+            timerData.stopTimer();
         });
     });
 
@@ -28,6 +30,7 @@ describe('Timer Test', () => {
             expect(timerData.state.time).toEqual(10);
         });
     });
+
     describe('Timer state', () => {
         it('state correct', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
@@ -50,6 +53,7 @@ describe('Timer Test', () => {
             expect(timerData.state.timerRunning).toEqual(false);
             timerData.handlePress();
             expect(timerData.state.timerRunning).toEqual(true);
+            timerData.stopTimer();
         });
     });
 
