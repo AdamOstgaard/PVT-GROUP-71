@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - node
   - lts/*
+install:
+  - npm install -g codecov
 cache:
   directories:
     - ~/.npm
@@ -9,3 +11,4 @@ before_script:
   - cd pvt71 && npm install -g npm@latest && npm install -g yarn && cd ..
 script:
   - cd pvt71 && yarn && npx jest --ci
+  - codecov
