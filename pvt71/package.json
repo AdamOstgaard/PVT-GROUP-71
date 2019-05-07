@@ -8,7 +8,15 @@
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -21,6 +29,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
+    "codecov": "^3.3.0",
     "jest-expo": "^32.0.0"
   },
   "private": true
