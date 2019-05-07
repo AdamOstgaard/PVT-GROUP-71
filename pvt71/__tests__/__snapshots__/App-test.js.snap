@@ -135,59 +135,49 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                           style={
                             Object {
                               "alignItems": "center",
-                              "backgroundColor": "#fbfbfb",
-                              "bottom": 0,
-                              "left": 0,
-                              "paddingVertical": 20,
-                              "position": "absolute",
-                              "right": 0,
-                              "shadowColor": "black",
-                              "shadowOffset": Object {
-                                "height": -3,
-                              },
-                              "shadowOpacity": 0.1,
-                              "shadowRadius": 3,
+                              "marginHorizontal": 150,
+                              "paddingTop": 120,
                             }
                           }
                         >
-                          <Text
-                            style={
-                              Object {
-                                "color": "rgba(96,100,109, 1)",
-                                "fontSize": 17,
-                                "textAlign": "center",
-                              }
-                            }
-                          >
-                            This is a tab bar. You can edit it in:
-                          </Text>
                           <View
                             style={
-                              Array [
-                                Object {
-                                  "backgroundColor": "rgba(0,0,0,0.05)",
-                                  "borderRadius": 3,
-                                  "paddingHorizontal": 4,
-                                },
-                                Object {
-                                  "marginTop": 5,
-                                },
-                              ]
+                              Object {
+                                "alignItems": "center",
+                                "borderRadius": 1000,
+                                "borderStyle": "solid",
+                                "borderWidth": 2,
+                                "flexDirection": "column",
+                                "height": 280,
+                                "justifyContent": "center",
+                                "textAlign": "center",
+                                "textAlignVertical": "center",
+                                "width": 280,
+                              }
                             }
                           >
                             <Text
+                              onPress={[Function]}
+                              startTime={7200000}
                               style={
-                                Array [
-                                  Object {
-                                    "color": "rgba(96,100,109, 0.8)",
-                                  },
-                                  Object {
-                                    "fontFamily": "space-mono",
-                                  },
-                                ]
+                                Object {
+                                  "display": "flex",
+                                  "fontSize": 64,
+                                }
                               }
                             >
-                              navigation/MainTabNavigator.js
+                              2:00:00
+                            </Text>
+                            <Text
+                              style={
+                                Object {
+                                  "borderWidth": 0,
+                                  "display": "flex",
+                                  "fontSize": 12,
+                                }
+                              }
+                            >
+                              Press to reset
                             </Text>
                           </View>
                         </View>
