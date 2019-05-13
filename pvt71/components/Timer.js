@@ -11,6 +11,7 @@ export class Timer extends React.Component {
       time: this.props.startTime
     };
   }
+
   render() {
     return (
       <View style={styles.timerContainer}>
@@ -45,9 +46,11 @@ export class Timer extends React.Component {
 
   handleTick(interval) {
     if (this.state.time <= 0) {
+      this.props.callback();
       this.pauseTimer();
       return;
     }
+
     this.setState({
       time: this.state.time - interval
     });
