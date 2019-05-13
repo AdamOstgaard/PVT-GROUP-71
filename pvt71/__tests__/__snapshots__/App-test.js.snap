@@ -157,6 +157,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                             }
                           >
                             <Text
+                              callback={[Function]}
                               onPress={[Function]}
                               startTime={7200000}
                               style={
