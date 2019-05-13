@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import { Timer } from "../components/Timer";
 import moment from "moment";
+import {playSound} from "../SoundPlayer"
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -15,11 +16,32 @@ export default class HomeScreen extends React.Component {
           <Timer
             style={styles.timer}
             startTime={moment.duration(2, "h").asMilliseconds()}
+            callback={restart => {
+                playSound();
+                showRestartAlert(restart);
+              }
+            }
           />
         </View>
       </View>
     );
   }
+}
+
+const showRestartAlert = (restart) => {
+  Alert.alert(
+    'Timer',
+    'Are you ok?',
+    [
+      {text: 'Yes, I\'m Ok', onPress: () => restart()},
+      {
+        text: 'No, I need help!',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+    ],
+    {cancelable: false},
+  );
 }
 
 const styles = StyleSheet.create({
