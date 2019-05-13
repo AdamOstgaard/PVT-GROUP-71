@@ -45,15 +45,19 @@ export class Timer extends React.Component {
   }
 
   handleTick(interval) {
-    if (this.state.time <= 0) {
-      this.props.callback(() => this.resetTimer());
-      this.pauseTimer();
-      return;
-    }
-
     this.setState({
       time: this.state.time - interval
     });
+
+    if (this.state.time > 0) {
+      return; 
+    }
+
+    if (this.props.callback) {
+      this.props.callback(() => this.resetTimer());
+    }
+
+    this.pauseTimer();
   }
 
   pauseTimer() {
