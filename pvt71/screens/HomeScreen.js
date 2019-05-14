@@ -1,10 +1,17 @@
 import React from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { Timer } from "../components/Timer";
+import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import {playSound} from "../SoundPlayer"
 
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      timerIsPaused: false
+    };
+  }
   static navigationOptions = {
     header: null
   };
@@ -14,6 +21,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.timerContainer}>
           <Timer
+            timerIsPaused={this.state.timerIsPaused}
             style={styles.timer}
             startTime={moment.duration(2, "h").asMilliseconds()}
             callback={restart => {
@@ -23,10 +31,27 @@ export default class HomeScreen extends React.Component {
             }
           />
         </View>
+        <View style={styles.sleepButtonContainer}>
+            <TimerSleepButton onPress={this.sleepHandler}/>
+        </View>
       </View>
     );
   }
+   sleepHandler = () => {
+    if(this.timerIsPaused){
+      this.setState({
+        timerIsPaused: false
+      }); 
+    }else{
+      this.setState({
+        timerIsPaused: true
+    }); 
+  }
 }
+
+
+}
+
 
 const showRestartAlert = (restart) => {
   Alert.alert(
@@ -53,5 +78,8 @@ const styles = StyleSheet.create({
     paddingTop: 120,
     alignItems: "center",
     marginHorizontal: 150
+  },
+  sleepButtonContainer: {
+    left:240
   }
 });
