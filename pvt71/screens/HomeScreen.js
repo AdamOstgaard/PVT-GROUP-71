@@ -9,7 +9,7 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timerIsPaused: false
+      paused: false
     };
   }
   static navigationOptions = {
@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.timerContainer}>
           <Timer
-            timerIsPaused={this.state.timerIsPaused}
+            paused={this.state.paused}
             style={styles.timer}
             startTime={moment.duration(2, "h").asMilliseconds()}
             callback={restart => {
@@ -38,20 +38,21 @@ export default class HomeScreen extends React.Component {
     );
   }
    sleepHandler = () => {
-    if(this.timerIsPaused){
+     
+    if(this.state.paused){
+      console.log('av');
       this.setState({
-        timerIsPaused: false
+        paused: false
       }); 
     }else{
+      console.log('på');
       this.setState({
-        timerIsPaused: true
-    }); 
+        paused: true
+      }); 
+    }
   }
-}
-
 
 }
-
 
 const showRestartAlert = (restart) => {
   Alert.alert(

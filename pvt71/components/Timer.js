@@ -4,6 +4,7 @@ import moment from "moment";
 import "moment-duration-format";
 
 
+
 export class Timer extends React.Component {
   constructor(props) {
     super(props);
@@ -12,11 +13,15 @@ export class Timer extends React.Component {
       time: this.props.startTime
     };
   }
+
+  componentDidUpdate() {
+    if(this.props.paused){
+     // this.pauseTimer();
+     console.log('111');
+    }
+  }
  
   render() {
-    if(this.props.timerIsPaused){
-      this.pauseTimer();
-    }
     return (
       <View style={styles.timerContainer}>
         <Text
