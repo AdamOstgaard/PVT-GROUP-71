@@ -14,10 +14,9 @@ export class Timer extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    if(this.props.paused){
-     // this.pauseTimer();
-     console.log('111');
+  componentDidUpdate(prevProps, PrevState) {
+    if(this.props.paused !== prevProps.paused){
+      this.pauseTimer();
     }
   }
  
