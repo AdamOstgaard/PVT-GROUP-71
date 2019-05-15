@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import BottomButton from "../components/BottomButton";
+import AppSingleButton from "../components/AppSingleButton";
+
 
 export default class WizardWelcomeScreen extends React.Component {
   render() {
@@ -18,7 +19,7 @@ export default class WizardWelcomeScreen extends React.Component {
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
         <View style={styles.bottom}>
-          <BottomButton
+          <AppSingleButton
             title="Next"
             onPress={() =>
               this.props.navigation.navigate("WizardVerifyContactScreen")

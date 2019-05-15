@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default class BottomButton extends React.Component {
+export default class AppSingleButton extends React.Component {
   render() {
     return (
       <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
