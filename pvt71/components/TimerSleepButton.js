@@ -5,9 +5,9 @@ export default class TimerSleepButton extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state({
+    this.state = {
       enabled: false
-    });
+    };
   }
 
   render() {
