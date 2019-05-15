@@ -4,23 +4,24 @@ import { TouchableOpacity, StyleSheet, Image } from "react-native";
 export default class TimerSleepButton extends React.Component {
   constructor(props) {
     super(props);
+
     this.state({
       enabled: false
     });
   }
-    
+
   render() {
     return (
-      <TouchableOpacity style={styles.button} onPress={}>
+      <TouchableOpacity style={styles.button} onPress={() => this.toggle()}>
         <Image source={require("../assets/images/zzz-icon-3.png")} />
       </TouchableOpacity>
     );
   }
 
   toggle() {
-      const val = !this.state.enabled;
-      this.props.onPress(val)
-      this.setState({ enabled: val });
+    const val = !this.state.enabled;
+    this.props.onToggle(val);
+    this.setState({ enabled: val });
   }
 }
 
