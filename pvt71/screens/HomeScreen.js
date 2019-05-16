@@ -15,7 +15,7 @@ export default class HomeScreen extends React.Component {
         <View style={styles.timerContainer}>
           <Timer
             style={styles.timer}
-            startTime={moment.duration(2, "h").asMilliseconds()}
+            startTime={moment.duration(1, "h").asMilliseconds()}
             callback={restart => {
                 playSound();
                 showRestartAlert(restart);
