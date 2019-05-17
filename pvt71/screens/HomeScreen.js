@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
+import SleepConfirmWindow from "../components/SleepConfirmWindow";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
 
@@ -20,6 +21,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.timerContainer}>
+          <SleepConfirmWindow isVisible={this.state.timerPaused}/>
           <Timer
             paused={this.state.timerPaused}
             style={styles.timer}
