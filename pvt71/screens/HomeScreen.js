@@ -1,8 +1,7 @@
 import React from "react";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, Text } from "react-native";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
-import SleepConfirmWindow from "../components/SleepConfirmWindow";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
 
@@ -18,11 +17,21 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    let pauseText;
+    if (this.state.timerPaused) {
+      pauseText = "VILOLÄGET ÄR PÅ";
+    } else {
+      pauseText = "VILOLÄGET ÄR AV";
+    }
+
     return (
       <View style={styles.container}>
+        <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
-          <SleepConfirmWindow isVisible={this.state.timerPaused}/>
           <Timer
+            onReset={reset => {
+              this.setState({ timerPaused: reset });
+            }}
             paused={this.state.timerPaused}
             style={styles.timer}
             startTime={moment.duration(2, "h").asMilliseconds()}
@@ -34,6 +43,7 @@ export default class HomeScreen extends React.Component {
         </View>
         <View style={styles.sleepButtonContainer}>
           <TimerSleepButton
+            onResume={this.state.timerPaused}
             onToggle={enabled => this.setState({ timerPaused: enabled })}
           />
         </View>
@@ -60,15 +70,20 @@ const showRestartAlert = restart => {
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "column",
     flex: 1,
     backgroundColor: "#fff"
   },
   timerContainer: {
-    paddingTop: 120,
-    alignItems: "center",
-    marginHorizontal: 150
+    paddingTop: "10%",
+    alignItems: "center"
   },
   sleepButtonContainer: {
     left: 240
+  },
+  sleepOnText: {
+    marginTop: "30%",
+    alignSelf: "center",
+    fontSize: 18
   }
 });
