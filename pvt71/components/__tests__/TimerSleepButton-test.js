@@ -2,8 +2,6 @@ import "react-native";
 import React from "react";
 import TimerSleepButton from "../TimerSleepButton";
 import renderer from "react-test-renderer";
-import Alert from "react-native";
-import { create } from "react-test-renderer";
 
 describe("Timer Test", () => {
   describe("Timer Snapshot", () => {
@@ -14,19 +12,21 @@ describe("Timer Test", () => {
   });
 
   describe("test toggle()", () => {
-        // Mock the alert to avoid having the real alert keeping the test suite open.
-        jest.mock("Alert", () => {
-          return { 
-            alert: jest.fn()
-          };
-        });
-    
+    // Mock the alert to avoid having the real alert keeping the test suite open.
+    jest.mock("Alert", () => {
+      return {
+        alert: jest.fn()
+      };
+    });
+
     it("should update state variable enable to true", () => {
       let button = renderer
         .create(
           <TimerSleepButton
-            onToggle={enabled => console.log(enabled)}
-            onResume={resume => console.log(resume)}
+            onToggle={() => {
+              return;
+            }}
+            onResume={false}
           />
         )
         .getInstance();
@@ -35,4 +35,13 @@ describe("Timer Test", () => {
     });
   });
 
+  describe("test componentDidUpdate()", () => {
+    it("should not update variable enable to true", () => {
+      let button = renderer
+        .create(<TimerSleepButton onToggle={true} onResume={true} />)
+        .getInstance();
+      button.componentDidUpdate(button.props.onResume);
+      expect(button.state.enabled).toEqual(false);
+    });
+  });
 });
