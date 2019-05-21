@@ -28,13 +28,13 @@ describe("Timer Test", () => {
     });
   });
 
-  describe("test componentDidUpdate()", () => {
-    it("should not update variable enable to true", () => {
-      let button = renderer
-        .create(<TimerSleepButton onToggle={true} onResume={true} />)
-        .getInstance();
-      button.componentDidUpdate(button.props.onResume);
-      expect(button.state.enabled).toEqual(false);
-    });
-  });
+ // describe("test componentDidUpdate()", () => {
+  //  it("should not update variable enable to true", () => {
+  //    let button = renderer
+  //      .create(<TimerSleepButton onToggle={true} onResume={true} />)
+  //      .getInstance();
+  //    button.componentDidUpdate(button.props.onResume);
+  //    expect(button.state.enabled).toEqual(false);
+  //  });
+ // });
 });
