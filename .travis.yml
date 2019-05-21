@@ -10,5 +10,5 @@ cache:
 before_script:
   - cd pvt71 && npm install -g npm@latest && npm install -g yarn && cd ..
 script:
-  - cd pvt71 && yarn && npx jest --ci --detectOpenHandles
+  - cd pvt71 && yarn && npx jest --ci --forceExit
   - codecov
