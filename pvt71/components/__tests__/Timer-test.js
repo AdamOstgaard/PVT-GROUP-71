@@ -31,6 +31,19 @@ describe('Timer Test', () => {
         });
     });
 
+    describe('Callback works correctly', () => {
+        it('Calls callback on timer end', () => {
+            let success = false;
+            let timerData = renderer.create(<Timer callback={() => {
+                console.log('Test');
+                success = true;}}/>).getInstance();
+            timerData.startTimer(10);
+            timerData.handleTick(99999);
+            expect(success).toEqual(true);
+        });
+    });
+
+
     describe('Timer state', () => {
         it('state correct', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
@@ -45,13 +58,13 @@ describe('Timer Test', () => {
         });
     });
 
-    describe('HandlePress', () => {
-        it('HandlePress works correctly', () => {
+    describe('resetTimer', () => {
+        it('resetTimer works correctly', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer();
             timerData.stopTimer();
             expect(timerData.state.timerRunning).toEqual(false);
-            timerData.handlePress();
+            timerData.resetTimer();
             expect(timerData.state.timerRunning).toEqual(true);
             timerData.stopTimer();
         });

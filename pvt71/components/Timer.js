@@ -11,12 +11,13 @@ export class Timer extends React.Component {
       time: this.props.startTime
     };
   }
+
   render() {
     return (
       <View style={styles.timerContainer}>
         <Text
           {...this.props}
-          onPress={() => this.handlePress()}
+          onPress={() => this.resetTimer()}
           style={styles.timerText}
         >
           {this.formatTime(this.state.time)}
@@ -28,7 +29,7 @@ export class Timer extends React.Component {
     );
   }
 
-  handlePress() {
+  resetTimer() {
     this.stopTimer();
     this.startTimer(this.props.startTime);
   }
@@ -44,13 +45,19 @@ export class Timer extends React.Component {
   }
 
   handleTick(interval) {
-    if (this.state.time <= 0) {
-      this.pauseTimer();
-      return;
-    }
     this.setState({
       time: this.state.time - interval
     });
+
+    if (this.state.time > 0) {
+      return; 
+    }
+
+    if (this.props.callback) {
+      this.props.callback(() => this.resetTimer());
+    }
+
+    this.pauseTimer();
   }
 
   pauseTimer() {
