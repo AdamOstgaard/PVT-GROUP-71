@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "marginHorizontal": 150,
+        "paddingTop": 120,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 1000,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "flexDirection": "column",
+          "height": 280,
+          "justifyContent": "center",
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "width": 280,
+        }
+      }
+    >
+      <Text
+        callback={[Function]}
+        onPress={[Function]}
+        startTime={7200000}
+        style={
+          Object {
+            "display": "flex",
+            "fontSize": 64,
+          }
+        }
+      >
+        2:00:00
+      </Text>
+      <Text
+        style={
+          Object {
+            "borderWidth": 0,
+            "display": "flex",
+            "fontSize": 12,
+          }
+        }
+      >
+        Press to reset
+      </Text>
+    </View>
+  </View>
+</View>
+`;
