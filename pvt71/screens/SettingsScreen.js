@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, StyleSheet } from "react-native";
 import SleepTimerSettings from "../components/SleepTimerSettings";
 
 export default class SettingsScreen extends React.Component {

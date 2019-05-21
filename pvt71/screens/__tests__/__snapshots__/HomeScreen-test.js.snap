@@ -37,7 +37,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
       <Text
         callback={[Function]}
         onPress={[Function]}
-        startTime={7200000}
+        startTime={3600000}
         style={
           Object {
             "display": "flex",
@@ -45,7 +45,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
           }
         }
       >
-        2:00:00
+        1:00:00
       </Text>
       <Text
         style={
