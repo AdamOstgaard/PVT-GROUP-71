@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Button } from "react-native";
-import SleepTimeSettings from "../components/SleepTimeSettings";
+import SleepTimerSettings from "../components/SleepTimerSettings";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -10,7 +10,7 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
       <View>
-        <SleepTimeSettings />
+        <SleepTimerSettings />
       </View>
     );
   }

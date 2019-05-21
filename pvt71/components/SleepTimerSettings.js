@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, Button } from "react-native";
 import { AsyncStorage } from "react-native";
 
-export default class SleepTimeSettings extends React.Component {
+export default class SleepTimerSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
