@@ -35,6 +35,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
       }
     >
       <Text
+        callback={[Function]}
         onPress={[Function]}
         startTime={7200000}
         style={
