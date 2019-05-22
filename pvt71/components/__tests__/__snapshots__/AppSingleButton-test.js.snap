@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppSingleButton Test AppSingleButton Snapshot renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#0d6f73",
+      "height": 60,
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 30,
+        "paddingRight": 10,
+        "paddingTop": 8,
+        "textAlign": "right",
+      }
+    }
+  >
+    Next
+  </Text>
+</View>
+`;
+
 exports[`AppSingleButton Test renders correctly 1`] = `
 <View
   accessible={true}
