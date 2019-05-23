@@ -6,15 +6,26 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
     Object {
       "backgroundColor": "#fff",
       "flex": 1,
+      "flexDirection": "column",
     }
   }
 >
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "fontSize": 18,
+        "marginTop": "30%",
+      }
+    }
+  >
+    VILOLÄGET ÄR AV
+  </Text>
   <View
     style={
       Object {
         "alignItems": "center",
-        "marginHorizontal": 150,
-        "paddingTop": 120,
+        "paddingTop": "10%",
       }
     }
   >
@@ -37,6 +48,8 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
       <Text
         callback={[Function]}
         onPress={[Function]}
+        onReset={[Function]}
+        paused={false}
         startTime={7200000}
         style={
           Object {
@@ -58,6 +71,35 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
       >
         Press to reset
       </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "left": 240,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 90,
+          "opacity": 1,
+          "width": 90,
+        }
+      }
+    >
+      <Image
+        source={1}
+      />
     </View>
   </View>
 </View>
