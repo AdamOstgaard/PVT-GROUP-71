@@ -7,10 +7,10 @@ import SettingsScreen from "../screens/SettingsScreen";
 
 export default createAppContainer(
   createSwitchNavigator({
+    SettingsScreen: { screen: SettingsScreen },
     WizardWelcomeScreen: { screen: WizardWelcomeScreen },
     WizardVerifyContactScreen: { screen: WizardVerifyContactScreen },
     WizardSettingsScreen: { screen: WizardSettingsScreen },
-    SettingsScreen: { screen: SettingsScreen },
     HomeScreen: { screen: HomeScreen }
   })
 );
