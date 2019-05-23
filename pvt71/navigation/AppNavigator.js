@@ -3,11 +3,11 @@ import HomeScreen from "../screens/HomeScreen";
 import WizardWelcomeScreen from "../screens/WizardWelcomeScreen";
 import WizardVerifyContactScreen from "../screens/WizardVerifyContactScreen";
 import WizardSettingsScreen from "../screens/WizardSettingsScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import SleepTimeSettingsScreen from "../screens/SleepTimeSettingsScreen";
 
 export default createAppContainer(
   createSwitchNavigator({
-    SettingsScreen: { screen: SettingsScreen },
+    SleepTimeSettingsScreen: { screen: SleepTimeSettingsScreen },
     WizardWelcomeScreen: { screen: WizardWelcomeScreen },
     WizardVerifyContactScreen: { screen: WizardVerifyContactScreen },
     WizardSettingsScreen: { screen: WizardSettingsScreen },

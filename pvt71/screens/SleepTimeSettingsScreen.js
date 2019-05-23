@@ -5,16 +5,12 @@ import AppSingleButton from "../components/AppSingleButton";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
 
-export default class SettingsScreen extends React.Component {
+export default class SleepTimeSettingsScreen extends React.Component {
   state = {
     startHour: 0,
     startMinute: 0,
     endHour: 0,
     endMinute: 0
-  };
-
-  static navigationOptions = {
-    header: null
   };
 
   toMilliseconds = (h, m) =>
@@ -25,7 +21,7 @@ export default class SettingsScreen extends React.Component {
     try {
       await AsyncStorage.setItem("sleeptime", JSON.stringify(sleepTime));
     } catch (error) {
-      console.log("kunde inte spara data");
+      console.log("data is not saved");
     }
   }
 
@@ -37,7 +33,15 @@ export default class SettingsScreen extends React.Component {
       this.state.endMinute
     );
     this.saveSettings(sleepTime);
-    this.props.navigation.navigate("HomeScreen", { sleepTime });
+    this.props.navigation.navigate("HomeScreen");
+  };
+
+  formatTime = time => {
+    if (time < 10) {
+      return "0" + time;
+    } else {
+      return time;
+    }
   };
 
   render() {
@@ -47,7 +51,7 @@ export default class SettingsScreen extends React.Component {
         <Text style={styles.infoText}>
           Under dessa tider kommer du ej behöva verifiera ditt välmående
         </Text>
-        <Text style={styles.infoText}>Starttid: {this.state.startHour} </Text>
+
         <TimePicker
           selectedHours={this.state.startHour}
           selectedMinutes={this.state.startMinute}
@@ -58,7 +62,6 @@ export default class SettingsScreen extends React.Component {
             })
           }
         />
-        <Text style={styles.infoText}>Sluttid</Text>
         <TimePicker
           selectedHours={this.state.endHour}
           selectedMinutes={this.state.endMinute}
@@ -69,6 +72,15 @@ export default class SettingsScreen extends React.Component {
             })
           }
         />
+        <View>
+          <Text style={styles.endText}>
+            Larmet kommer att vara avstängt från klockan:{" "}
+            {this.formatTime(this.state.startHour)} :{" "}
+            {this.formatTime(this.state.startMinute)} till{" "}
+            {this.formatTime(this.state.endHour)} :{" "}
+            {this.formatTime(this.state.endMinute)}
+          </Text>
+        </View>
         <View style={styles.bottom}>
           <AppSingleButton title="Nästa" onPress={this.handleSave} />
         </View>
@@ -93,6 +105,10 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 20,
     marginBottom: 50,
+    paddingLeft: 10
+  },
+  endText: {
+    fontSize: 20,
     paddingLeft: 10
   },
   bottom: {
