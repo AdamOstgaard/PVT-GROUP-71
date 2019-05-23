@@ -1,0 +1,24 @@
+{
+	"preset": "react-native",
+	"collectCoverage": true,
+	"moduleDirectories": [
+		"node_modules",
+		"components"
+	],
+	"transform": {
+		"^.+\\.js$": "<pvt71>/node_modules/react-native/jest/preprocessor.js"
+	},
+	"setupFiles": [
+		"<pvt71>/jest/setup.js"
+	],
+	"transformIgnorePatterns": [
+		"node_modules/(?!(jest-)?react-native)"
+	],
+	"coveragePathIgnorePatterns": [
+		"/node_modules/",
+		"/jest"
+	]
+
+
+}
+
