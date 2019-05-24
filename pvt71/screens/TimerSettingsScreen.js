@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end"
   },
   bottomLeft:{
-    width: "50%"
+    width: "50%",
+    backgroundColor: '#a9a9a9'
   },
   bottomRight:{
     width: "50%",
