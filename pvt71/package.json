@@ -17,8 +17,10 @@
       "!**/babel.config.js",
       "!**/jest.setup.js"
     ],
-  "setupFiles": ["./jest/setup.js"],
-  "testEnvironment": "jsdom"
+    "setupFiles": [
+      "./jest/setup.js"
+    ],
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -27,6 +29,7 @@
     "moment-duration-format": "^2.2.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-elements": "^1.1.0",
     "react-navigation": "^3.0.9"
   },
   "devDependencies": {

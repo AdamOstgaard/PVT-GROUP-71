@@ -48,7 +48,6 @@ export default class HomeScreen extends React.Component {
             onToggle={enabled => this.setState({ timerPaused: enabled })}
           />
         </View>
-        <Button title='Add contact' onPress={()=> {console.log('tr')}}></Button>
       </View>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import AppSingleButton from "../components/AppSingleButton";
 
 
@@ -17,6 +17,10 @@ export default class WizardWelcomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.heading}>Wizard Welcome Screen.</Text>
+        {/* Adderad 2 nästa rad för att kunna test på min mobil */}
+        <Button title='test' onPress={()=> this.props.navigation.navigate("AddNewContactScreen")}></Button>
+        <Button title='test2' onPress={()=> this.props.navigation.navigate("ChangeContactScreen")}></Button>
+        <Button title='test3' onPress={()=> this.props.navigation.navigate("RemoveContactScreen")}></Button>
         <Text style={styles.infoText}>
           {" "}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
