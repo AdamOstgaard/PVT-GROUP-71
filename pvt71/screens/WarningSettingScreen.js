@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import BottomLeftButton from "../components/BottomLeftButton";
-import BottomRightButton from "../components/BottomRightButton";
+//import BottomLeftButton from "../components/BottomLeftButton";
+//import BottomRightButton from "../components/BottomRightButton";
+import AppSingleButton from "../components/AppSingleButton";
 import TimePicker from "react-native-simple-time-picker";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
@@ -42,11 +43,11 @@ export default class WarningSettingScreen extends React.Component {
         </View>
         <View style={styles.boxContainerBottom}>
           <View style={styles.bottom}>
-            <BottomLeftButton
+            <AppSingleButton
               title="Avbryt"
               onPress={() => this.props.navigation.navigate("HomeScreen")}
             />
-            <BottomRightButton
+            <AppSingleButton
               title="Spara"
               onPress={() => {
                 const duration = this.toMilliseconds(

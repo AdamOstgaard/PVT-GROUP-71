@@ -23,13 +23,12 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-    var {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style ={styles.topContainer}>
           <AppSingleButton style={styles.topButton} title="Inställningar"
             onPress={() => 
-              navigate("WarningSettingScreen",{})}
+              this.props.navigation.navigate("WarningSettingScreen",{})}
           >
           </AppSingleButton>
         </View>
