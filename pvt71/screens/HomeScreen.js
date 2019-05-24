@@ -18,6 +18,10 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
+    if(!this.props.navigation){
+      return;
+    }
+    
     this.subs = [
       this.props.navigation.addListener("didFocus", payload =>
         this.getSettings()
@@ -40,13 +44,13 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-    var {navigate} = this.props.navigation;
+    //var {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style ={styles.topContainer}>
           <AppSingleButton style={styles.topButton} title="Inställningar"
             onPress={() => 
-              navigate("TimerSettingsScreen",{})}
+              this.props.navigation.navigate("TimerSettingsScreen",{})}
           >
           </AppSingleButton>
         </View>
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
   },
   topButton: {
     width:"100%",
-    textAlgin: "left",
+    textAlign: "left",
   },
 
   timerContainer: {

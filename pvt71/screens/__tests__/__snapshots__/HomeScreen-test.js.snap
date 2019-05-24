@@ -10,6 +10,48 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
     }
   }
 >
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingTop": "10%",
+        "textAlign": "left",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#0d6f73",
+          "height": 60,
+          "opacity": 1,
+          "textAlign": "left",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+            "paddingRight": 10,
+            "paddingTop": 8,
+          }
+        }
+      >
+        Inställningar
+      </Text>
+    </View>
+  </View>
   <Text
     style={
       Object {
@@ -50,7 +92,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         onPress={[Function]}
         onReset={[Function]}
         paused={false}
-        startTime={7200000}
+        startTime={3600000}
         style={
           Object {
             "display": "flex",
@@ -58,7 +100,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
           }
         }
       >
-        2:00:00
+        1:00:00
       </Text>
       <Text
         style={
