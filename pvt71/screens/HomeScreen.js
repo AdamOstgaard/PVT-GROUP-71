@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, Button } from "react-native";
 import { Timer } from "../components/Timer";
 import moment from "moment";
 import {playSound} from "../SoundPlayer"
@@ -23,6 +23,7 @@ export default class HomeScreen extends React.Component {
             }
           />
         </View>
+        <Button title='Add contact' onPress={()=> {}}></Button>
       </View>
     );
   }
