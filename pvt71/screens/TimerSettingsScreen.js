@@ -46,7 +46,7 @@ export default class TimerSettingsScreen extends React.Component {
           <View style={styles.bottom}>
             <BottomLeftButton
               title="Avbryt"
-              onPress={() => this.props.navigation.navigate("Home")}
+              onPress={() => this.props.navigation.navigate("HomeScreen")}
             />
             <BottomRightButton
               title="Spara"
@@ -56,7 +56,7 @@ export default class TimerSettingsScreen extends React.Component {
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
-                this.props.navigation.navigate("Home", { duration });
+                this.props.navigation.navigate("HomeScreen", { duration });
               }}
             />
           </View>

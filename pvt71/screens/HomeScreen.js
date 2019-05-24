@@ -1,20 +1,19 @@
 import React from "react";
-<<<<<<< HEAD
-import { StyleSheet, View, Alert, Button, AsyncStorage } from "react-native";
-=======
-import { StyleSheet, View, Alert, Text } from "react-native";
->>>>>>> 8d729eaba7840503c0d679111f919d7ce20c824f
+
+import { StyleSheet, View, Alert, Text, AsyncStorage } from "react-native";
+import AppSingleButton from "../components/AppSingleButton";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
+import { NavigationEvents } from "react-navigation";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      duration: moment.duration(1, "h").asMilliseconds()
+      duration: moment.duration(1, "h").asMilliseconds(),
+      timerPaused: false
     };
   }
 
@@ -30,11 +29,6 @@ export default class HomeScreen extends React.Component {
     this.subs.forEach(sub => sub.remove());
   }
 
-=======
-      timerPaused: false
-    };
-  }
->>>>>>> 8d729eaba7840503c0d679111f919d7ce20c824f
   static navigationOptions = {
     header: null
   };
@@ -46,9 +40,16 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-
+    var {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
+        <View style ={styles.topContainer}>
+          <AppSingleButton style={styles.topButton} title="Inställningar"
+            onPress={() => 
+              navigate("TimerSettingsScreen",{})}
+          >
+          </AppSingleButton>
+        </View>
         <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
           <Timer
@@ -62,16 +63,14 @@ export default class HomeScreen extends React.Component {
               playSound();
               showRestartAlert(restart);
             }}
-<<<<<<< HEAD
-=======
           />
         </View>
         <View style={styles.sleepButtonContainer}>
           <TimerSleepButton
             onResume={this.state.timerPaused}
             onToggle={enabled => this.setState({ timerPaused: enabled })}
->>>>>>> 8d729eaba7840503c0d679111f919d7ce20c824f
           />
+          
         </View>
       </View>
     );
@@ -79,7 +78,7 @@ export default class HomeScreen extends React.Component {
 
   async getSettings() {
     try {
-      const duration = await AsyncStorage.getItem("time");
+      const duration = await AsyncStorage.getItem("time") || moment.duration(1, "h").asMilliseconds();
       const d = JSON.parse(duration);
       this.setState({ duration: d });
     } catch (error) {}
@@ -108,6 +107,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
+  topContainer: {
+    paddingTop: "10%",
+    alignItems: "center",
+    textAlign: "left",
+  },
+  topButton: {
+    width:"100%",
+    textAlgin: "left",
+  },
+
   timerContainer: {
     paddingTop: "10%",
     alignItems: "center"

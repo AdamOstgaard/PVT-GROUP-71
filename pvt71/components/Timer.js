@@ -33,11 +33,10 @@ export class Timer extends React.Component {
         <Text
           {...this.props}
           onPress={() => {
-<<<<<<< HEAD
-            if (this.props.onPress) this.props.onPress();
-=======
+            if (this.props.onPress) {
+              this.props.onPress();
+            }
             this.props.onReset(false);
->>>>>>> 8d729eaba7840503c0d679111f919d7ce20c824f
             this.resetTimer();
           }}
           style={styles.timerText}
