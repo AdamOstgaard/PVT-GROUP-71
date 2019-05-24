@@ -71,7 +71,7 @@ export default class LinksScreen extends Component {
     );
   }
 
-  async _storeData () {
+  _storeData = async () => {
     let contactPerson= {
       firstName: this.state.firstName,
       lastName:this.state.lastName,
@@ -89,14 +89,13 @@ export default class LinksScreen extends Component {
 
 
 
-  async _retrieveData() {
+  _retrieveData = async () =>  {
     try {
       const value = await AsyncStorage.getItem('ContactKey');
-      const d = JSON.parse(value.firstName);
-      this.setState({ contactFirstName: d });
+      const d = JSON.parse(value);
+      this.setState({ contactFirstName: d.firstName });
       console.log(d);
     } catch (error) {
-      console.log(d);
       // Error retrieving data
     }
   };
