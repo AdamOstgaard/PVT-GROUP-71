@@ -16,7 +16,9 @@
       "!**/node_modules/**",
       "!**/babel.config.js",
       "!**/jest.setup.js"
-    ]
+    ],
+  "setupFiles": ["./jest/setup.js"],
+  "testEnvironment": "jsdom"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -31,7 +33,10 @@
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
     "codecov": "^3.3.0",
-    "jest-expo": "^32.0.0"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.1",
+    "jest-expo": "^32.0.0",
+    "react-dom": "^16.8.6"
   },
   "private": true
 }
