@@ -6,6 +6,7 @@ import { AsyncStorage } from 'react-native';
 
 
 
+
 // export class Contact extends React.Component {
 //   constructor(props) {
 //     super(props);
@@ -42,8 +43,8 @@ export default class LinksScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>{this.state.firstName}</Text>
-        <Button title='show' onPress={this._retrieveData}>showContact: {this.state.contactFirstName}</Button>
+        <Text>{this.state.contactFirstName}</Text>
+        <Button title='show' onPress={this._retrieveData}/>
         <Text>Add new contact</Text>
         <Text>First name:</Text>
         <TextInput
@@ -63,14 +64,14 @@ export default class LinksScreen extends Component {
           maxLength={10}
           onChangeText={phonenumber => this.setState({ phonenumber })}
         />
-        <Button onPress={() => this._storeData} title="Add contact person" />
+        <Button onPress={ this._storeData} title="Add contact person" />
       </View>
 
 
     );
   }
 
-  _storeData = async () => {
+  async _storeData () {
     let contactPerson= {
       firstName: this.state.firstName,
       lastName:this.state.lastName,
@@ -78,20 +79,26 @@ export default class LinksScreen extends Component {
     }
     try {
       await AsyncStorage.setItem('ContactKey', JSON.stringify(contactPerson));
+      console.log(contactPerson.firstName);
     } catch (error) {
+
       // Error saving data
     }
+    
   };
 
-  _retrieveData = async () => {
+
+
+  async _retrieveData() {
     try {
       const value = await AsyncStorage.getItem('ContactKey');
-      if (value !== null) {
-        this.setState({firstName: value});
-        console.log(value);
-      }
+      const d = JSON.parse(value.firstName);
+      this.setState({ contactFirstName: d });
+      console.log(d);
     } catch (error) {
+      console.log(d);
       // Error retrieving data
     }
   };
+
 }

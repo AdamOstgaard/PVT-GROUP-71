@@ -23,7 +23,7 @@ export default class HomeScreen extends React.Component {
             }
           />
         </View>
-        <Button title='Add contact' onPress={()=> {}}></Button>
+        <Button title='Add contact' onPress={()=> {console.log('tr')}}></Button>
       </View>
     );
   }
