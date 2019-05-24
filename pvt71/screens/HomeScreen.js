@@ -23,9 +23,16 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-
+    var {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
+        <View style ={styles.topContainer}>
+          <AppSingleButton style={styles.topButton} title="Inställningar"
+            onPress={() => 
+              navigate("WarningSettingScreen",{})}
+          >
+          </AppSingleButton>
+        </View>
         <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
           <Timer
@@ -73,6 +80,11 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     flex: 1,
     backgroundColor: "#fff"
+  },
+  topContainer: {
+    paddingTop: "10%",
+    alignItems: "center",
+    textAlign: "left",
   },
   timerContainer: {
     paddingTop: "10%",

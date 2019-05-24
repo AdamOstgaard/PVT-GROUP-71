@@ -11,6 +11,7 @@ export default createAppContainer(
     WizardVerifyContactScreen: { screen: WizardVerifyContactScreen },
     WizardSettingsScreen: { screen: WizardSettingsScreen },
     SettingsScreen: { screen: SettingsScreen },
+    WarningSettingScreen: {screen: WarningSettingScreen},
     HomeScreen: { screen: HomeScreen }
   })
 );
