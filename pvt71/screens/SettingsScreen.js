@@ -1,19 +1,11 @@
 import React from "react";
-import {StyleSheet, Text, View, PickerIOS } from 'react-native';
-import BottomButton from "../components/BottomButton";
-import TimerSettingsScreen from "../screens/TimerSettingsScreen";
+import { StyleSheet, Text, View } from "react-native";
 
-export default class SettingScreen extends React.Component {
-  constructor(){
-    super()
-    this.state ={}
-  }
- 
+export default class SettingsScreen extends React.Component {
   render() {
     return (
-      <View> 
-        <Text>Hello </Text>
-        
+      <View style={styles.container}>
+        <Text>Settings Screen</Text>
       </View>
     );
   }
@@ -22,22 +14,8 @@ export default class SettingScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
-  },
-  heading: {
-    fontSize: 35,
-    flex: 1,
-    justifyContent: "flex-start",
-    left: 10,
-    marginTop: 50
-  },
-  infoText: {
-    fontSize: 20,
-    marginBottom: 50,
-    paddingLeft: 10
-  },
-  bottom: {
-    flex: 1,
-    justifyContent: "flex-end"
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
