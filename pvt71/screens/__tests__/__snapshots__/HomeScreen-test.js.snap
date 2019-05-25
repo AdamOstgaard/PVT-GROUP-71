@@ -50,7 +50,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         onPress={[Function]}
         onReset={[Function]}
         paused={false}
-        startTime={7200000}
+        startTime={3600000}
         style={
           Object {
             "display": "flex",
