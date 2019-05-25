@@ -6,12 +6,18 @@ import { AsyncStorage } from "react-native";
 import moment from "moment";
 
 export default class SleepTimeSettingsScreen extends React.Component {
-  state = {
-    startHour: 0,
-    startMinute: 0,
-    endHour: 0,
-    endMinute: 0
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startHour: 0,
+      startMinute: 0,
+      endHour: 0,
+      endMinute: 0
+    };
+    this.handleSave = this.handleSave.bind(this);
+    this.saveSettings = this.saveSettings.bind(this);
+  }
 
   toMilliseconds = (h, m) =>
     moment.duration(h, "h").asMilliseconds() +
@@ -20,21 +26,20 @@ export default class SleepTimeSettingsScreen extends React.Component {
   async saveSettings(sleepTime) {
     try {
       await AsyncStorage.setItem("sleeptime", JSON.stringify(sleepTime));
+      console.log(JSON.stringify(sleepTime));
     } catch (error) {
       console.log("data is not saved");
     }
   }
 
-  handleSave = () => {
-    const sleepTime = this.toMilliseconds(
-      this.state.startHour,
-      this.state.startMinute,
-      this.state.endHour,
-      this.state.endMinute
-    );
+  handleSave() {
+    const sleepTime = {
+      startTime: this.toMilliseconds(this.state.startHour, this.state.startMinute),
+      endTime: this.toMilliseconds(this.state.endHour, this.state.endMinute)
+    }
     this.saveSettings(sleepTime);
     this.props.navigation.navigate("HomeScreen");
-  };
+  }
 
   formatTime = time => {
     if (time < 10) {
