@@ -2,15 +2,9 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AppSingleButton from "../components/AppSingleButton";
 
-
 export default class WizardWelcomeScreen extends React.Component {
   constructor(props) {
-    super(props)
-    this.handlePress = this.handlePress.bind(this);
-  }
-
-  handlePress()  {
-    this.props.navigation.navigate("WizardVerifyContactScreen");
+    super(props);
   }
 
   render() {
@@ -30,14 +24,15 @@ export default class WizardWelcomeScreen extends React.Component {
         <View style={styles.bottom}>
           <AppSingleButton
             title="Next"
-            onPress={this.handlePress}
+            onPress={() =>
+              this.props.navigation.navigate("WizardVerifyContactScreen")
+            }
           />
         </View>
       </View>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
