@@ -12,17 +12,18 @@ describe('Timer Test', () => {
     });
     
     describe('Timer start', () => {
-        it('timer start successful', () => {
+        it('timer starts running', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer(10);
             expect(timerData.state.timerRunning).toEqual(true);
             expect(timerData.state.time).toEqual(10);
             timerData.stopTimer();
+            expect(timerData.state.timerRunning).toEqual(false);
         });
     });
 
     describe('Timer pause', () => {
-        it('Timer stop successful', () => {
+        it('pauses', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer(10);
             timerData.pauseTimer();
@@ -31,21 +32,22 @@ describe('Timer Test', () => {
         });
     });
 
-    describe('Callback works correctly', () => {
+    describe('Timer Callback', () => {
         it('Calls callback on timer end', () => {
             let success = false;
             let timerData = renderer.create(<Timer callback={() => {
-                console.log('Test');
                 success = true;}}/>).getInstance();
             timerData.startTimer(10);
             timerData.handleTick(99999);
+            timerData.stopTimer();
             expect(success).toEqual(true);
+            expect(timerData.state.timerRunning).toEqual(false);
         });
     });
 
 
     describe('Timer state', () => {
-        it('state correct', () => {
+        it('Sets running state based on timer', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer(10);
             expect(timerData.state.timerRunning).toEqual(true);
@@ -67,11 +69,12 @@ describe('Timer Test', () => {
             timerData.resetTimer();
             expect(timerData.state.timerRunning).toEqual(true);
             timerData.stopTimer();
+            expect(timerData.state.timerRunning).toEqual(false);
         });
     });
 
     describe('Handle tick', () => {
-        it('Handles tick correctly', () => {
+        it('Stops timer when reached 0', () => {
             let timerData = renderer.create(<Timer/>).getInstance();
             timerData.startTimer(1100);
             timerData.handleTick(1000);
@@ -81,5 +84,4 @@ describe('Timer Test', () => {
             expect(timerData.state.timerRunning).toEqual(false);
         });
     });
-
 });
