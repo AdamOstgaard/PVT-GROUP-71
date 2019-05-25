@@ -8,6 +8,7 @@ export default class TimerSleepButton extends React.Component {
     this.state = {
       enabled: false
     };
+    this.showConfirmWindow = this.showConfirmWindow.bind(this);
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.onResume !== this.props.onResume) {
@@ -18,10 +19,7 @@ export default class TimerSleepButton extends React.Component {
     return (
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          if (!this.state.enabled) 
-            this.showConfirmWindow();
-        }}
+        onPress={this.showConfirmWindow}
       >
         <Image source={require("../assets/images/zzz-icon-3.png")} />
       </TouchableOpacity>
@@ -35,19 +33,21 @@ export default class TimerSleepButton extends React.Component {
   }
 
   showConfirmWindow() {
-    Alert.alert(
-      "Sov",
-      "Pausa timern till nästa starttid?",
-      [
-        { text: "Ja", onPress: () => this.toggle() },
-        {
-          text: "Avbryt",
-          onPress: () => console.log("Avbryt"),
-          style: "cancel"
-        }
-      ],
-      { cancelable: false }
-    );
+    if (!this.state.enabled) {
+      Alert.alert(
+        "Sov",
+        "Pausa timern till nästa starttid?",
+        [
+          { text: "Ja", onPress: () => this.toggle() },
+          {
+            text: "Avbryt",
+            onPress: () => console.log("Avbryt"),
+            style: "cancel"
+          }
+        ],
+        { cancelable: false }
+      );
+    }
   }
 }
 

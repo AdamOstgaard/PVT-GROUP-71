@@ -2,6 +2,8 @@ import "react-native";
 import React from "react";
 import TimerSleepButton from "../TimerSleepButton";
 import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
+import Alert from "Alert";
 
 describe("Timer Test", () => {
   describe("Timer Snapshot", () => {
@@ -42,6 +44,17 @@ describe("Timer Test", () => {
         .getInstance();
       button.componentDidUpdate(button.props.onResume);
       expect(button.state.enabled).toEqual(false);
+    });
+  });
+
+  describe("test onPress", () => {
+    it("showConfirmWindow() should be called", () => {
+      const wrapper = shallow(<TimerSleepButton />);
+      //wrapper.setState({ enabled: false });
+      const instance = wrapper.instance();
+      const spy = spyOn(instance, "showConfirmWindow");
+      instance.showConfirmWindow();
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
