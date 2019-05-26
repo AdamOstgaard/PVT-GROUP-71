@@ -63,12 +63,16 @@ export default class WizardVerifyContactScreen extends React.Component {
             <AppSingleButton
               title="Nästa"
               onPress={() => {
-                const duration = this.toMillliseconds(
+                const duration = this.toMilliseconds(
                   this.state.selectedHours,
                   this.state.selectedMinutes
                 );
-                this.saveSettings(duration);
-                this.props.navigation.navigate("HomeScreen", { duration});
+                const warning = this.toMilliseconds(
+                  this.state.warningHours,
+                  this.state.warningsMinutes
+                );
+                this.saveSettings(duration, warning);
+                this.props.navigation.navigate("HomeScreen", { duration, warning });
               }}
             />
           </View>
@@ -77,13 +81,15 @@ export default class WizardVerifyContactScreen extends React.Component {
     );
   }
   
-  toMillliseconds = (h, m) =>
+  toMilliseconds = (h, m) =>
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
 
-  async saveSettings(time) {
+
+  async saveSettings(time, warning) {
     try {
       await AsyncStorage.setItem("time", JSON.stringify(time));
+      await AsyncStorage.setItem("warning", JSON.stringify(warning));
     } catch (error) {
       // Error saving data
     }
