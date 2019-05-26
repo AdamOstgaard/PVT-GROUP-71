@@ -7,6 +7,10 @@ export default class WizardWelcomeScreen extends React.Component {
     super(props);
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,7 +29,7 @@ export default class WizardWelcomeScreen extends React.Component {
           <AppSingleButton
             title="Next"
             onPress={() =>
-              this.props.navigation.navigate("WizardVerifyContactScreen")
+              this.props.navigation.navigate("WizardVerifyContact")
             }
           />
         </View>

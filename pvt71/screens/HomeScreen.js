@@ -4,6 +4,7 @@ import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
+import AppSingleButton from "../components/AppSingleButton";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
+        <AppSingleButton title="asda" onPress={() => this.props.navigation.navigate("Settings")} />
         <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
           <Timer

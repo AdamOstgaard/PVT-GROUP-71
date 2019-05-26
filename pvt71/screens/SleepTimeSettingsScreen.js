@@ -19,6 +19,10 @@ export default class SleepTimeSettingsScreen extends React.Component {
     this.saveSettings = this.saveSettings.bind(this);
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
   toMilliseconds = (h, m) =>
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
@@ -38,7 +42,7 @@ export default class SleepTimeSettingsScreen extends React.Component {
       endTime: this.toMilliseconds(this.state.endHour, this.state.endMinute)
     }
     this.saveSettings(sleepTime);
-    this.props.navigation.navigate("HomeScreen");
+    this.props.navigation.navigate("Home");
   }
 
   formatTime = time => {

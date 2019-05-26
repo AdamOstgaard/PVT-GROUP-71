@@ -3,6 +3,10 @@ import AppSingleButton from "../components/AppSingleButton";
 import { StyleSheet, Text, View } from "react-native";
 
 export default class WizardVerifyContactScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+ 
   render() {
     return (
       <View style={styles.container}>
@@ -11,7 +15,7 @@ export default class WizardVerifyContactScreen extends React.Component {
           <AppSingleButton
             title="Next"
             onPress={() =>
-              this.props.navigation.navigate("WizardSettingsScreen")
+              this.props.navigation.navigate("WizardSettings")
             }
           />
         </View>
