@@ -3,6 +3,7 @@ import { StyleSheet, View, Alert, Text } from "react-native";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
+import AppSingleButton from "../components/AppSingleButton";
 import { playSound } from "../SoundPlayer";
 
 export default class HomeScreen extends React.Component {
@@ -28,7 +29,7 @@ export default class HomeScreen extends React.Component {
         <View style ={styles.topContainer}>
           <AppSingleButton style={styles.topButton} title="Inställningar"
             onPress={() => 
-              this.props.navigation.navigate("WarningSettingScreen",{})}
+              this.props.navigation.navigate("SettingsSettingScreen",{})}
           >
           </AppSingleButton>
         </View>
