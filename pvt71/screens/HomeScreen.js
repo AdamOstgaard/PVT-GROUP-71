@@ -4,6 +4,7 @@ import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
+import AppSingleButton from "../components/AppSingleButton";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -26,6 +27,16 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
+        <View style ={styles.topContainer}>
+          <AppSingleButton 
+          style={styles.topButton}
+          textStyle={styles.topTextStyle}
+          title="Inställningar"
+            onPress={() => 
+              this.props.navigation.navigate("SettingsScreen",{})}
+          >
+          </AppSingleButton>
+        </View>
         <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
           <Timer
@@ -74,6 +85,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
+  topContainer: {
+    paddingTop: "10%",
+    alignItems: "center",
+    textAlign: "left",
+  },
+  topButton: {
+    width:"100%",
+    textAlign: "left",
+    paddingLeft: 10,
+  },
   timerContainer: {
     paddingTop: "10%",
     alignItems: "center"
@@ -85,5 +106,8 @@ const styles = StyleSheet.create({
     marginTop: "30%",
     alignSelf: "center",
     fontSize: 18
+  },
+  topTextStyle: {
+    textAlign: 'left',
   }
 });
