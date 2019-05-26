@@ -22,7 +22,7 @@ describe("Wizard WelcomeScreen tests", () => {
       const appButton = wrapper.find("AppSingleButton");
       appButton.props().onPress();
 
-      expect(spy).toBeCalledWith("WizardVerifyContactScreen");
+      expect(spy).toBeCalledWith("WizardVerifyContact");
       spy.mockRestore();
     });
   });

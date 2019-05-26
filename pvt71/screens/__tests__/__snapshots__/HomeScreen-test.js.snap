@@ -10,6 +10,38 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
     }
   }
 >
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#0d6f73",
+        "height": 60,
+        "opacity": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 30,
+          "paddingRight": 10,
+          "paddingTop": 8,
+          "textAlign": "right",
+        }
+      }
+    >
+      asda
+    </Text>
+  </View>
   <Text
     style={
       Object {
