@@ -1,11 +1,15 @@
 import React from "react";
 import AppSingleButton from "../components/AppSingleButton";
-import { StyleSheet, Text, View, TextInput} from "react-native";
+import { StyleSheet, Text, View, TextInput, AsyncStorage } from "react-native";
+
 
 export default class WizardVerifyContactScreen extends React.Component {
   constructor(props){
     super(props);
-    this.state = {name: 'placeholder', number: '##########'};
+    this.state = {
+      firstName: 'Förnamn', 
+      lastName: 'Efternamn',
+      number: '##########'};
   }
   render() {
     return (
@@ -13,11 +17,19 @@ export default class WizardVerifyContactScreen extends React.Component {
         <Text style={styles.heading}>Sätt nödkontakt</Text>
         <Text style={styles.infoText}>
           {" "}
-          Nödkontakt namn: 
+          Nödkontakt förnamn: 
         </Text>
         <TextInput style={styles.textInput}
-        onChangeText={(name) => this.setState({name})}
-        value={this.state.name}
+        onChangeText={(firstName) => this.setState({firstName})}
+        value={this.state.firstName}
+        />
+        <Text style={styles.infoText}>
+          {" "}
+          Nödkontakt efternamn: 
+        </Text>
+        <TextInput style={styles.textInput}
+        onChangeText={(lastName) => this.setState({lastName})}
+        value={this.state.lastName}
         />
         <Text style={styles.infoText}>
           {" "}
@@ -30,13 +42,27 @@ export default class WizardVerifyContactScreen extends React.Component {
         <View style={styles.bottom}>
           <AppSingleButton
             title="Nästa"
-            onPress={() =>
-              this.props.navigation.navigate("WizardSettingsScreen")
-            }
+            onPress={() => {
+              this.saveSettings();
+              this.props.navigation.navigate("WizardSettingsScreen");
+            }}
           />
         </View>
       </View>
     );
+  }
+
+  async saveSettings() {
+    let contactPerson = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      number: this.state.number
+    }
+    try {
+      await AsyncStorage.setItem("contact", JSON.stringify(contactPerson));
+    } catch (error) {
+
+    }
   }
 }
 
