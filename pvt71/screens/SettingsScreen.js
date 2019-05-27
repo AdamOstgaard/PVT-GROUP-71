@@ -1,19 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView} from "react-native";
 import AppSingleButton from "../components/AppSingleButton";
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default class SettingsScreen extends React.Component {
   render() {
     return (
       <View style = {styles.container}>
-        <ScrollView style = {styles.scrollContainer}>
-          <AppSingleButton 
+        <AppSingleButton 
           style={styles.topButton}
           textStyle={styles.textTop} 
           title ="Tillbaka"
             onPress={() => 
               this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
+        ></AppSingleButton>
+        <ScrollView style = {styles.scrollContainer}>
+    
           <Text style ={styles.category}>Timerinställningar</Text>
           
           <AppSingleButton 
@@ -66,14 +68,7 @@ export default class SettingsScreen extends React.Component {
           ></AppSingleButton>
           
           <Text style ={styles.category}>Övrigt</Text>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
-          textStyle ={styles.text}
-          title="Ändra storlek"
-            onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
+        
           
           <AppSingleButton 
           style={styles.linkButton} 
@@ -93,11 +88,12 @@ export default class SettingsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: getStatusBarHeight(),
     flex: 1,
     backgroundColor: "#fff",
   },
   scrollContainer: {
-    paddingTop: "10%",
+
   },
   topButton: {
     width:"100%",
@@ -107,7 +103,9 @@ const styles = StyleSheet.create({
   category: {
     fontWeight: 'bold',
     fontSize: 32,
-    textDecorationLine: 'underline',
+    borderBottomColor: "#000",
+    borderBottomWidth: 0.5,
+    marginTop: "5%"
     
   },
   linkButton: {
@@ -115,15 +113,17 @@ const styles = StyleSheet.create({
     color: "#000",
     backgroundColor: "#fff",
     width:"100%",
-    borderColor: "#000",
-    borderWidth: 0.5
+    borderBottomColor: "#000",
+    borderBottomWidth: 0.5,
+
   },
   text: {
     fontSize: 20,
     color: "black",
     paddingRight: 10,
-    paddingTop: 8,
-    textAlign: 'left'
+    paddingTop: 16,
+    textAlign: 'left',
+
   },
   textTop: {
     fontSize: 30,
