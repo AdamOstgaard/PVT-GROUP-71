@@ -11,43 +11,51 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
   }
 >
   <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "#0d6f73",
-        "height": 60,
-        "opacity": 1,
-        "width": "100%",
+        "paddingTop": "10%",
       }
     }
   >
-    <Text
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "color": "#fff",
-          "fontSize": 30,
-          "paddingRight": 10,
-          "paddingTop": 8,
-          "textAlign": "right",
+          "backgroundColor": "#0d6f73",
+          "height": 60,
+          "opacity": 1,
+          "width": "100%",
         }
       }
     >
-      asda
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+            "paddingRight": 10,
+            "paddingTop": 8,
+            "textAlign": "right",
+          }
+        }
+      >
+        Inställningar
+      </Text>
+    </View>
   </View>
   <Text
     style={
       Object {
         "alignSelf": "center",
         "fontSize": 18,
-        "marginTop": "30%",
+        "marginTop": "10%",
       }
     }
   >
@@ -89,6 +97,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
             "fontSize": 64,
           }
         }
+        timeToCheckSleep={[Function]}
       >
         1:00:00
       </Text>

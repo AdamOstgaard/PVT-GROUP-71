@@ -17,10 +17,7 @@ export default class TimerSleepButton extends React.Component {
   }
   render() {
     return (
-      <TouchableOpacity
-        style={styles.button}
-        onPress={this.showConfirmWindow}
-      >
+      <TouchableOpacity style={styles.button} onPress={this.showConfirmWindow}>
         <Image source={require("../assets/images/zzz-icon-3.png")} />
       </TouchableOpacity>
     );

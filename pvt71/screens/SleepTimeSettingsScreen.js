@@ -17,10 +17,12 @@ export default class SleepTimeSettingsScreen extends React.Component {
     };
     this.handleSave = this.handleSave.bind(this);
     this.saveSettings = this.saveSettings.bind(this);
+    this.onPickedValues = this.onPickedValues.bind(this);
+
   }
 
   static navigationOptions = {
-    header: null,
+    header: null
   };
 
   toMilliseconds = (h, m) =>
@@ -30,17 +32,24 @@ export default class SleepTimeSettingsScreen extends React.Component {
   async saveSettings(sleepTime) {
     try {
       await AsyncStorage.setItem("sleeptime", JSON.stringify(sleepTime));
-      console.log(JSON.stringify(sleepTime));
-    } catch (error) {
-      console.log("data is not saved");
-    }
+    } catch (error) {}
+  }
+
+  onPickedValues = (hours, minutes) => {
+    this.setState({
+      startHour: hours,
+      startMinute: minutes
+    })
   }
 
   handleSave() {
     const sleepTime = {
-      startTime: this.toMilliseconds(this.state.startHour, this.state.startMinute),
+      startTime: this.toMilliseconds(
+        this.state.startHour,
+        this.state.startMinute
+      ),
       endTime: this.toMilliseconds(this.state.endHour, this.state.endMinute)
-    }
+    };
     this.saveSettings(sleepTime);
     this.props.navigation.navigate("Home");
   }
@@ -64,22 +73,12 @@ export default class SleepTimeSettingsScreen extends React.Component {
         <TimePicker
           selectedHours={this.state.startHour}
           selectedMinutes={this.state.startMinute}
-          onChange={(hours, minutes) =>
-            this.setState({
-              startHour: hours,
-              startMinute: minutes
-            })
-          }
+          onChange={this.onPickedValues}
         />
         <TimePicker
           selectedHours={this.state.endHour}
           selectedMinutes={this.state.endMinute}
-          onChange={(hours, minutes) =>
-            this.setState({
-              endHour: hours,
-              endMinute: minutes
-            })
-          }
+          onChange={this.onPickedValues}
         />
         <View>
           <Text style={styles.endText}>
@@ -105,11 +104,9 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 35,
-    //flex: 1,
     justifyContent: "flex-start",
     left: 10,
     marginTop: 50
-    //backgroundColor: "blue"
   },
   infoText: {
     fontSize: 20,

@@ -50,7 +50,6 @@ describe("Timer Test", () => {
   describe("test onPress", () => {
     it("showConfirmWindow() should be called", () => {
       const wrapper = shallow(<TimerSleepButton />);
-      //wrapper.setState({ enabled: false });
       const instance = wrapper.instance();
       const spy = spyOn(instance, "showConfirmWindow");
       instance.showConfirmWindow();

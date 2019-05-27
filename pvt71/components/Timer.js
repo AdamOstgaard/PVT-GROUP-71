@@ -2,30 +2,25 @@ import React from "react";
 import { AppRegistry, Text, View, StyleSheet } from "react-native";
 import moment from "moment";
 import "moment-duration-format";
-import {AsyncStorage} from 'react-native';
-
 
 export class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       timerRunning: false,
-      time: this.props.startTime
+      time: this.props.startTime,
+      counter: 0
     };
   }
-  async componentDidMount() {
+  componentDidMount() {
     this.startTimer(this.state.time);
-    var sleepTime = await AsyncStorage.getItem('sleeptime');
   }
-
 
   componentDidUpdate(prevProps, PrevState) {
     if (this.props.paused !== prevProps.paused && this.props.paused) {
       this.pauseTimer();
     }
-    
   }
-  
 
   render() {
     return (
@@ -64,8 +59,14 @@ export class Timer extends React.Component {
 
   handleTick(interval) {
     this.setState({
-      time: this.state.time - interval
+      time: this.state.time - interval,
+      counter: this.state.counter + 1
     });
+    //console.log(this.state.counter);
+    if (this.state.counter === 60) {
+      this.props.timeToCheckSleep();
+      this.setState({ counter: 0 });
+    }
 
     if (this.state.time > 0) {
       return;
