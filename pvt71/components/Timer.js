@@ -15,9 +15,9 @@ export class Timer extends React.Component {
     this.startTimer(this.state.time);
   }
 
-  componentDidUpdate(prevProps, PrevState) {
-    if (this.props.paused !== prevProps.paused && this.props.paused) {
-      this.pauseTimer();
+  componentDidUpdate(prevProps) {
+    if (prevProps.startTime !== this.props.startTime) {
+      this.setState({ time: this.props.startTime });
     }
   }
 
@@ -27,7 +27,7 @@ export class Timer extends React.Component {
         <Text
           {...this.props}
           onPress={() => {
-            this.props.onReset(false);
+            if (this.props.onPress) this.props.onPress();
             this.resetTimer();
           }}
           style={styles.timerText}
