@@ -30,7 +30,7 @@ ShallowWrapper {
             }
           }
         >
-          Wizard Welcome Screen.
+          Välkommen!
         </Component>,
         <Component
           style={
@@ -42,7 +42,7 @@ ShallowWrapper {
           }
         >
            
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
         </Component>,
         <Component
           style={
@@ -54,7 +54,7 @@ ShallowWrapper {
         >
           <AppSingleButton
             onPress={[Function]}
-            title="Next"
+            title="Nästa"
           />
         </Component>,
       ],
@@ -70,7 +70,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": "Wizard Welcome Screen.",
+          "children": "Välkommen!",
           "style": Object {
             "flex": 1,
             "fontSize": 35,
@@ -80,7 +80,7 @@ ShallowWrapper {
           },
         },
         "ref": null,
-        "rendered": "Wizard Welcome Screen.",
+        "rendered": "Välkommen!",
         "type": [Function],
       },
       Object {
@@ -90,7 +90,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             " ",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           ],
           "style": Object {
             "fontSize": 20,
@@ -101,7 +101,7 @@ ShallowWrapper {
         "ref": null,
         "rendered": Array [
           " ",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
         ],
         "type": [Function],
       },
@@ -112,7 +112,7 @@ ShallowWrapper {
         "props": Object {
           "children": <AppSingleButton
             onPress={[Function]}
-            title="Next"
+            title="Nästa"
           />,
           "style": Object {
             "flex": 1,
@@ -126,7 +126,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "onPress": [Function],
-            "title": "Next",
+            "title": "Nästa",
           },
           "ref": null,
           "rendered": null,
@@ -155,7 +155,7 @@ ShallowWrapper {
               }
             }
           >
-            Wizard Welcome Screen.
+            Välkommen!
           </Component>,
           <Component
             style={
@@ -167,7 +167,7 @@ ShallowWrapper {
             }
           >
              
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
           </Component>,
           <Component
             style={
@@ -179,7 +179,7 @@ ShallowWrapper {
           >
             <AppSingleButton
               onPress={[Function]}
-              title="Next"
+              title="Nästa"
             />
           </Component>,
         ],
@@ -195,7 +195,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "Wizard Welcome Screen.",
+            "children": "Välkommen!",
             "style": Object {
               "flex": 1,
               "fontSize": 35,
@@ -205,7 +205,7 @@ ShallowWrapper {
             },
           },
           "ref": null,
-          "rendered": "Wizard Welcome Screen.",
+          "rendered": "Välkommen!",
           "type": [Function],
         },
         Object {
@@ -215,7 +215,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               " ",
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
             ],
             "style": Object {
               "fontSize": 20,
@@ -226,7 +226,7 @@ ShallowWrapper {
           "ref": null,
           "rendered": Array [
             " ",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           ],
           "type": [Function],
         },
@@ -237,7 +237,7 @@ ShallowWrapper {
           "props": Object {
             "children": <AppSingleButton
               onPress={[Function]}
-              title="Next"
+              title="Nästa"
             />,
             "style": Object {
               "flex": 1,
@@ -251,7 +251,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "onPress": [Function],
-              "title": "Next",
+              "title": "Nästa",
             },
             "ref": null,
             "rendered": null,
