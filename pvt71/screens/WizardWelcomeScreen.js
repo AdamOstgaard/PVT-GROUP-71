@@ -16,20 +16,15 @@ export default class WizardWelcomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>Wizard Welcome Screen.</Text>
+        <Text style={styles.heading}>Välkommen!</Text>
         <Text style={styles.infoText}>
           {" "}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Innan du kan börja använda applikationen behöver du sätta några grundläggande
+          inställningar som nödkontakt, timerintervall och varningstimerintervall. 
         </Text>
         <View style={styles.bottom}>
           <AppSingleButton
-            title="Next"
+            title="Nästa"
             onPress={this.handlePress}
           />
         </View>

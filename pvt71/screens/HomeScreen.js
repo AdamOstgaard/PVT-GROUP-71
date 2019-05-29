@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Alert, Text } from "react-native";
+import { StyleSheet, View, Alert, Text, AsyncStorage } from "react-native";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
@@ -12,6 +12,7 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      duration: moment.duration(1, "h").asMilliseconds(),
       timerPaused: false
     };
   }
@@ -19,6 +20,21 @@ export default class HomeScreen extends React.Component {
     header: null
   };
 
+  componentDidMount() {
+    if(!this.props.navigation){
+      return;
+    }
+
+    this.subs = [
+      this.props.navigation.addListener("didFocus", payload =>
+        this.getSettings()
+        )
+    ];
+  }
+
+  componentWillUnmount() {
+    this.subs.forEach(sub => sub.remove());
+  }
   render() {
     let pauseText;
     if (this.state.timerPaused) {
@@ -61,7 +77,7 @@ export default class HomeScreen extends React.Component {
             }}
             paused={this.state.timerPaused}
             style={styles.timer}
-            startTime={moment.duration(2, "h").asMilliseconds()}
+            startTime={this.state.duration}
             callback={restart => {
               playSound();
               showRestartAlert(restart);
@@ -78,7 +94,16 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
+
+  async getSettings() {
+    try {
+      const duration = await AsyncStorage.getItem("time") || moment.duration(1, "h").asMilliseconds();
+      const d = JSON.parse(duration);
+      this.setState({ duration: d });
+    } catch (error) {}
+  }
 }
+
 
 const showRestartAlert = restart => {
   Alert.alert(
