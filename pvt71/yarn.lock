@@ -6283,6 +6283,10 @@ react-native-status-bar-height@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.3.1.tgz#b92ce9112c2367290847ac11284d9d84a6330169"
   integrity sha512-m9nGKYfFn6ljF1abafzF5cFaD9JCzXwj7kNE9CuF+g0TgtItH70eY2uHaCV9moENTftqd5XIS3Cx0mf4WfistA==
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9904af92ee841d0d3dca37dec8794b8f5e94656
 react-native-simple-time-picker@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/react-native-simple-time-picker/-/react-native-simple-time-picker-0.2.0.tgz#b1a12a7880ac2f5a1200b0bc3d3c0065196097dc"
