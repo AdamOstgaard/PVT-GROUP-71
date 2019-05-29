@@ -30,6 +30,10 @@
 //   coordinates (RT90 and SWEREF99 are used in Swedish maps).
 // Source: http://www.lantmateriet.se/geodesi/
 
+// =============================================================================
+// Note that changes have been made in this file. Original can be found at
+// https://github.com/marcusasplund/sweref-convert/blob/master/src/utils/geodetic-grid.js
+
 // Conversion from geodetic coordinates to grid coordinates.
 
 const geodeticToGrid = (latitude, longitude, params) => {
@@ -76,51 +80,4 @@ const geodeticToGrid = (latitude, longitude, params) => {
   return coords
 }
 
-// Conversion from grid coordinates to geodetic coordinates.
-const gridToGeodetic = (x, y, params) => {
-  let coords = {
-    lat: null,
-    lng: null
-  }
-  if (params.centralMeridian === null) {
-    return coords
-  }
-  // Prepare ellipsoid-based stuff.
-  let e2 = params.flattening * (2.0 - params.flattening)
-  let n = params.flattening / (2.0 - params.flattening)
-  let aRoof = params.axis / (1.0 + n) * (1.0 + n ** 2 / 4.0 + n ** 4 / 64.0)
-  let delta1 = n / 2.0 - 2.0 * n ** 2 / 3.0 + 37.0 * n ** 3 / 96.0 - n ** 4 / 360.0
-  let delta2 = n ** 2 / 48.0 + n ** 3 / 15.0 - 437.0 * n ** 4 / 1440.0
-  let delta3 = 17.0 * n ** 3 / 480.0 - 37 * n ** 4 / 840.0
-  let delta4 = 4397.0 * n ** 4 / 161280.0
-  let Astar = e2 + e2 ** 2 + e2 ** 3 + e2 ** 4
-  let Bstar = -(7.0 * e2 ** 2 + 17.0 * e2 ** 3 + 30.0 * e2 ** 4) / 6.0
-  let Cstar = (224.0 * e2 ** 3 + 889.0 * e2 ** 4) / 120.0
-  let Dstar = -(4279.0 * e2 ** 4) / 1260.0
-  // Convert.
-  let degToRad = Math.PI / 180
-  let lambdaZero = params.centralMeridian * degToRad
-  let xi = (x - params.falseNorthing) / (params.scale * aRoof)
-  let eta = (y - params.falseEasting) / (params.scale * aRoof)
-  let xiPrim = xi - delta1 * Math.sin(2.0 * xi) * Math.cosh(2.0 * eta) - delta2 * Math.sin(4.0 * xi) * Math.cosh(
-    4.0 * eta
-  ) - delta3 * Math.sin(6.0 * xi) * Math.cosh(6.0 * eta) - delta4 * Math.sin(8.0 * xi) * Math.cosh(
-    8.0 * eta)
-  let etaPrim = eta - delta1 * Math.cos(2.0 * xi) * Math.sinh(2.0 * eta) - delta2 * Math.cos(
-    4.0 * xi
-  ) * Math.sinh(4.0 * eta) - delta3 * Math.cos(6.0 * xi) * Math.sinh(6.0 * eta) - delta4 * Math.cos(
-    8.0 * xi) * Math.sinh(8.0 * eta)
-  let phiStar = Math.asin(Math.sin(xiPrim) / Math.cosh(etaPrim))
-  let deltaLambda = Math.atan(Math.sinh(etaPrim) / Math.cos(xiPrim))
-  let lngRadian = lambdaZero + deltaLambda
-  let latRadian = phiStar + Math.sin(phiStar) * Math.cos(phiStar) * (
-    Astar + Bstar * Math.pow(Math.sin(phiStar), 2) + Cstar * Math.pow(Math.sin(phiStar), 4) + Dstar * Math.pow(Math.sin(phiStar), 6)
-  )
-  coords = {
-    lat: latRadian * 180.0 / Math.PI,
-    lng: lngRadian * 180.0 / Math.PI
-  }
-  return coords
-}
-
-export { geodeticToGrid, gridToGeodetic }
+export { geodeticToGrid }
