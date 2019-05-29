@@ -12,7 +12,7 @@ export default class TimerSleepButton extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.onResume !== this.props.onResume) {
-      this.setState({ enabled: false });
+      this.setState({ enabled: this.props.onResume });
     }
   }
   render() {

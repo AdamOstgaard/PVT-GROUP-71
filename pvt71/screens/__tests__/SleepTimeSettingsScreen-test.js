@@ -43,7 +43,7 @@ describe("Wizard Setting Screen tests", () => {
     it("should call proto.setState func", () => {
         const spy = jest.spyOn(SleepTimeSettingsScreen.prototype, "setState");
         const wrapper = shallow(<SleepTimeSettingsScreen />);
-        wrapper.instance().onPickedValues();
+        wrapper.instance().onPickedStartTime();
         expect(spy).toHaveBeenCalled();
         spy.mockClear()
     });

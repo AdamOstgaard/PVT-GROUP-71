@@ -17,7 +17,8 @@ export default class SleepTimeSettingsScreen extends React.Component {
     };
     this.handleSave = this.handleSave.bind(this);
     this.saveSettings = this.saveSettings.bind(this);
-    this.onPickedValues = this.onPickedValues.bind(this);
+    this.onPickedValues = this.onPickedStartTime.bind(this);
+    this.onPickedValues = this.onPickedEndTime.bind(this);
 
   }
 
@@ -35,10 +36,17 @@ export default class SleepTimeSettingsScreen extends React.Component {
     } catch (error) {}
   }
 
-  onPickedValues = (hours, minutes) => {
+  onPickedStartTime = (hours, minutes) => {
     this.setState({
       startHour: hours,
       startMinute: minutes
+    })
+  }
+
+  onPickedEndTime = (hours, minutes) => {
+    this.setState({
+      endHour: hours,
+      endMinute: minutes
     })
   }
 
@@ -73,12 +81,12 @@ export default class SleepTimeSettingsScreen extends React.Component {
         <TimePicker
           selectedHours={this.state.startHour}
           selectedMinutes={this.state.startMinute}
-          onChange={this.onPickedValues}
+          onChange={this.onPickedStartTime}
         />
         <TimePicker
           selectedHours={this.state.endHour}
           selectedMinutes={this.state.endMinute}
-          onChange={this.onPickedValues}
+          onChange={this.onPickedEndTime}
         />
         <View>
           <Text style={styles.endText}>

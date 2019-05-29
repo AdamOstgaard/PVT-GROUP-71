@@ -9,7 +9,7 @@ export class Timer extends React.Component {
     this.state = {
       timerRunning: false,
       time: this.props.startTime,
-      counter: 0
+      counter: 0,
     };
   }
   componentDidMount() {
@@ -19,6 +19,10 @@ export class Timer extends React.Component {
   componentDidUpdate(prevProps, PrevState) {
     if (this.props.paused !== prevProps.paused && this.props.paused) {
       this.pauseTimer();
+      this.startTimer(14400000);
+    }else if (this.props.paused !== prevProps.paused && !this.props.paused){
+      this.pauseTimer();
+      this.startTimer(this.props.startTime);
     }
   }
 
