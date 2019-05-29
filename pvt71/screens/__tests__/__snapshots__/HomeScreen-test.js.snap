@@ -1,34 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] = `
+exports[`Home screen test Snapshot test renders correctly 1`] = `
 <View
   style={
     Object {
       "backgroundColor": "#fff",
       "flex": 1,
       "flexDirection": "column",
+      "marginTop": 20,
     }
   }
 >
-  <Text
-    style={
-      Object {
-        "alignSelf": "center",
-        "fontSize": 18,
-        "marginTop": "30%",
-      }
-    }
-  >
-    VILOLÄGET ÄR AV
-  </Text>
   <View
     style={
       Object {
         "alignItems": "center",
-        "paddingTop": "10%",
+        "flex": 3,
+        "textAlign": "left",
       }
     }
   >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#0d6f73",
+          "height": 60,
+          "opacity": 1,
+          "paddingLeft": 10,
+          "textAlign": "left",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+            "paddingRight": 10,
+            "paddingTop": 8,
+            "textAlign": "left",
+          }
+        }
+      >
+        Hjälp
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingTop": 1,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#0d6f73",
+            "height": 60,
+            "opacity": 1,
+            "paddingLeft": 10,
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 30,
+              "paddingRight": 10,
+              "paddingTop": 8,
+              "textAlign": "left",
+            }
+          }
+        >
+          Inställningar
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 6,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 18,
+        }
+      }
+    >
+      VILOLÄGET ÄR AV
+    </Text>
     <View
       style={
         Object {
@@ -72,34 +159,34 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         Press to reset
       </Text>
     </View>
-  </View>
-  <View
-    style={
-      Object {
-        "left": 240,
-      }
-    }
-  >
     <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "height": 90,
-          "opacity": 1,
-          "width": 90,
+          "alignItems": "flex-end",
         }
       }
     >
-      <Image
-        source={1}
-      />
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 90,
+            "opacity": 1,
+            "width": 90,
+          }
+        }
+      >
+        <Image
+          source={1}
+        />
+      </View>
     </View>
   </View>
 </View>
