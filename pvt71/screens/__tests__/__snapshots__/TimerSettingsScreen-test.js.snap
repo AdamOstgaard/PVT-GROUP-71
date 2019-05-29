@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Verify Timer setting screen Snapshot test renders correctly 1`] = `
+exports[`Timer setting screen Snapshot test renders correctly 1`] = `
 <View
   style={
     Object {
@@ -610,6 +610,7 @@ exports[`Verify Timer setting screen Snapshot test renders correctly 1`] = `
             "backgroundColor": "#a9a9a9",
             "height": 60,
             "opacity": 1,
+            "textAlign": "right",
             "width": "50%",
           }
         }
@@ -619,9 +620,8 @@ exports[`Verify Timer setting screen Snapshot test renders correctly 1`] = `
             Object {
               "color": "#fff",
               "fontSize": 30,
-              "paddingLeft": 10,
+              "paddingRight": 10,
               "paddingTop": 8,
-              "textAlign": "left",
             }
           }
         >
@@ -639,9 +639,11 @@ exports[`Verify Timer setting screen Snapshot test renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "flex-end",
             "backgroundColor": "#0d6f73",
             "height": 60,
             "opacity": 1,
+            "textAlign": "right",
             "width": "50%",
           }
         }
@@ -649,11 +651,13 @@ exports[`Verify Timer setting screen Snapshot test renders correctly 1`] = `
         <Text
           style={
             Object {
+              "alignItems": "flex-end",
               "color": "#fff",
               "fontSize": 30,
               "paddingRight": 10,
               "paddingTop": 8,
               "textAlign": "right",
+              "width": "50%",
             }
           }
         >

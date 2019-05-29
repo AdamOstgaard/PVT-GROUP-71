@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] = `
+exports[`Setting Screen tests Snapshot test renders correctly 1`] = `
 <View
   style={
     Object {

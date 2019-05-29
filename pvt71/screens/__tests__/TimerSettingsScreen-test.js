@@ -4,7 +4,7 @@ import TimerSettingsScreen  from "../TimerSettingsScreen";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
-describe("Verify Timer setting screen", () => {
+describe("Timer setting screen", () => {
     describe("Snapshot test", () => {
         it("renders correctly", () => {
         const tree = renderer.create(<TimerSettingsScreen />).toJSON();
