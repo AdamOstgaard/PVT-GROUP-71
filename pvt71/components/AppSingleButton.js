@@ -16,10 +16,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#0d6f73",
     width: "100%",
     height: 60,
-    textAlign: "right",
   },
   textStyle: {
-    
+    textAlign: "right",
     fontSize: 30,
     color: "#fff",
     paddingRight: 10,

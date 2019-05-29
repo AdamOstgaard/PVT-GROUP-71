@@ -7,6 +7,9 @@ import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
 import { NavigationEvents } from "react-navigation";
+import AppSingleButton from "../components/AppSingleButton";
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -37,6 +40,21 @@ export default class HomeScreen extends React.Component {
     header: null
   };
 
+  componentDidMount() {
+    if(!this.props.navigation){
+      return;
+    }
+
+    this.subs = [
+      this.props.navigation.addListener("didFocus", payload =>
+        this.getSettings()
+        )
+    ];
+  }
+
+  componentWillUnmount() {
+    this.subs.forEach(sub => sub.remove());
+  }
   render() {
     let pauseText;
     if (this.state.timerPaused) {
@@ -48,14 +66,31 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style ={styles.topContainer}>
-          <AppSingleButton style={styles.topButton} title="Inställningar"
+
+        <AppSingleButton 
+          style={styles.topButton}
+          textStyle={styles.topTextStyle}
+          title="Hjälp"
             onPress={() => 
-              this.props.navigation.navigate("TimerSettingsScreen",{})}
+              this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
+          
+          <View style ={styles.topButton1}>
+          <AppSingleButton 
+          style={styles.topButton}
+          textStyle={styles.topTextStyle}
+          title="Inställningar"
+            onPress={() => 
+              this.props.navigation.navigate("SettingsScreen",{})}
+          >
+          </AppSingleButton>
+          </View>
+          
         </View>
-        <Text style={styles.sleepOnText}>{pauseText}</Text>
+        
         <View style={styles.timerContainer}>
+        <Text style={styles.sleepOnText}>{pauseText}</Text>
           <Timer
             onReset={reset => {
               this.setState({ timerPaused: reset });
@@ -68,14 +103,15 @@ export default class HomeScreen extends React.Component {
               showRestartAlert(restart);
             }}
           />
-        </View>
-        <View style={styles.sleepButtonContainer}>
+          <View style={styles.sleepButtonContainer}>
           <TimerSleepButton
             onResume={this.state.timerPaused}
             onToggle={enabled => this.setState({ timerPaused: enabled })}
           />
           
         </View>
+        </View>
+        
       </View>
     );
   }
@@ -88,6 +124,7 @@ export default class HomeScreen extends React.Component {
     } catch (error) {}
   }
 }
+
 
 const showRestartAlert = restart => {
   Alert.alert(
@@ -107,9 +144,25 @@ const showRestartAlert = restart => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: getStatusBarHeight(),
     flexDirection: "column",
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff", 
+
+  },
+  topContainer: {
+    alignItems: "center",
+    textAlign: "left",
+    flex: 3,
+  },
+  topButton1: {
+    paddingTop: 1,
+    width:"100%",
+  },
+  topButton: {
+    width:"100%",
+    textAlign: "left",
+    paddingLeft: 10,
   },
   topContainer: {
     paddingTop: "10%",
@@ -122,15 +175,19 @@ const styles = StyleSheet.create({
   },
 
   timerContainer: {
-    paddingTop: "10%",
-    alignItems: "center"
+    alignItems: "center",
+    flex:6
   },
   sleepButtonContainer: {
-    left: 240
+    alignItems:"flex-end"
+    //left: 240
   },
   sleepOnText: {
-    marginTop: "30%",
+    //marginTop: "30%",
     alignSelf: "center",
     fontSize: 18
+  },
+  topTextStyle: {
+    textAlign: 'left',
   }
 });
