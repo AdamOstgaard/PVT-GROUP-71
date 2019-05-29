@@ -22,20 +22,24 @@ export default class WizardVerifyContactScreen extends React.Component {
         <TextInput style={styles.textInput}
         onChangeText={(firstName) => this.setState({firstName})}
         value={this.state.firstName}
+        onSubmitEditing={() => {this.secondText.focus();}}
         />
         <Text style={styles.infoText}>
           {" "}
           Nödkontakt efternamn: 
         </Text>
         <TextInput style={styles.textInput}
+        ref={(input) => {this.secondText = input; }}
         onChangeText={(lastName) => this.setState({lastName})}
         value={this.state.lastName}
+        onSubmitEditing={() => {this.thirdText.focus();}}
         />
         <Text style={styles.infoText}>
           {" "}
           Nödkontakt telefonnummer: 
         </Text>
         <TextInput style={styles.textInput}
+        ref={(input) => {this.thirdText = input; }}
         onChangeText={(number) => this.setState({number})}
         value={this.state.number}
         />
