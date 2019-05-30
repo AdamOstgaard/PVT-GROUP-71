@@ -6,8 +6,8 @@ import WizardVerifyContactScreen from '../screens/WizardVerifyContactScreen';
 import WizardSettingsScreen from '../screens/WizardSettingsScreen';
 
 
-const AppStack = createStackNavigator({ Home: HomeScreen, Settings: SleepTimeSettingsScreen,  });
-const WizardStack =  createStackNavigator({ WizardWelcome: WizardWelcomeScreen, WizardVerifyContact: WizardVerifyContactScreen, WizardSettings : WizardSettingsScreen, Home: HomeScreen, Settings: SleepTimeSettingsScreen})
+const AppStack = createStackNavigator({ HomeScreen: HomeScreen, SleepTimeSettingsScreen: SleepTimeSettingsScreen,  });
+const WizardStack =  createStackNavigator({ WizardWelcomeScreen: WizardWelcomeScreen, WizardVerifyContactScreen: WizardVerifyContactScreen, WizardSettingsScreen : WizardSettingsScreen, HomeScreen: HomeScreen, SleepTimeSettingsScreen: SleepTimeSettingsScreen, TimerSettingsScreen: TimerSettingsScreen, HelpScreen: HelpScreen})
 
 export default createAppContainer(createSwitchNavigator(
   {

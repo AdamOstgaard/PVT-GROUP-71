@@ -1,27 +1,26 @@
 import React from "react";
-import AppSingleButton from "../components/AppSingleButton";
 import { StyleSheet, Text, View } from "react-native";
-import TimePicker from "react-native-simple-time-picker"
+import AppSingleButton from "../components/AppSingleButton";
+import TimePicker from "react-native-simple-time-picker";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
 
-export default class WizardVerifyContactScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  }
+export default class TimerSettingsScreen extends React.Component {
   state = {
     selectedHours: 5,
-    SelectedMinutes: 0,
-    warningHours: 0,
-    warningMinutes: 30,
+    selectedMinutes: 0
   };
-  
+
+  static navigationOptions = {
+    header: null
+  };
+
   render() {
-    const { selectedHours, selectedMinutes, warningHours, warningMinutes } = this.state;
+    const { selectedHours, selectedMinutes } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.boxContainerTop}>
-          <Text style={styles.heading}>Timerinställningar</Text>
+          <Text style={styles.header}>Timerinställningar</Text>
           <Text style={styles.infoText}>
             Här kan du ändra hur ofta du vill verifiera ditt välmående
           </Text>
@@ -42,40 +41,25 @@ export default class WizardVerifyContactScreen extends React.Component {
             }
           />
         </View>
-        <Text style={styles.infoText}>
-            Här kan du ändra när varningsljudet ska börja
-        </Text>
-        <View style={styles.boxContainerMid3}>
-            <Text style={styles.picker}>timmar</Text>
-            <Text style={styles.picker}>Minuter</Text>
-        </View>
-        <View style={styles.boxContainerMid4}>
-            <TimePicker
-              warningHours={warningHours}
-              warningMinutes={warningMinutes}
-              onChange={(hours, minutes) =>
-                this.setState({
-                  warningHours: hours,
-                  warningMinutes: minutes
-                })
-              }
-            />
-        </View>
         <View style={styles.boxContainerBottom}>
           <View style={styles.bottom}>
             <AppSingleButton
-              title="Nästa"
+              style ={styles.bottomLeft}
+              textStyle = {styles.leftText}
+              title="Avbryt"
+              onPress={() => this.props.navigation.navigate("HomeScreen")}
+            />
+            <AppSingleButton
+              style ={styles.bottomRight}
+              textStyle ={styles.rightText}
+              title="Spara"
               onPress={() => {
                 const duration = this.toMilliseconds(
                   this.state.selectedHours,
                   this.state.selectedMinutes
                 );
-                const warning = this.toMilliseconds(
-                  this.state.warningHours,
-                  this.state.warningsMinutes
-                );
-                this.saveSettings(duration, warning);
-                this.props.navigation.navigate("HomeScreen", { duration, warning });
+                this.saveSettings(duration);
+                this.props.navigation.navigate("HomeScreen", { duration });
               }}
             />
           </View>
@@ -83,16 +67,14 @@ export default class WizardVerifyContactScreen extends React.Component {
       </View>
     );
   }
-  
+
   toMilliseconds = (h, m) =>
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
 
-
-  async saveSettings(time, warning) {
+  async saveSettings(time) {
     try {
       await AsyncStorage.setItem("time", JSON.stringify(time));
-      await AsyncStorage.setItem("warning", JSON.stringify(warning));
     } catch (error) {
       // Error saving data
     }
@@ -109,33 +91,28 @@ const styles = StyleSheet.create({
     flex: 2
   },
   boxContainerMid1: {
-    flex: 1,
+    flex: 3,
     flexDirection: "row",
     alignItems: "flex-end"
   },
   boxContainerMid2: {
-    flex: 1
-  },
-  boxContainerMid3: {
-    flex: 1, 
-    flexDirection: "row",
-    alignItems: "flex-end"
-  },
-  boxContainerMid4: {
-    flex: 1
+    flex: 3
   },
   boxContainerBottom: {
-    flex: 1
+    flex: 2
   },
-  heading: {
+
+  header: {
     fontSize: 35,
     flex: 1,
     left: 10,
-    marginTop: 50
+    marginTop: "10%",
+    marginBottom: "0%"
   },
   infoText: {
     flex: 1,
     fontSize: 20,
+    marginTop: "0%",
     paddingLeft: 10,
     paddingRight: 20
   },
@@ -148,8 +125,57 @@ const styles = StyleSheet.create({
   },
   bottom: {
     position: "absolute",
-    width: "100%",
     bottom: 0,
     flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end"
+  },
+  bottomLeft:{
+    width: "50%",
+    textAlign: "left",
+    backgroundColor: '#a9a9a9'
+  },
+  leftText:{
+    textAlign: "left"
+  },
+  bottomRight:{
+    width: "50%",
+    alignItems: "flex-end"
+  },
+  rightText: {
+    textAlign: "right"
   }
+
+  /*
+  heading: {
+    fontSize: 35,
+    flex: 1,
+    left: 10,
+    marginTop: "10%",
+    marginBottom: "0%"
+  },
+  infoText: {
+    flex: 1,
+    fontSize: 20,
+    marginTop: '0%',
+    marginBottom: '0%',
+    paddingLeft: 10,
+    paddingRight: 20
+  },
+  picker: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: '0%',
+    marginBottom: '0%',
+    
+  
+  },
+  bottom: {
+    position: 'absolute',
+    bottom: 0,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: "flex-end"
+  } */
 });

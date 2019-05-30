@@ -104,6 +104,8 @@ export class Timer extends React.Component {
         <Text
           {...this.props}
           onPress={() => {
+            if (this.props.onPress) this.props.onPress();
+            this.props.onReset(false);
             this.resetTimer();
           }}
           style={styles.timerText}
