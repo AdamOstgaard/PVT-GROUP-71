@@ -20,6 +20,8 @@ export class Timer extends React.Component {
       stopsleep: false
     };
   }
+
+
   componentDidMount() {
     //this.getSettings();
     this.startTimer(this.state.time);
@@ -27,28 +29,37 @@ export class Timer extends React.Component {
   }
 
  async componentDidUpdate(prevProps, prevState) {
+   if(prevState.sleepTime.start !== this.state.sleepTime.start || prevState.sleepTime.end !== this.state.sleepTime.end){
+    this.setState({stopsleep: false})
+   }
+
   console.log("sleepin is " + this.state.sleeping)
     var hours = new Date().getHours(); //Current Hours
     var min = new Date().getMinutes(); //Current Minutes
     var currentTimeInMilliseconds = this.toMilliseconds(hours, min);
     if (prevProps.onFocus !== this.props.onFocus) {
       await this.getSettings();
-      console.log("sleeping1: " + this.state.sleeping)
-      
-      
-      
-    }
-    if (currentTimeInMilliseconds >= this.state.sleepTime.start && !this.state.sleeping && this.state.sleepTime.start !== null && !this.state.stopsleep) {
-      console.log("sleeping2: " + this.state.sleepTime.end)
-     await this.setState({ sleeping: true }, () => {
+      console.log("sleeping1: " + this.state.sleeping) 
+    }  
+    if(currentTimeInMilliseconds >= this.state.sleepTime.start && currentTimeInMilliseconds <= this.state.sleepTime.end){
+       
+    
+      if ( !this.state.sleeping && this.state.sleepTime.start !== null && !this.state.stopsleep) {
+        console.log("sleeping2: " + this.state.sleepTime.end)
+      this.setState({ sleeping: true }, () => {
         this.pauseTimer();
         this.startTimer(this.state.sleepTime.end);
-      });
-    }else if(this.state.sleeping && prevState.sleepTime.start !== this.state.sleepTime.start || prevState.sleepTime.end !== this.state.sleepTime.end){
-      this.pauseTimer();
-      this.startTimer(this.state.sleepTime.end);
+        });
+      }
+    }else if(currentTimeInMilliseconds >= this.state.sleepTime.start || currentTimeInMilliseconds <= this.state.sleepTime.end){
+      if ( !this.state.sleeping && this.state.sleepTime.start !== null && !this.state.stopsleep) {
+        console.log("sleeping2: " + this.state.sleepTime.end)
+      this.setState({ sleeping: true }, () => {
+        this.pauseTimer();
+        this.startTimer(this.state.sleepTime.end);
+        });
+      }
     }
-    
   }
 
   toMilliseconds = (h, m) =>
@@ -60,7 +71,7 @@ export class Timer extends React.Component {
       const newSleepTime = await AsyncStorage.getItem("sleeptime");
       const s = JSON.parse(newSleepTime);
       const start = s.startTime;
-      const end = (86400000 - s.startTime ) + s.endTime;
+      const end =  s.endTime;
       console.log(end)
       await this.setState({ sleepTime: { start, end }  });
     } catch (error) {
@@ -122,11 +133,10 @@ export class Timer extends React.Component {
     }
     if(this.state.sleeping){
       
-      this.setState({ sleeping: false, stopsleep: true}, () => {
+      this.setState({ sleeping: false, stopsleep: true})
         this.stopTimer();
         this.startTimer(this.props.startTime);
         console.log("vilan är över")
-      });
       return;
     }
 
