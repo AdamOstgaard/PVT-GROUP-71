@@ -6,6 +6,7 @@ import moment from "moment";
 import { playSound } from "../SoundPlayer";
 import AppSingleButton from "../components/AppSingleButton";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { smsSender } from '../utils/SmsSender';
 
 
 export default class HomeScreen extends React.Component {
@@ -47,28 +48,28 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style ={styles.topContainer}>
 
-        <AppSingleButton 
+        <AppSingleButton
           style={styles.topButton}
           textStyle={styles.topTextStyle}
           title="Hjälp"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
-          
+
           <View style ={styles.topButton1}>
-          <AppSingleButton 
+          <AppSingleButton
           style={styles.topButton}
           textStyle={styles.topTextStyle}
           title="Inställningar"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
           </View>
-          
+
         </View>
-        
+
         <View style={styles.timerContainer}>
         <Text style={styles.sleepOnText}>{pauseText}</Text>
           <Timer
@@ -90,7 +91,7 @@ export default class HomeScreen extends React.Component {
           />
         </View>
         </View>
-        
+
       </View>
     );
   }
@@ -113,7 +114,7 @@ const showRestartAlert = restart => {
       { text: "Yes, I'm Ok", onPress: () => restart() },
       {
         text: "No, I need help!",
-        onPress: () => console.log("Cancel Pressed"),
+        onPress: () => smsSender.contactEmergencyContact(),
         style: "cancel"
       }
     ],
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
     marginTop: getStatusBarHeight(),
     flexDirection: "column",
     flex: 1,
-    backgroundColor: "#fff", 
+    backgroundColor: "#fff",
 
   },
   topContainer: {
