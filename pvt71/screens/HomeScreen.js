@@ -14,15 +14,13 @@ export default class HomeScreen extends React.Component {
       timerPaused: false,
       focused: false,
     };
-   
+   this.toggleSleepMode = this.toggleSleepMode.bind(this);
   }
   static navigationOptions = {
     header: null
   };
-
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("focused")
+  toggleSleepMode = value =>{
+    this.setState({timerPaused: value})
   }
 
   componentDidMount() {
@@ -66,7 +64,7 @@ export default class HomeScreen extends React.Component {
         <View style={styles.timerContainer}>
           <Timer
             onFocus={this.state.focused}
-            
+            onTimerSleep={this.toggleSleepMode}
             onReset={reset => {
               this.setState({ timerPaused: reset });
             }}
