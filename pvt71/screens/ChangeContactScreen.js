@@ -42,7 +42,7 @@ this._retrieveData();
           maxLength={10}
           onChangeText={phonenumber => this.setState({ phonenumber })}
         />
-        <Button onPress={ this._storeData} title="Add contact person" />
+        <Button onPress={ this._storeData} title="Change contact" />
       </View>
 
 

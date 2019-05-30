@@ -8,9 +8,7 @@ export default class WizardVerifyContactScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.heading}>Wizard Settings Screen.</Text>
         <View style={styles.bottom}>
-        <Button title='Add new contact' onPress={()=> this.props.navigation.navigate("AddNewContactScreen")}></Button>
         <Button title='Change contact' onPress={()=> this.props.navigation.navigate("ChangeContactScreen")}></Button>
-        <Button title='Remove contact' onPress={()=> this.props.navigation.navigate("RemoveContactScreen")}></Button>
           <AppSingleButton
             title="Next"
             onPress={() =>
