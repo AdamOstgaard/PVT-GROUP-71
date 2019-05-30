@@ -53,7 +53,7 @@ export default class HomeScreen extends React.Component {
           textStyle={styles.topTextStyle}
           title="Hjälp"
             onPress={() =>
-              this.props.navigation.navigate("SettingsScreen",{})}
+              this.props.navigation.navigate("HelpScreen",{})}
           >
           </AppSingleButton>
 
