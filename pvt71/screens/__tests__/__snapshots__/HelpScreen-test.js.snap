@@ -11,35 +11,46 @@ exports[`Help Screen tests Snapshot test renders correctly 1`] = `
   }
 >
   <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "#0d6f73",
-        "height": 60,
-        "opacity": 1,
-        "width": "100%",
+        "flex": 1,
       }
     }
   >
-    <Text
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "color": "#fff",
-          "fontSize": 30,
-          "paddingRight": 10,
-          "paddingTop": 8,
-          "textAlign": "left",
+          "backgroundColor": "#0d6f73",
+          "height": 60,
+          "opacity": 1,
+          "width": "100%",
         }
       }
     >
-      Tillbaka
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+            "paddingRight": 10,
+            "paddingTop": 8,
+            "textAlign": "left",
+          }
+        }
+      >
+        Tillbaka
+      </Text>
+    </View>
+    <Text>
+       Denna sida är otillgänlig pga underhåll
     </Text>
   </View>
 </View>
