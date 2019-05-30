@@ -4,9 +4,10 @@ import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
-import { smsSender } from '../utils/SmsSender'
 import AppSingleButton from "../components/AppSingleButton";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { smsSender } from '../utils/SmsSender';
+
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -15,6 +16,10 @@ export default class HomeScreen extends React.Component {
       duration: moment.duration(1, "h").asMilliseconds(),
       timerPaused: false
     };
+  }
+  static navigationOptions = {
+    header: null
+  };
 
   componentDidMount() {
     if(!this.props.navigation){
@@ -43,28 +48,28 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style ={styles.topContainer}>
 
-        <AppSingleButton 
+        <AppSingleButton
           style={styles.topButton}
           textStyle={styles.topTextStyle}
           title="Hjälp"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
-          
+
           <View style ={styles.topButton1}>
-          <AppSingleButton 
+          <AppSingleButton
           style={styles.topButton}
           textStyle={styles.topTextStyle}
           title="Inställningar"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
           </View>
-          
+
         </View>
-        
+
         <View style={styles.timerContainer}>
         <Text style={styles.sleepOnText}>{pauseText}</Text>
           <Timer
@@ -86,7 +91,7 @@ export default class HomeScreen extends React.Component {
           />
         </View>
         </View>
-        
+
       </View>
     );
   }
@@ -102,27 +107,27 @@ export default class HomeScreen extends React.Component {
 
 
 const showRestartAlert = restart => {
-    Alert.alert(
-        "Timer",
-        "Are you ok?",
-        [
-            { text: "Yes, I'm Ok", onPress: () => restart() },
-            {
-                text: "No, I need help!", onPress: () => smsSender.contactEmergencyContact(),
-                style: "cancel"
-            }
-        ],
-        { cancelable: false }
-    );
+  Alert.alert(
+    "Timer",
+    "Are you ok?",
+    [
+      { text: "Yes, I'm Ok", onPress: () => restart() },
+      {
+        text: "No, I need help!",
+        onPress: () => smsSender.contactEmergencyContact(),
+        style: "cancel"
+      }
+    ],
+    { cancelable: false }
+  );
 };
-
 
 const styles = StyleSheet.create({
   container: {
     marginTop: getStatusBarHeight(),
     flexDirection: "column",
     flex: 1,
-    backgroundColor: "#fff", 
+    backgroundColor: "#fff",
 
   },
   topContainer: {
