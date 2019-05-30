@@ -23,7 +23,7 @@ export default class SettingsScreen extends React.Component {
           textStyle ={styles.text}
           title="Redigera tidsintervall"
             onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
+              this.props.navigation.navigate("TimerSettingsScreen",{})}
           ></AppSingleButton>
           
           <AppSingleButton 
