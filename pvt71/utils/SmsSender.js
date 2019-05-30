@@ -1,26 +1,29 @@
 import { Location } from "expo";
 import { geodeticToGrid } from '../utils/geodetic-grid'
 import { projectionParams } from '../utils/projection-params'
+import { AsyncStorage } from "react-native";
 
 var smsSender = (function () {
     return {
-        contactEmergencyContact: async function() {
+      contactEmergencyContact: async function() {
         let link = "This is a call for help. "; //TODO: Resonable text for message
         link += await getPosition();
-        sendSms(link);
-        return link; //For testing purposes
-    }
+        await sendSms(link);
+        return link; //For testing purposes*/
+      }
     }
 
     async function getPosition() {
         let link
         try {
-        var pos = await position();
-        let params = projectionParams('sweref991800');
-        let geo = geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params);
-        link = "http://openmap.stockholm.se/bios/dpwebmap/cust_sth/sbk/openmap/DPWebMap.html?zoom=9&lat=" + geo.x + "&lon=" + geo.y + "&layers=TTT00000000B00000T";
+            var pos = await position();
+            let params = projectionParams('sweref991800');
+            let geo = geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).x;
+            link = "http://openmap.stockholm.se/bios/dpwebmap/cust_sth/sbk/openmap/DPWebMap.html?zoom=9&lat=" + geo.x + "&lon=" + geo.y + "&layers=TTT00000000B00000T";
+            //link = "http://openmap.stockholm.se/bios/dpwebmap/cust_sth/sbk/openmap/DPWebMap.html?zoom=9&lat=" + geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).x + "&lon=" + geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).y + "&layers=TTT00000000B00000T";
         } catch (e) {
             link = "";
+            //console.log(e);
         }
         return link;
     };
@@ -33,12 +36,12 @@ var smsSender = (function () {
         });
     };
 
-    function sendSms(message) {
-        console.log(message);//Should be removed and replaced by code below
-        //Commented out for testing purposes. Will send a textmessage if initiated.
-        /*
-        let data = { message: link, number: "+46708557411" }
-        fetch('https://pvt-test-backend.adamostgaard.now.sh/smsApi.js',
+    async function sendSms(message) {
+      let contact = await AsyncStorage.getItem("contact");
+      const p = JSON.parse(contact);
+      let number = p.number;
+      let data = { message, number };
+      fetch('https://pvt-test-backend.adamostgaard.now.sh/smsApi.js',
             {
                 method: 'POST',
                 headers: {
@@ -47,7 +50,6 @@ var smsSender = (function () {
                 },
                 method: 'POST', body: JSON.stringify(data)
             })
-        */
     };
 }())
 
