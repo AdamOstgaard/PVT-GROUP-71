@@ -38,12 +38,12 @@ describe("Timer Test", () => {
   });
 
   describe("test componentDidUpdate()", () => {
-    it("should not update variable enable to true", () => {
+    it("should update variable enable to true", () => {
       let button = renderer
         .create(<TimerSleepButton onToggle={true} onResume={true} />)
         .getInstance();
       button.componentDidUpdate(button.props.onResume);
-      expect(button.state.enabled).toEqual(false);
+      expect(button.state.enabled).toEqual(true);
     });
   });
 

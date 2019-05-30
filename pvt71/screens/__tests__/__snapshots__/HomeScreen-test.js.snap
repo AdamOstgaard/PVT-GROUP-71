@@ -34,8 +34,7 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
           "backgroundColor": "#0d6f73",
           "height": 60,
           "opacity": 1,
-          "paddingLeft": 10,
-          "textAlign": "left",
+          "paddingTop": "10%",
           "width": "100%",
         }
       }
@@ -76,8 +75,7 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
             "backgroundColor": "#0d6f73",
             "height": 60,
             "opacity": 1,
-            "paddingLeft": 10,
-            "textAlign": "left",
+            "paddingTop": "10%",
             "width": "100%",
           }
         }
@@ -136,6 +134,7 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
         callback={[Function]}
         onPress={[Function]}
         onReset={[Function]}
+        onTimerSleep={[Function]}
         paused={false}
         startTime={3600000}
         style={
@@ -144,7 +143,6 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
             "fontSize": 64,
           }
         }
-        timeToCheckSleep={[Function]}
       >
         1:00:00
       </Text>

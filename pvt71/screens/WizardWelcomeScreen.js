@@ -5,11 +5,16 @@ import AppSingleButton from "../components/AppSingleButton";
 export default class WizardWelcomeScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.handlePress = this.handlePress.bind(this);
   }
 
   static navigationOptions = {
     header: null,
   };
+
+  handlePress()  {
+    this.props.navigation.navigate("WizardVerifyContactScreen");
+}
 
   render() {
     return (

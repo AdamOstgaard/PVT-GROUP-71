@@ -39,7 +39,7 @@ export default class SettingsScreen extends React.Component {
           textStyle ={styles.text}
           title="Redigera sömntider"
             onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
+              this.props.navigation.navigate("SleepTimeSettingsScreen",{})}
           ></AppSingleButton>
           <Text style ={styles.category}>Kontaktpersoner</Text>
           

@@ -2,6 +2,7 @@ import 'react-native';
 import React from 'react';
 import { Timer } from '../Timer';
 import renderer from 'react-test-renderer'
+import { prependOnceListener } from 'cluster';
 
 describe('Timer Test', () => {
     describe('Timer Snapshot', () =>{
@@ -62,7 +63,9 @@ describe('Timer Test', () => {
 
     describe('resetTimer', () => {
         it('resetTimer works correctly', () => {
-            let timerData = renderer.create(<Timer/>).getInstance();
+            
+            mockFn = jest.fn();
+            let timerData = renderer.create(<Timer onReset={mockFn}/>).getInstance();
             timerData.startTimer();
             timerData.stopTimer();
             expect(timerData.state.timerRunning).toEqual(false);

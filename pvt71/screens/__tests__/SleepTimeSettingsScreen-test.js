@@ -36,7 +36,7 @@ describe("Wizard Setting Screen tests", () => {
           .find("TimePicker")
           .first()
           .prop("onChange")
-      ).toBe(wrapper.instance().onPickedValues);
+      ).toBe(wrapper.instance().onPickedStartTime);
     });
   });
   describe("onPickedValues() test", () => {
