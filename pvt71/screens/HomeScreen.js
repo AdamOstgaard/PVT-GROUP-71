@@ -5,7 +5,6 @@ import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
 import AppSingleButton from "../components/AppSingleButton";
-import { AsyncStorage } from "react-native";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -13,33 +12,17 @@ export default class HomeScreen extends React.Component {
     this.state = {
       checkSleep: true,
       timerPaused: false,
-      sleepTime: {
-        start: null,
-        end: null
-      }
+      focused: false,
     };
-    this.checkSleep = this.checkSleep.bind(this);
+   
   }
   static navigationOptions = {
     header: null
   };
 
-  checkSleep() {
-    this.setState({ checkSleep: true });
-  }
 
   componentDidUpdate(prevProps, prevState) {
-    var hours = new Date().getHours(); //Current Hours
-    var min = new Date().getMinutes(); //Current Minutes
-    //console.log(this.toMilliseconds(hours, min));
-    //console.log(this.state.sleepTime.start);
-    if (
-      this.toMilliseconds(hours, min) >= this.state.sleepTime.start &&
-      this.state.checkSleep
-    ) {
-      this.setState({ timerPaused: true });
-      this.setState({ checkSleep: false });
-    }
+    console.log("focused")
   }
 
   componentDidMount() {
@@ -48,8 +31,8 @@ export default class HomeScreen extends React.Component {
     }
 
     this.subs = [
-      this.props.navigation.addListener("didFocus", payload =>
-        this.getSettings()
+      this.props.navigation.addListener("didFocus", payload =>{
+        this.setState({focused: !this.state.focused})}
       )
     ];
   }
@@ -58,16 +41,6 @@ export default class HomeScreen extends React.Component {
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
 
-  async getSettings() {
-    try {
-      const newSleepTime = await AsyncStorage.getItem("sleeptime");
-      const s = JSON.parse(newSleepTime);
-      const start = s.startTime;
-      const end = s.endTime;
-      this.setState({ sleepTime: { start, end } });
-      //console.log(this.state.sleepTime);
-    } catch (error) {}
-  }
 
   componentWillUnmount() {
     this.focusListener.remove();
@@ -92,7 +65,8 @@ export default class HomeScreen extends React.Component {
         <Text style={styles.sleepOnText}>{pauseText}</Text>
         <View style={styles.timerContainer}>
           <Timer
-            timeToCheckSleep={this.checkSleep}
+            onFocus={this.state.focused}
+            
             onReset={reset => {
               this.setState({ timerPaused: reset });
             }}
