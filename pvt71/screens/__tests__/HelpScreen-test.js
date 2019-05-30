@@ -1,6 +1,6 @@
 import "react-native";
 import React from "react";
-import HelpScreen  from "../SettingsScreen";
+import HelpScreen  from "../HelpScreen";
 import renderer from "react-test-renderer";
 
 describe("Help Screen tests", () => {
