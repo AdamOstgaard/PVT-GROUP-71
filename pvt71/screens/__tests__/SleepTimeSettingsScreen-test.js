@@ -23,7 +23,7 @@ describe("Wizard Setting Screen tests", () => {
       );
       const instance = wrapper.instance();
       instance.handleSave();
-      expect(spy).toHaveBeenCalledWith("Home");
+      expect(spy).toHaveBeenCalledWith("HomeScreen");
       spy.mockClear()
     });
   });
