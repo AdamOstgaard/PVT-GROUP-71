@@ -6,5 +6,6 @@ export async function playSound() {
         await soundObject.loadAsync(require('./assets/sounds/back2work.wav'));
         await soundObject.playAsync();
     } catch (error) {
+        alert(error)
     }
 }

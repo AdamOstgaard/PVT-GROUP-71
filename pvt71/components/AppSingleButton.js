@@ -5,7 +5,7 @@ export default class AppSingleButton extends React.Component {
   render() {
     return (
       <TouchableOpacity style={{...styles.button, ...this.props.style}} onPress={this.props.onPress}>
-        <Text style={{...this.props.textStyle,...styles.textStyle}}>{this.props.title}</Text>
+        <Text style={{...styles.textStyle,...this.props.textStyle}}>{this.props.title}</Text>
       </TouchableOpacity>
     );
   }

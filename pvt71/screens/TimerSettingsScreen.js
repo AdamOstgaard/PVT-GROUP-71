@@ -1,7 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-//import BottomLeftButton from "../components/BottomLeftButton";
-//import BottomRightButton from "../components/BottomRightButton";
 import AppSingleButton from "../components/AppSingleButton";
 import TimePicker from "react-native-simple-time-picker";
 import { AsyncStorage } from "react-native";
@@ -47,12 +45,13 @@ export default class TimerSettingsScreen extends React.Component {
           <View style={styles.bottom}>
             <AppSingleButton
               style ={styles.bottomLeft}
+              textStyle = {styles.leftText}
               title="Avbryt"
               onPress={() => this.props.navigation.navigate("HomeScreen")}
             />
             <AppSingleButton
               style ={styles.bottomRight}
-              textStyle ={styles.bottomRight}
+              textStyle ={styles.rightText}
               title="Spara"
               onPress={() => {
                 const duration = this.toMilliseconds(
@@ -133,13 +132,19 @@ const styles = StyleSheet.create({
   },
   bottomLeft:{
     width: "50%",
+    textAlign: "left",
     backgroundColor: '#a9a9a9'
+  },
+  leftText:{
+    textAlign: "left"
   },
   bottomRight:{
     width: "50%",
-    textAlign: "right",
     alignItems: "flex-end"
   },
+  rightText: {
+    textAlign: "right"
+  }
 
   /*
   heading: {

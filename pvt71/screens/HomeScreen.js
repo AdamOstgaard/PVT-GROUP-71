@@ -1,12 +1,10 @@
 import React from "react";
-
 import { StyleSheet, View, Alert, Text, AsyncStorage } from "react-native";
-import AppSingleButton from "../components/AppSingleButton";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
-import { NavigationEvents } from "react-navigation";
+import AppSingleButton from "../components/AppSingleButton";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 
@@ -18,23 +16,6 @@ export default class HomeScreen extends React.Component {
       timerPaused: false
     };
   }
-
-  componentDidMount() {
-    if(!this.props.navigation){
-      return;
-    }
-    
-    this.subs = [
-      this.props.navigation.addListener("didFocus", payload =>
-        this.getSettings()
-      )
-    ];
-  }
-
-  componentWillUnmount() {
-    this.subs.forEach(sub => sub.remove());
-  }
-
   static navigationOptions = {
     header: null
   };
@@ -61,7 +42,7 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-    //var {navigate} = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <View style ={styles.topContainer}>
@@ -107,7 +88,6 @@ export default class HomeScreen extends React.Component {
             onResume={this.state.timerPaused}
             onToggle={enabled => this.setState({ timerPaused: enabled })}
           />
-          
         </View>
         </View>
         
@@ -163,16 +143,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     paddingLeft: 10,
   },
-  topContainer: {
-    paddingTop: "10%",
-    alignItems: "center",
-    textAlign: "left",
-  },
-  topButton: {
-    width:"100%",
-    textAlign: "left",
-  },
-
   timerContainer: {
     alignItems: "center",
     flex:6
