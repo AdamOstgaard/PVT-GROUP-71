@@ -16,7 +16,7 @@ describe("AppSingleButton Test", () => {
     it("should call onPress", () => {
       const onPressEvent = jest.fn();
       const component = shallow(
-        <AppSingleButton title="Next" onPress={onPressEvent} />
+        <AppSingleButton title="Next" onPress={onPressEvent}/>
       );
       const instance = component.instance();
       instance.props.onPress(); 

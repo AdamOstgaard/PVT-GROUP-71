@@ -22,7 +22,6 @@ ShallowWrapper {
         <Component
           style={
             Object {
-              "flex": 1,
               "fontSize": 35,
               "justifyContent": "flex-start",
               "left": 10,
@@ -36,12 +35,10 @@ ShallowWrapper {
           style={
             Object {
               "fontSize": 20,
-              "marginBottom": 50,
               "paddingLeft": 10,
             }
           }
         >
-           
           Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
         </Component>,
         <Component
@@ -72,7 +69,6 @@ ShallowWrapper {
         "props": Object {
           "children": "Välkommen!",
           "style": Object {
-            "flex": 1,
             "fontSize": 35,
             "justifyContent": "flex-start",
             "left": 10,
@@ -88,21 +84,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": Array [
-            " ",
-            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
-          ],
+          "children": "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           "style": Object {
             "fontSize": 20,
-            "marginBottom": 50,
             "paddingLeft": 10,
           },
         },
         "ref": null,
-        "rendered": Array [
-          " ",
-          "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
-        ],
+        "rendered": "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
         "type": [Function],
       },
       Object {
@@ -147,7 +136,6 @@ ShallowWrapper {
           <Component
             style={
               Object {
-                "flex": 1,
                 "fontSize": 35,
                 "justifyContent": "flex-start",
                 "left": 10,
@@ -161,12 +149,10 @@ ShallowWrapper {
             style={
               Object {
                 "fontSize": 20,
-                "marginBottom": 50,
                 "paddingLeft": 10,
               }
             }
           >
-             
             Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
           </Component>,
           <Component
@@ -197,7 +183,6 @@ ShallowWrapper {
           "props": Object {
             "children": "Välkommen!",
             "style": Object {
-              "flex": 1,
               "fontSize": 35,
               "justifyContent": "flex-start",
               "left": 10,
@@ -213,21 +198,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": Array [
-              " ",
-              "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
-            ],
+            "children": "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
             "style": Object {
               "fontSize": 20,
-              "marginBottom": 50,
               "paddingLeft": 10,
             },
           },
           "ref": null,
-          "rendered": Array [
-            " ",
-            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
-          ],
+          "rendered": "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           "type": [Function],
         },
         Object {

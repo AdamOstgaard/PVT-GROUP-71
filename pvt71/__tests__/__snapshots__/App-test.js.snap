@@ -22,7 +22,6 @@ exports[`App snapshot renders the root without loading screen 1`] = `
     <Text
       style={
         Object {
-          "flex": 1,
           "fontSize": 35,
           "justifyContent": "flex-start",
           "left": 10,
@@ -36,12 +35,10 @@ exports[`App snapshot renders the root without loading screen 1`] = `
       style={
         Object {
           "fontSize": 20,
-          "marginBottom": 50,
           "paddingLeft": 10,
         }
       }
     >
-       
       Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
     </Text>
     <View

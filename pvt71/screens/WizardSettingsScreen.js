@@ -1,6 +1,6 @@
 import React from "react";
 import AppSingleButton from "../components/AppSingleButton";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Picker } from "react-native";
 import TimePicker from "react-native-simple-time-picker"
 import { AsyncStorage } from "react-native";
 import moment from "moment";
@@ -11,7 +11,11 @@ export default class WizardVerifyContactScreen extends React.Component {
     SelectedMinutes: 0,
     warningHours: 0,
     warningMinutes: 30,
-  };
+  }  
+  updateMinutes = (minutes) =>{
+    this.setState({selectedMinutes: minutes})
+  }
+  ;
   
   render() {
     const { selectedHours, selectedMinutes, warningHours, warningMinutes } = this.state;
@@ -40,23 +44,20 @@ export default class WizardVerifyContactScreen extends React.Component {
           />
         </View>
         <Text style={styles.infoText}>
-            Här kan du ändra när varningsljudet ska börja
+            Här kan du ändra hur många minuter innan timern gått ner till 0 som du vil verifiera ditt välmående
         </Text>
         <View style={styles.boxContainerMid3}>
-            <Text style={styles.picker}>timmar</Text>
             <Text style={styles.picker}>Minuter</Text>
         </View>
         <View style={styles.boxContainerMid4}>
-            <TimePicker
-              warningHours={warningHours}
-              warningMinutes={warningMinutes}
-              onChange={(hours, minutes) =>
-                this.setState({
-                  warningHours: hours,
-                  warningMinutes: minutes
-                })
-              }
-            />
+        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.selectedMinutes} onValueChange={this.updateMinutes}>
+            <Picker.Item label="10" value={10} ></Picker.Item>  
+            <Picker.Item label="20" value={20} ></Picker.Item>
+            <Picker.Item label="30" value={30} ></Picker.Item>  
+            <Picker.Item label="40" value={40} ></Picker.Item>
+            <Picker.Item label="50" value={50} ></Picker.Item>  
+            <Picker.Item label="60" value={60} ></Picker.Item>
+          </Picker> 
         </View>
         <View style={styles.boxContainerBottom}>
           <View style={styles.bottom}>
@@ -137,10 +138,10 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   picker: {
-    flex: 2,
+    flex: 1,
     fontSize: 25,
     fontWeight: "bold",
-    textAlign: "center",
+    paddingLeft: 10,
     bottom: 0
   },
   bottom: {
