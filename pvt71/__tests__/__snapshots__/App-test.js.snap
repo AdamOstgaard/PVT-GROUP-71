@@ -19,6 +19,31 @@ exports[`App snapshot renders the root without loading screen 1`] = `
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "fontSize": 35,
+          "justifyContent": "flex-start",
+          "left": 10,
+          "marginTop": 50,
+        }
+      }
+    >
+      Välkommen!
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "paddingBottom": "60%",
+          "paddingLeft": 10,
+          "paddingTop": "5%",
+        }
+      }
+    >
+      
+      Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
+    </Text>
     <View
       enabled={false}
       hitSlop={

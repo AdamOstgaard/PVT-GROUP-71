@@ -1,6 +1,6 @@
 import React from "react";
 import AppSingleButton from "../components/AppSingleButton";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Picker, ScrollView } from "react-native";
 import TimePicker from "react-native-simple-time-picker"
 import { AsyncStorage } from "react-native";
 import moment from "moment";
@@ -14,23 +14,29 @@ export default class WizardVerifyContactScreen extends React.Component {
     SelectedMinutes: 0,
     warningHours: 1,
     warningMinutes: 30,
-  };
-  
+  }
+  updateMinutes = (minutes) =>{
+    this.setState({selectedMinutes: minutes})
+  }
+  ;
+
   render() {
     const { selectedHours, selectedMinutes, warningHours, warningMinutes } = this.state;
     return (
       <View style={styles.container}>
+      <ScrollView>
         <View style={styles.boxContainerTop}>
           <Text style={styles.heading}>Timerinställningar</Text>
-          <Text style={styles.infoText}>
-            Här kan du ändra hur ofta du vill verifiera ditt välmående
-          </Text>
         </View>
-        <View style={styles.boxContainerMid1}>
+
+        <Text style={styles.infoText}>
+            Här kan du ändra hur ofta du vill verifiera ditt välmående
+        </Text>
+        <View style={styles.timerInfo}>
           <Text style={styles.picker}>Timmar</Text>
           <Text style={styles.picker}>Minuter</Text>
         </View>
-        <View style={styles.boxContainerMid2}>
+        <View style={styles.boxContainer}>
           <TimePicker
             selectedHours={selectedHours}
             selectedMinutes={selectedMinutes}
@@ -43,25 +49,23 @@ export default class WizardVerifyContactScreen extends React.Component {
           />
         </View>
         <Text style={styles.infoText}>
-            Här kan du ändra när varningsljudet ska börja
+            Här kan du ändra hur många minuter mellan att du får en varning tills att din kontaktperson kontaktas. 
         </Text>
-        <View style={styles.boxContainerMid3}>
-            <Text style={styles.picker}>Timmar</Text>
+        <View style={styles.warningInfo}>
             <Text style={styles.picker}>Minuter</Text>
         </View>
-        <View style={styles.boxContainerMid4}>
-            <TimePicker
-              warningHours={warningHours}
-              warningMinutes={warningMinutes}
-              onChange={(hours, minutes) =>
-                this.setState({
-                  warningHours: hours,
-                  warningMinutes: minutes
-                })
-              }
-            />
-        </View>
         <View style={styles.boxContainerBottom}>
+        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.selectedMinutes} onValueChange={this.updateMinutes}>
+            <Picker.Item label="10" value={10} ></Picker.Item>
+            <Picker.Item label="20" value={20} ></Picker.Item>
+            <Picker.Item label="30" value={30} ></Picker.Item>
+            <Picker.Item label="40" value={40} ></Picker.Item>
+            <Picker.Item label="50" value={50} ></Picker.Item>
+            <Picker.Item label="60" value={60} ></Picker.Item>
+          </Picker>
+        </View>
+        </ScrollView>
+        <View style={styles.boxContainer}>
           <View style={styles.bottom}>
             <AppSingleButton
               title="Nästa"
@@ -83,7 +87,7 @@ export default class WizardVerifyContactScreen extends React.Component {
       </View>
     );
   }
-  
+
   toMilliseconds = (h, m) =>
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
@@ -103,53 +107,43 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "flex-start"
+    justifyContent: 'space-between',
   },
-  boxContainerTop: {
-    flex: 2
-  },
-  boxContainerMid1: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "flex-end"
-  },
-  boxContainerMid2: {
-    flex: 1
-  },
-  boxContainerMid3: {
-    flex: 1, 
-    flexDirection: "row",
-    alignItems: "flex-end"
-  },
-  boxContainerMid4: {
-    flex: 1
-  },
+  boxContainer: {},
   boxContainerBottom: {
-    flex: 1
+    paddingBottom: 60,
+  },
+  timerInfo: {
+    flexDirection: "row",
+    alignItems: "flex-end"
+  },
+  warningInfo: {
+    flexDirection: "row",
+    alignItems: "flex-end"
   },
   heading: {
-    fontSize: 35,
-    flex: 1,
+    fontSize: 30,
     left: 10,
     marginTop: 50
   },
   infoText: {
-    flex: 1,
     fontSize: 20,
     paddingLeft: 10,
-    paddingRight: 20
+    paddingRight: 20,
+    marginBottom: 10
   },
   picker: {
-    flex: 2,
+    flex: 1,
     fontSize: 25,
     fontWeight: "bold",
-    textAlign: "center",
+    paddingLeft: 10,
     bottom: 0
   },
   bottom: {
     position: "absolute",
-    width: "100%",
     bottom: 0,
     flex: 1,
+    width: "100%",
+    justifyContent: "flex-end"
   }
 });
