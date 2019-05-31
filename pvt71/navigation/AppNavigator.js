@@ -3,6 +3,7 @@ import HomeScreen from "../screens/HomeScreen";
 import WizardWelcomeScreen from "../screens/WizardWelcomeScreen";
 import WizardVerifyContactScreen from "../screens/WizardVerifyContactScreen";
 import WizardSettingsScreen from "../screens/WizardSettingsScreen";
+import WarningSettingScreen from "../screens/WarningSettingScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import TimerSettingsScreen from "../screens/TimerSettingsScreen";
 import HelpScreen from "../screens/HelpScreen";
@@ -13,6 +14,7 @@ export default createAppContainer(
     WizardVerifyContactScreen: { screen: WizardVerifyContactScreen },
     WizardSettingsScreen: { screen: WizardSettingsScreen },
     SettingsScreen: { screen: SettingsScreen },
+    WarningSettingScreen: { screen: WarningSettingScreen},
     TimerSettingsScreen: {screen: TimerSettingsScreen},
     HomeScreen: { screen: HomeScreen },
     HelpScreen: { screen: HelpScreen}
