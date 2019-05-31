@@ -18,12 +18,10 @@ var smsSender = (function () {
         try {
             var pos = await position();
             let params = projectionParams('sweref991800');
-            let geo = geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).x;
+            let geo = geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params);
             link = "http://openmap.stockholm.se/bios/dpwebmap/cust_sth/sbk/openmap/DPWebMap.html?zoom=9&lat=" + geo.x + "&lon=" + geo.y + "&layers=TTT00000000B00000T";
-            //link = "http://openmap.stockholm.se/bios/dpwebmap/cust_sth/sbk/openmap/DPWebMap.html?zoom=9&lat=" + geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).x + "&lon=" + geodeticToGrid(pos.coords.latitude, pos.coords.longitude, params).y + "&layers=TTT00000000B00000T";
         } catch (e) {
             link = "";
-            //console.log(e);
         }
         return link;
     };
