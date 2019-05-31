@@ -8,9 +8,11 @@ import HomeScreen from "../screens/HomeScreen";
 import WizardWelcomeScreen from "../screens/WizardWelcomeScreen";
 import WizardVerifyContactScreen from "../screens/WizardVerifyContactScreen";
 import WizardSettingsScreen from "../screens/WizardSettingsScreen";
+import WarningSettingScreen from "../screens/WarningSettingScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 import TimerSettingsScreen from "../screens/TimerSettingsScreen";
 import HelpScreen from "../screens/HelpScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+
 
 const AppStack = createStackNavigator({
   HomeScreen: HomeScreen,
@@ -24,7 +26,8 @@ const WizardStack = createStackNavigator({
   SleepTimeSettingsScreen: SleepTimeSettingsScreen,
   TimerSettingsScreen: TimerSettingsScreen,
   HelpScreen: HelpScreen,
-  SettingsScreen: SettingsScreen
+  SettingsScreen: SettingsScreen,
+  WarningSettingScreen: WarningSettingScreen
 });
 
 export default createAppContainer(
@@ -38,3 +41,4 @@ export default createAppContainer(
     }
   )
 );
+

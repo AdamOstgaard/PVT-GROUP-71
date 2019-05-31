@@ -30,8 +30,8 @@ export default class SettingsScreen extends React.Component {
           style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera varningsintervall"
-            onPress={() =>
-              this.props.navigation.navigate("HomeScreen",{})}
+            onPress={() => 
+              this.props.navigation.navigate("WarningSettingScreen",{})}
           ></AppSingleButton>
 
           <AppSingleButton

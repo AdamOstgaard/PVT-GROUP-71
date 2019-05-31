@@ -93,7 +93,7 @@ export class Timer extends React.Component {
           {this.formatTime(this.state.time)}
         </Text>
         <Text style={{ fontSize: 12, borderWidth: 0, display: "flex" }}>
-          Press to reset
+          Tryck för att starta om
         </Text>
       </View>
     );

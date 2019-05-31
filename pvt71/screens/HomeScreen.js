@@ -3,8 +3,8 @@ import { StyleSheet, View, Alert, Text, AsyncStorage } from "react-native";
 import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
-import { playSound } from "../SoundPlayer";
 import AppSingleButton from "../components/AppSingleButton";
+import { playSound } from "../SoundPlayer";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { smsSender } from '../utils/SmsSender';
 import { getDurationSettings, getSleepTimeSettings } from '../utils/Settings'
@@ -73,7 +73,6 @@ export default class HomeScreen extends React.Component {
     } else {
       pauseText = "VILOLÄGET ÄR AV";
     }
-
     return (
       <View style={styles.container}>
         <View style={styles.topContainer}>
