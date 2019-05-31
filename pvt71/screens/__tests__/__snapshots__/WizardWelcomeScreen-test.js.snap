@@ -22,7 +22,6 @@ ShallowWrapper {
         <Component
           style={
             Object {
-              "flex": 1,
               "fontSize": 35,
               "justifyContent": "flex-start",
               "left": 10,
@@ -36,12 +35,13 @@ ShallowWrapper {
           style={
             Object {
               "fontSize": 20,
-              "marginBottom": 50,
+              "paddingBottom": "60%",
               "paddingLeft": 10,
+              "paddingTop": "5%",
             }
           }
         >
-           
+          
           Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
         </Component>,
         <Component
@@ -72,7 +72,6 @@ ShallowWrapper {
         "props": Object {
           "children": "Välkommen!",
           "style": Object {
-            "flex": 1,
             "fontSize": 35,
             "justifyContent": "flex-start",
             "left": 10,
@@ -89,18 +88,19 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            " ",
+            "",
             "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           ],
           "style": Object {
             "fontSize": 20,
-            "marginBottom": 50,
+            "paddingBottom": "60%",
             "paddingLeft": 10,
+            "paddingTop": "5%",
           },
         },
         "ref": null,
         "rendered": Array [
-          " ",
+          "",
           "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
         ],
         "type": [Function],
@@ -147,7 +147,6 @@ ShallowWrapper {
           <Component
             style={
               Object {
-                "flex": 1,
                 "fontSize": 35,
                 "justifyContent": "flex-start",
                 "left": 10,
@@ -161,12 +160,13 @@ ShallowWrapper {
             style={
               Object {
                 "fontSize": 20,
-                "marginBottom": 50,
+                "paddingBottom": "60%",
                 "paddingLeft": 10,
+                "paddingTop": "5%",
               }
             }
           >
-             
+            
             Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
           </Component>,
           <Component
@@ -197,7 +197,6 @@ ShallowWrapper {
           "props": Object {
             "children": "Välkommen!",
             "style": Object {
-              "flex": 1,
               "fontSize": 35,
               "justifyContent": "flex-start",
               "left": 10,
@@ -214,18 +213,19 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              " ",
+              "",
               "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
             ],
             "style": Object {
               "fontSize": 20,
-              "marginBottom": 50,
+              "paddingBottom": "60%",
               "paddingLeft": 10,
+              "paddingTop": "5%",
             },
           },
           "ref": null,
           "rendered": Array [
-            " ",
+            "",
             "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
           ],
           "type": [Function],
