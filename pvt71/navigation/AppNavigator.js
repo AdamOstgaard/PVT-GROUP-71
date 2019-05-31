@@ -5,6 +5,8 @@ import WizardVerifyContactScreen from "../screens/WizardVerifyContactScreen";
 import WizardSettingsScreen from "../screens/WizardSettingsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import WarningSettingScreen from "../screens/WarningSettingScreen";
+import TimerSettingsScreen from "../screens/TimerSettingsScreen";
+import HelpScreen from "../screens/HelpScreen";
 
 export default createAppContainer(
   createSwitchNavigator({
@@ -13,6 +15,8 @@ export default createAppContainer(
     WizardSettingsScreen: { screen: WizardSettingsScreen },
     SettingsScreen: { screen: SettingsScreen },
     WarningSettingScreen: {screen: WarningSettingScreen},
-    HomeScreen: { screen: HomeScreen }
+    TimerSettingsScreen: {screen: TimerSettingsScreen},
+    HomeScreen: { screen: HomeScreen },
+    HelpScreen: { screen: HelpScreen}
   })
 );

@@ -8,14 +8,22 @@ export class Timer extends React.Component {
     super(props);
     this.state = {
       timerRunning: false,
-      time: this.props.startTime
+      time: this.props.startTime,
+      warningTime: this.props.warningTime,
+      warningStarted: false
     };
   }
   componentDidMount() {
     this.startTimer(this.state.time);
   }
 
-  componentDidUpdate(prevProps, PrevState) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.startTime !== this.props.startTime) {
+      this.setState({ time: this.props.startTime });
+    }
+    if (prevProps.warningTime !== this.props.warningTime) {
+      this.setState({ warningTime: this.props.warningTime});
+    }
     if (this.props.paused !== prevProps.paused && this.props.paused) {
       this.pauseTimer();
     }
@@ -27,6 +35,7 @@ export class Timer extends React.Component {
         <Text
           {...this.props}
           onPress={() => {
+            if (this.props.onPress) this.props.onPress();
             this.props.onReset(false);
             this.resetTimer();
           }}
@@ -44,6 +53,7 @@ export class Timer extends React.Component {
   resetTimer() {
     this.stopTimer();
     this.startTimer(this.props.startTime);
+    this.setState({warningStarted: false});
   }
 
   startTimer(time) {
@@ -60,6 +70,11 @@ export class Timer extends React.Component {
     this.setState({
       time: this.state.time - interval
     });
+
+    if (this.state.time < this.state.warningTime && this.props.warningCallback && this.state.warningStarted === false) {
+      this.setState({ warningStarted: true});
+      this.props.warningCallback(() => this.resetTimer());
+    }
 
     if (this.state.time > 0) {
       return;
