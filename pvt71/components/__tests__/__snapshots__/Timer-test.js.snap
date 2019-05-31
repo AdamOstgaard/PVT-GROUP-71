@@ -37,7 +37,7 @@ exports[`Timer Test Timer Snapshot Renders correctly 1`] = `
       }
     }
   >
-    Press to reset
+    Tryck för att starta om
   </Text>
 </View>
 `;

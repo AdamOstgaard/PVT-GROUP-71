@@ -44,6 +44,7 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
           "backgroundColor": "#0d6f73",
           "height": 60,
           "opacity": 1,
+          "textAlign": "right",
           "width": "100%",
         }
       }
@@ -55,7 +56,6 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
             "fontSize": 30,
             "paddingRight": 10,
             "paddingTop": 8,
-            "textAlign": "right",
           }
         }
       >

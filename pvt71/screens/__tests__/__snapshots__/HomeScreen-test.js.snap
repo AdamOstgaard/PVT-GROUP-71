@@ -10,6 +10,48 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
     }
   }
 >
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingTop": "10%",
+        "textAlign": "left",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#0d6f73",
+          "height": 60,
+          "opacity": 1,
+          "textAlign": "right",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+            "paddingRight": 10,
+            "paddingTop": 8,
+          }
+        }
+      >
+        Inställningar
+      </Text>
+    </View>
+  </View>
   <Text
     style={
       Object {
@@ -69,7 +111,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
           }
         }
       >
-        Press to reset
+        Tryck för att starta om
       </Text>
     </View>
   </View>
