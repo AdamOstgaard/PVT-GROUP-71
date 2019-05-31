@@ -34,7 +34,8 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
           "backgroundColor": "#0d6f73",
           "height": 60,
           "opacity": 1,
-          "paddingTop": "10%",
+          "paddingLeft": 10,
+          "textAlign": "left",
           "width": "100%",
         }
       }
@@ -75,7 +76,8 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
             "backgroundColor": "#0d6f73",
             "height": 60,
             "opacity": 1,
-            "paddingTop": "10%",
+            "paddingLeft": 10,
+            "textAlign": "left",
             "width": "100%",
           }
         }
@@ -136,6 +138,7 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
         onReset={[Function]}
         onTimerSleep={[Function]}
         paused={false}
+        sleepTime={null}
         startTime={3600000}
         style={
           Object {
