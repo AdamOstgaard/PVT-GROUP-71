@@ -18,9 +18,9 @@ export default class WizardWelcomeScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.heading}>Välkommen!</Text>
         <Text style={styles.infoText}>
-          {" "}
+          {""}
           Innan du kan börja använda applikationen behöver du sätta några grundläggande
-          inställningar som nödkontakt, timerintervall och varningstimerintervall. 
+          inställningar som nödkontakt, timerintervall och varningstimerintervall.
         </Text>
         <View style={styles.bottom}>
           <AppSingleButton
@@ -41,15 +41,16 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 35,
-    flex: 1,
+    //flex: 1,
     justifyContent: "flex-start",
     left: 10,
     marginTop: 50
   },
   infoText: {
     fontSize: 20,
-    marginBottom: 50,
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingTop: "5%",
+    paddingBottom: "60%",
   },
   bottom: {
     flex: 1,
