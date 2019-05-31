@@ -19,17 +19,18 @@ export default class TimerSettingsScreen extends React.Component {
     const { selectedHours, selectedMinutes } = this.state;
     return (
       <View style={styles.container}>
-        <View style={styles.boxContainerTop}>
+        <View style={styles.boxContainer}>
           <Text style={styles.header}>Timerinställningar</Text>
           <Text style={styles.infoText}>
             Här kan du ändra hur ofta du vill verifiera ditt välmående
           </Text>
         </View>
-        <View style={styles.boxContainerMid1}>
+        <View style={styles.boxContainerPicker}>
+        <View style={styles.boxContainerRow}>
           <Text style={styles.picker}>Timmar</Text>
           <Text style={styles.picker}>Minuter</Text>
         </View>
-        <View style={styles.boxContainerMid2}>
+
           <TimePicker
             selectedHours={selectedHours}
             selectedMinutes={selectedMinutes}
@@ -85,42 +86,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "flex-start"
+    justifyContent: 'space-between',
   },
-  boxContainerTop: {
-    flex: 2
-  },
-  boxContainerMid1: {
-    flex: 3,
+  boxContainer: {},
+  boxContainerRow: {
     flexDirection: "row",
-    alignItems: "flex-end"
+    alignItems: "flex-start",
   },
-  boxContainerMid2: {
-    flex: 3
-  },
-  boxContainerBottom: {
-    flex: 2
-  },
-
-  header: {
-    fontSize: 35,
+  boxContainerPicker: {
+    alignItems: "flex-end",
+    //marginBottom: "0%",
     flex: 1,
+  },
+  header: {
+    fontSize: 30,
     left: 10,
     marginTop: "10%",
     marginBottom: "0%"
   },
   infoText: {
-    flex: 1,
     fontSize: 20,
     marginTop: "0%",
     paddingLeft: 10,
-    paddingRight: 20
+    paddingRight: 20,
+    paddingBottom: "20%"
   },
   picker: {
-    flex: 2,
+    flex: 1,
     fontSize: 25,
     fontWeight: "bold",
-    textAlign: "center",
+    paddingLeft: 10,
+    textAlign: "left",
     bottom: 0
   },
   bottom: {
@@ -145,37 +141,4 @@ const styles = StyleSheet.create({
   rightText: {
     textAlign: "right"
   }
-
-  /*
-  heading: {
-    fontSize: 35,
-    flex: 1,
-    left: 10,
-    marginTop: "10%",
-    marginBottom: "0%"
-  },
-  infoText: {
-    flex: 1,
-    fontSize: 20,
-    marginTop: '0%',
-    marginBottom: '0%',
-    paddingLeft: 10,
-    paddingRight: 20
-  },
-  picker: {
-    flex: 1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: '0%',
-    marginBottom: '0%',
-    
-  
-  },
-  bottom: {
-    position: 'absolute',
-    bottom: 0,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: "flex-end"
-  } */
 });
