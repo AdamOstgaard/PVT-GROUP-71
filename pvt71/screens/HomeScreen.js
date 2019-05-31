@@ -165,11 +165,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     paddingLeft: 10,
   },
-  topContainer: {
-    paddingTop: "10%",
-    alignItems: "center",
-    textAlign: "left",
-  },
   timerContainer: {
     alignItems: "center",
     flex:6

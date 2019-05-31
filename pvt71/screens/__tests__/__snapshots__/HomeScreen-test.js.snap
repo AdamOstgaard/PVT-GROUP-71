@@ -15,7 +15,7 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "paddingTop": "10%",
+        "flex": 3,
         "textAlign": "left",
       }
     }
