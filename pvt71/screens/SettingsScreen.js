@@ -42,22 +42,7 @@ export default class SettingsScreen extends React.Component {
               this.props.navigation.navigate("HomeScreen",{})}
           ></AppSingleButton>
           <Text style ={styles.category}>Kontaktpersoner</Text>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
-          textStyle ={styles.text}
-          title="Lägg till kontaktperson"
-            onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
-          
-          <AppSingleButton 
-          style={styles.linkButton}
-          textStyle ={styles.text} 
-          title="Ta bort kontaktperson"
-            onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
+
           
           <AppSingleButton 
           style={styles.linkButton} 
