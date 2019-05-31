@@ -13,7 +13,7 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 2,
+        "flex": 1,
       }
     }
   >
@@ -29,24 +29,25 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
     >
       Timerinställningar
     </Text>
-    <Text
-      style={
-        Object {
-          "flex": 1,
-          "fontSize": 20,
-          "paddingLeft": 10,
-          "paddingRight": 20,
-        }
-      }
-    >
-      Här kan du ändra hur ofta du vill verifiera ditt välmående
-    </Text>
   </View>
+  <Text
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 20,
+        "marginBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 20,
+      }
+    }
+  >
+    Här kan du ändra hur ofta du vill verifiera ditt välmående
+  </Text>
   <View
     style={
       Object {
         "alignItems": "flex-end",
-        "flex": 1,
+        "flex": 2,
         "flexDirection": "row",
       }
     }
@@ -581,12 +582,13 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
       Object {
         "flex": 1,
         "fontSize": 20,
+        "marginBottom": 10,
         "paddingLeft": 10,
         "paddingRight": 20,
       }
     }
   >
-    Här kan du ändra hur många minuter innan timern gått ner till 0 som du vil verifiera ditt välmående
+    Här kan du ändra hur många minuter innan timern gått ner till 0 som du vill verifiera ditt välmående
   </Text>
   <View
     style={
