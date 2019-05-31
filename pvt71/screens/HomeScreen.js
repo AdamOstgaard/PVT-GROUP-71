@@ -29,7 +29,7 @@ export default class HomeScreen extends React.Component {
         <View style ={styles.topContainer}>
           <AppSingleButton style={styles.topButton} title="Inställningar"
             onPress={() => 
-              this.props.navigation.navigate("SettingsSettingScreen",{})}
+              this.props.navigation.navigate("SettingsScreen",{})}
           >
           </AppSingleButton>
         </View>
