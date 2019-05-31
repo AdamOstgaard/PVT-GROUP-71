@@ -38,51 +38,45 @@ export class Timer extends React.Component {
       return;
     }
 
-    if (prevProps.sleepTime !== this.props.sleepTime) {
-      this.setState({ sleepWillStop: false });
+    let endTime = this.props.sleepTime.end;
+
+    if (endTime <= this.props.sleepTime.start) {
+      endTime += this.toMilliseconds(24, 0);
+      console.log(endTime)
     }
 
-    if (
-      currentTimeInMilliseconds >= this.props.sleepTime.start &&
-      currentTimeInMilliseconds <= this.props.sleepTime.end
-    ) {
-      if (
-        !this.state.sleeping &&
-        this.props.sleepTime.start !== null &&
-        !this.state.sleepWillStop
-      ) {
-        //console.log("sleeping2: " + this.state.sleepTime.end);
-        this.setState({ sleeping: true }, () => {
-          this.pauseTimer();
-          this.startTimer(
-            this.props.sleepTime.end - this.props.sleepTime.start
-          );
-          this.props.onTimerSleep(true);
-        });
-      }
-    } else if (
-      currentTimeInMilliseconds >= this.props.sleepTime.start &&
-      currentTimeInMilliseconds >= this.props.sleepTime.end
-    ) {
-      if (
-        !this.state.sleeping &&
-        !this.state.sleepWillStop
-      ) {
-        //console.log("sleeping2: " + this.state.sleepTime.end);
-        this.setState({ sleeping: true }, () => {
-          this.pauseTimer();
-          this.startTimer(
-            this.toMilliseconds(24, 0) - this.props.sleepTime.start + this.props.sleepTime.end
-          );
-          this.props.onTimerSleep(true);
-        });
-      }
+    if (prevProps.sleepTime !== this.props.sleepTime) {
+      this.setState({ sleepWillStop: false });
+      this.setState({ sleeping: false, time: this.props.startTime })
+      return;
+    }
+
+    const shouldSleep = this.props.sleepTime.end <= this.props.sleepTime.start
+      ? (currentTimeInMilliseconds >= this.props.sleepTime.start
+        || currentTimeInMilliseconds <= this.props.sleepTime.end) && !this.state.sleeping
+      : currentTimeInMilliseconds >= this.props.sleepTime.start &&
+      currentTimeInMilliseconds <= this.props.sleepTime.end && !this.state.sleeping;
+
+
+    if (shouldSleep) {
+      this.setState({
+        sleeping: true
+      });
+
+      console.log( 2 * this.props.sleepTime.start - currentTimeInMilliseconds)
+
+      let sleepDuration = endTime - this.props.sleepTime.start - (this.props.sleepTime.start - currentTimeInMilliseconds);
+
+      this.pauseTimer();
+      this.startTimer(sleepDuration);
+      this.props.onTimerSleep(true);
     }
   }
 
-  toMilliseconds = (h, m) =>
+  toMilliseconds = (h, m, s) =>
     moment.duration(h, "h").asMilliseconds() +
-    moment.duration(m, "m").asMilliseconds();
+    moment.duration(m || 0, "m").asMilliseconds() +
+    moment.duration(s || 0, "s").asMilliseconds();
 
   render() {
     return (
