@@ -4,6 +4,10 @@ import AppSingleButton from "../components/AppSingleButton";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default class SettingsScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <View style = {styles.container}>
