@@ -136,11 +136,6 @@ export class Timer extends React.Component {
     }
 
     if (this.state.sleeping) {
-      this.setState({ sleeping: false, stopsleep: true });
-      this.stopTimer();
-      this.startTimer(this.props.startTime);
-      this.props.onTimerSleep(false);
-      //console.log("vilan är över");
       return;
     }
 
