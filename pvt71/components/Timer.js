@@ -46,30 +46,36 @@ export class Timer extends React.Component {
     }
 
     if (prevProps.sleepTime !== this.props.sleepTime) {
-      this.setState({ sleepWillStop: false });
-      this.setState({ sleeping: false, time: this.props.startTime })
       return;
     }
 
     const shouldSleep = this.props.sleepTime.end <= this.props.sleepTime.start
-      ? (currentTimeInMilliseconds >= this.props.sleepTime.start
-        || currentTimeInMilliseconds <= this.props.sleepTime.end) && !this.state.sleeping
+      ? currentTimeInMilliseconds >= this.props.sleepTime.start
+      || currentTimeInMilliseconds <= this.props.sleepTime.end
       : currentTimeInMilliseconds >= this.props.sleepTime.start &&
-      currentTimeInMilliseconds <= this.props.sleepTime.end && !this.state.sleeping;
+      currentTimeInMilliseconds <= this.props.sleepTime.end;
 
 
-    if (shouldSleep) {
+    if (shouldSleep && !this.state.sleeping) {
       this.setState({
         sleeping: true
       });
 
-      console.log( 2 * this.props.sleepTime.start - currentTimeInMilliseconds)
+      console.log(2 * this.props.sleepTime.start - currentTimeInMilliseconds)
 
       let sleepDuration = endTime - this.props.sleepTime.start - (this.props.sleepTime.start - currentTimeInMilliseconds);
 
       this.pauseTimer();
       this.startTimer(sleepDuration);
       this.props.onTimerSleep(true);
+    } else {
+      if (shouldSleep !== this.state.sleeping) {
+        this.setState({ sleeping: false })
+        this.pauseTimer();
+        this.startTimer(this.props.startTime);
+        this.props.onTimerSleep(false);
+      }
+
     }
   }
 
