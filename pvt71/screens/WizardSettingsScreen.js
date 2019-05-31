@@ -9,7 +9,7 @@ export default class WizardVerifyContactScreen extends React.Component {
   state = {
     selectedHours: 5,
     SelectedMinutes: 0,
-    warningHours: 0,
+    warningHours: 1,
     warningMinutes: 30,
   }  
   updateMinutes = (minutes) =>{
@@ -70,7 +70,7 @@ export default class WizardVerifyContactScreen extends React.Component {
                 );
                 const warning = this.toMilliseconds(
                   this.state.warningHours,
-                  this.state.warningsMinutes
+                  this.state.warningMinutes
                 );
                 this.saveSettings(duration, warning);
                 this.props.navigation.navigate("HomeScreen", { duration, warning });
