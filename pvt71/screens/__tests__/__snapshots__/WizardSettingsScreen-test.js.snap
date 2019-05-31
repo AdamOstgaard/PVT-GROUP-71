@@ -608,7 +608,7 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
         }
       }
     >
-      timmar
+      Timmar
     </Text>
     <Text
       style={

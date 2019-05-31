@@ -143,6 +143,8 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
             "fontSize": 64,
           }
         }
+        warningCallback={[Function]}
+        warningTime={1800000}
       >
         1:00:00
       </Text>

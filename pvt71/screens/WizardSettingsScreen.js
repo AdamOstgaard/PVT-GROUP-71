@@ -12,7 +12,7 @@ export default class WizardVerifyContactScreen extends React.Component {
   state = {
     selectedHours: 5,
     SelectedMinutes: 0,
-    warningHours: 0,
+    warningHours: 1,
     warningMinutes: 30,
   };
   
@@ -46,7 +46,7 @@ export default class WizardVerifyContactScreen extends React.Component {
             Här kan du ändra när varningsljudet ska börja
         </Text>
         <View style={styles.boxContainerMid3}>
-            <Text style={styles.picker}>timmar</Text>
+            <Text style={styles.picker}>Timmar</Text>
             <Text style={styles.picker}>Minuter</Text>
         </View>
         <View style={styles.boxContainerMid4}>
@@ -72,7 +72,7 @@ export default class WizardVerifyContactScreen extends React.Component {
                 );
                 const warning = this.toMilliseconds(
                   this.state.warningHours,
-                  this.state.warningsMinutes
+                  this.state.warningMinutes
                 );
                 this.saveSettings(duration, warning);
                 this.props.navigation.navigate("HomeScreen", { duration, warning });

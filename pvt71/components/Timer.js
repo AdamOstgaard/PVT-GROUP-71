@@ -16,7 +16,9 @@ export class Timer extends React.Component {
         end: null
       },
       sleeping: false,
-      stopsleep: false
+      stopsleep: false,
+      warningTime: this.props.warningTime,
+      warningStarted: false
     };
   }
 
@@ -126,6 +128,7 @@ export class Timer extends React.Component {
     this.props.onReset(false);
     this.stopTimer();
     this.startTimer(this.props.startTime);
+    this.setState({warningStarted: false});
   }
 
   startTimer(time) {
@@ -144,8 +147,10 @@ export class Timer extends React.Component {
       counter: this.state.counter + 1
     });
 
-    if (this.state.counter === 60) {
-      this.setState({ counter: 0 });
+
+    if (this.state.time < this.state.warningTime && this.props.warningCallback && this.state.warningStarted === false) {
+      this.setState({ warningStarted: true});
+      this.props.warningCallback(() => this.resetTimer());
     }
 
     if (this.state.time > 0) {

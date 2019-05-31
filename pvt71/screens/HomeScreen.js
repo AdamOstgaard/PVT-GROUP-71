@@ -17,6 +17,8 @@ export default class HomeScreen extends React.Component {
       timerPaused: false,
       focused: false,
       duration: moment.duration(1, "h").asMilliseconds(),
+      warningTime: moment.duration(30, "m").asMilliseconds(),
+      timerPaused: false
     };
    this.toggleSleepMode = this.toggleSleepMode.bind(this);
   }
@@ -109,6 +111,11 @@ export default class HomeScreen extends React.Component {
             paused={this.state.timerPaused}
             style={styles.timer}
             startTime={this.state.duration}
+            warningTime={this.state.warningTime}
+            warningCallback={warning => {
+              playSound();
+              showWarningAlert(warning);
+            }}
             callback={restart => {
               playSound();
               showRestartAlert(restart);
@@ -129,13 +136,29 @@ export default class HomeScreen extends React.Component {
   async getSettings() {
     try {
       const duration = await AsyncStorage.getItem("time") || moment.duration(1, "h").asMilliseconds();
+      const warning = await AsyncStorage.getItem("warning") || moment.duration(1, "h").asMilliseconds();
       const d = JSON.parse(duration);
-      this.setState({ duration: d });
+      const w = JSON.parse(warning);
+      this.setState({ duration: d, warningTime: w});
     } catch (error) {}
   }
 }
 
-
+const showWarningAlert = warning => {
+  Alert.alert(
+    "Timer",
+    "Are you ok?",
+    [
+      { text: "Yes, I'm Ok", onPress: () => warning() },
+      {
+        text: "No, I need help!",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      }
+    ],
+    { cancelable: false }
+  );
+};
 const showRestartAlert = restart => {
   Alert.alert(
     "Timer",
