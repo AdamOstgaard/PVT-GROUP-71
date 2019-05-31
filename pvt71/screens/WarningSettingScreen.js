@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Picker } from "react-native";
 //import BottomLeftButton from "../components/BottomLeftButton";
 //import BottomRightButton from "../components/BottomRightButton";
 import AppSingleButton from "../components/AppSingleButton";
-import TimePicker from "react-native-simple-time-picker";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
 
@@ -74,7 +73,7 @@ export default class WarningSettingScreen extends React.Component {
 
   async saveSettings(time) {
     try {
-      await AsyncStorage.setItem("time", JSON.stringify(time));
+      await AsyncStorage.setItem("warning", JSON.stringify(time));
     } catch (error) {
       // Error saving data
     }
