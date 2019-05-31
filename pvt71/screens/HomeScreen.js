@@ -4,6 +4,10 @@ import { Timer } from "../components/Timer";
 import TimerSleepButton from "../components/TimerSleepButton";
 import moment from "moment";
 import { playSound } from "../SoundPlayer";
+import AppSingleButton from "../components/AppSingleButton";
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { smsSender } from '../utils/SmsSender';
+
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -43,8 +47,32 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.sleepOnText}>{pauseText}</Text>
+        <View style ={styles.topContainer}>
+
+        <AppSingleButton
+          style={styles.topButton}
+          textStyle={styles.topTextStyle}
+          title="Hjälp"
+            onPress={() =>
+              this.props.navigation.navigate("HelpScreen",{})}
+          >
+          </AppSingleButton>
+
+          <View style ={styles.topButton1}>
+          <AppSingleButton
+          style={styles.topButton}
+          textStyle={styles.topTextStyle}
+          title="Inställningar"
+            onPress={() =>
+              this.props.navigation.navigate("SettingsScreen",{})}
+          >
+          </AppSingleButton>
+          </View>
+
+        </View>
+
         <View style={styles.timerContainer}>
+        <Text style={styles.sleepOnText}>{pauseText}</Text>
           <Timer
             onReset={reset => {
               this.setState({ timerPaused: reset });
@@ -62,13 +90,14 @@ export default class HomeScreen extends React.Component {
               showRestartAlert(restart);
             }}
           />
-        </View>
-        <View style={styles.sleepButtonContainer}>
+          <View style={styles.sleepButtonContainer}>
           <TimerSleepButton
             onResume={this.state.timerPaused}
             onToggle={enabled => this.setState({ timerPaused: enabled })}
           />
         </View>
+        </View>
+
       </View>
     );
   }
@@ -107,7 +136,7 @@ const showRestartAlert = restart => {
       { text: "Yes, I'm Ok", onPress: () => restart() },
       {
         text: "No, I need help!",
-        onPress: () => console.log("Cancel Pressed"),
+        onPress: () => smsSender.contactEmergencyContact(),
         style: "cancel"
       }
     ],
@@ -117,20 +146,40 @@ const showRestartAlert = restart => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: getStatusBarHeight(),
     flexDirection: "column",
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+
+  },
+  topContainer: {
+    alignItems: "center",
+    textAlign: "left",
+    flex: 3,
+  },
+  topButton1: {
+    paddingTop: 1,
+    width:"100%",
+  },
+  topButton: {
+    width:"100%",
+    textAlign: "left",
+    paddingLeft: 10,
   },
   timerContainer: {
-    paddingTop: "10%",
-    alignItems: "center"
+    alignItems: "center",
+    flex:6
   },
   sleepButtonContainer: {
-    left: 240
+    alignItems:"flex-end"
+    //left: 240
   },
   sleepOnText: {
-    marginTop: "30%",
+    //marginTop: "30%",
     alignSelf: "center",
     fontSize: 18
+  },
+  topTextStyle: {
+    textAlign: 'left',
   }
 });

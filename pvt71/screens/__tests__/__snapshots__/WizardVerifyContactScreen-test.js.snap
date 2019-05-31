@@ -6,61 +6,55 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
     Object {
       "backgroundColor": "#fff",
       "flex": 1,
+      "marginTop": 20,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
     }
   }
 >
-  <Text
+  <View
     style={
       Object {
-        "flex": 1,
-        "fontSize": 35,
-        "justifyContent": "flex-start",
-        "left": 10,
-        "marginTop": 50,
+        "alignItems": "flex-start",
+        "marginBottom": 10,
       }
     }
   >
-    Sätt nödkontakt
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 20,
-        "marginBottom": 50,
-        "paddingLeft": 10,
+    <Text
+      style={
+        Object {
+          "fontSize": 30,
+          "justifyContent": "flex-start",
+          "left": 10,
+        }
       }
-    }
-  >
-     
-    Nödkontakt förnamn:
-  </Text>
-  <TextInput
-    allowFontScaling={true}
-    onChangeText={[Function]}
-    onSubmitEditing={[Function]}
+    >
+      Lägg till kontaktperson
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "paddingLeft": 10,
+        }
+      }
+    >
+      Du kan alltid ändra och lägga till kontakpersoner senare under inställningar
+    </Text>
+  </View>
+  <View
     style={
       Object {
-        "borderColor": "gray",
-        "borderWidth": 1,
-        "height": 40,
+        "alignItems": "flex-start",
         "marginBottom": 20,
-        "marginLeft": 10,
-        "marginRight": 10,
-        "paddingLeft": 10,
-      }
-    }
-    underlineColorAndroid="transparent"
-    value="Förnamn"
-  />
-  <Text
-    style={
-      Object {
-        "fontSize": 20,
-        "marginBottom": 50,
-        "paddingLeft": 10,
+        "marginTop": 20,
       }
     }
   >
+<<<<<<< HEAD
      
     Nödkontakt efternamn:
   </Text>
@@ -77,40 +71,73 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         "marginLeft": 10,
         "marginRight": 10,
         "paddingLeft": 10,
+=======
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "paddingLeft": 10,
+        }
+>>>>>>> 797930c7bd25fcdd9d6c4091931013a9b870b922
       }
-    }
-    underlineColorAndroid="transparent"
-    value="Efternamn"
-  />
-  <Text
+    >
+      Namn: 
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder="Ange namn här!"
+      style={
+        Object {
+          "borderColor": "gray",
+          "borderWidth": 1,
+          "height": 60,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "paddingLeft": 10,
+          "width": "90%",
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <View
     style={
       Object {
-        "fontSize": 20,
-        "marginBottom": 50,
-        "paddingLeft": 10,
+        "alignItems": "flex-start",
       }
     }
   >
-     
-    Nödkontakt telefonnummer:
-  </Text>
-  <TextInput
-    allowFontScaling={true}
-    onChangeText={[Function]}
-    style={
-      Object {
-        "borderColor": "gray",
-        "borderWidth": 1,
-        "height": 40,
-        "marginBottom": 20,
-        "marginLeft": 10,
-        "marginRight": 10,
-        "paddingLeft": 10,
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "paddingLeft": 10,
+        }
       }
-    }
-    underlineColorAndroid="transparent"
-    value="##########"
-  />
+    >
+      Telefonnummer: 
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder="ange nummer här!"
+      style={
+        Object {
+          "borderColor": "gray",
+          "borderWidth": 1,
+          "height": 60,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "paddingLeft": 10,
+          "width": "90%",
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
   <View
     style={
       Object {

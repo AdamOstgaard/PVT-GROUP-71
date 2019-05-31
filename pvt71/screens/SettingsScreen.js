@@ -1,11 +1,86 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView} from "react-native";
+import AppSingleButton from "../components/AppSingleButton";
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default class SettingsScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Settings Screen</Text>
+      <View style = {styles.container}>
+        <AppSingleButton 
+          style={styles.topButton}
+          textStyle={styles.textTop} 
+          title ="Tillbaka"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+        ></AppSingleButton>
+        <ScrollView style = {styles.scrollContainer}>
+    
+          <Text style ={styles.category}>Timerinställningar</Text>
+          
+          <AppSingleButton 
+          style={styles.linkButton} 
+          textStyle ={styles.text}
+          title="Redigera tidsintervall"
+            onPress={() => 
+              this.props.navigation.navigate("TimerSettingsScreen",{})}
+          ></AppSingleButton>
+          
+          <AppSingleButton 
+          style={styles.linkButton} 
+          textStyle ={styles.text}
+          title="Redigera varningsintervall"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+          
+          <AppSingleButton 
+          style={styles.linkButton}
+          textStyle ={styles.text}
+          title="Redigera sömntider"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+          <Text style ={styles.category}>Kontaktpersoner</Text>
+          
+          <AppSingleButton 
+          style={styles.linkButton} 
+          textStyle ={styles.text}
+          title="Lägg till kontaktperson"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+          
+          <AppSingleButton 
+          style={styles.linkButton}
+          textStyle ={styles.text} 
+          title="Ta bort kontaktperson"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+          
+          <AppSingleButton 
+          style={styles.linkButton} 
+          textStyle ={styles.text}
+          title="Redigera kontaktperson"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+          
+          <Text style ={styles.category}>Övrigt</Text>
+        
+          
+          <AppSingleButton 
+          style={styles.linkButton} 
+          textStyle ={styles.text}
+          title="Pausa applikationen"
+            onPress={() => 
+              this.props.navigation.navigate("HomeScreen",{})}
+          ></AppSingleButton>
+
+
+
+        </ScrollView>
       </View>
     );
   }
@@ -13,9 +88,51 @@ export default class SettingsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: getStatusBarHeight(),
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+  },
+  scrollContainer: {
+
+  },
+  topButton: {
+    width:"100%",
+    
+
+  },
+  category: {
+    fontWeight: 'bold',
+    fontSize: 32,
+    borderBottomColor: "#000",
+    borderBottomWidth: 0.5,
+    marginTop: "5%"
+    
+  },
+  linkButton: {
+    fontSize: 20,
+    color: "#000",
+    backgroundColor: "#fff",
+    width:"100%",
+    borderBottomColor: "#000",
+    borderBottomWidth: 0.5,
+
+  },
+  text: {
+    fontSize: 20,
+    color: "black",
+    paddingRight: 10,
+    paddingTop: 16,
+    textAlign: 'left',
+
+  },
+  textTop: {
+    fontSize: 30,
+    color: "#fff",
+    paddingRight: 10,
+    paddingTop: 8,
+    textAlign: 'left'
+
+
   }
+
 });
