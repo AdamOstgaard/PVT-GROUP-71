@@ -7,79 +7,56 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
       <View style = {styles.container}>
-        <AppSingleButton 
+        <AppSingleButton
           style={styles.topButton}
-          textStyle={styles.textTop} 
+          textStyle={styles.textTop}
           title ="Tillbaka"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("HomeScreen",{})}
         ></AppSingleButton>
         <ScrollView style = {styles.scrollContainer}>
-    
-          <Text style ={styles.category}>Timerinställningar</Text>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
+
+          <Text style ={styles.category}>Inställningar</Text>
+
+          <AppSingleButton
+          style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera tidsintervall"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("TimerSettingsScreen",{})}
           ></AppSingleButton>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
+
+          <AppSingleButton
+          style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera varningsintervall"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("HomeScreen",{})}
           ></AppSingleButton>
-          
-          <AppSingleButton 
+
+          <AppSingleButton
           style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera sömntider"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("HomeScreen",{})}
           ></AppSingleButton>
-          <Text style ={styles.category}>Kontaktpersoner</Text>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
-          textStyle ={styles.text}
-          title="Lägg till kontaktperson"
-            onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
-          
-          <AppSingleButton 
+
+          <AppSingleButton
           style={styles.linkButton}
-          textStyle ={styles.text} 
-          title="Ta bort kontaktperson"
-            onPress={() => 
-              this.props.navigation.navigate("HomeScreen",{})}
-          ></AppSingleButton>
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
           textStyle ={styles.text}
           title="Redigera kontaktperson"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("HomeScreen",{})}
           ></AppSingleButton>
-          
-          <Text style ={styles.category}>Övrigt</Text>
-        
-          
-          <AppSingleButton 
-          style={styles.linkButton} 
+
+          <AppSingleButton
+          style={styles.linkButton}
           textStyle ={styles.text}
           title="Pausa applikationen"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("HomeScreen",{})}
           ></AppSingleButton>
-
-
-
         </ScrollView>
       </View>
     );
@@ -92,13 +69,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  scrollContainer: {
-
-  },
+  scrollContainer: {},
   topButton: {
     width:"100%",
-    
-
   },
   category: {
     fontWeight: 'bold',
@@ -106,7 +79,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#000",
     borderBottomWidth: 0.5,
     marginTop: "5%"
-    
   },
   linkButton: {
     fontSize: 20,
@@ -115,7 +87,6 @@ const styles = StyleSheet.create({
     width:"100%",
     borderBottomColor: "#000",
     borderBottomWidth: 0.5,
-
   },
   text: {
     fontSize: 20,
@@ -123,7 +94,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: 16,
     textAlign: 'left',
-
   },
   textTop: {
     fontSize: 30,
@@ -131,8 +101,5 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: 8,
     textAlign: 'left'
-
-
   }
-
 });

@@ -30,7 +30,6 @@ export default class TimerSettingsScreen extends React.Component {
           <Text style={styles.picker}>Timmar</Text>
           <Text style={styles.picker}>Minuter</Text>
         </View>
-
           <TimePicker
             selectedHours={selectedHours}
             selectedMinutes={selectedMinutes}
