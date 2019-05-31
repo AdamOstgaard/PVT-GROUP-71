@@ -5,7 +5,10 @@ import TimePicker from "react-native-simple-time-picker"
 import { AsyncStorage } from "react-native";
 import moment from "moment";
 
-export default class WizardSettingScreen extends React.Component {
+export default class WizardVerifyContactScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  }
   state = {
     selectedHours: 5,
     SelectedMinutes: 0,

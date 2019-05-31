@@ -12,77 +12,200 @@ exports[`App snapshot renders the root without loading screen 1`] = `
   }
 >
   <View
+    onLayout={[Function]}
     style={
       Object {
-        "backgroundColor": "#fff",
         "flex": 1,
       }
     }
   >
-    <Text
-      style={
-        Object {
-          "fontSize": 35,
-          "justifyContent": "flex-start",
-          "left": 10,
-          "marginTop": 50,
-        }
-      }
-    >
-      Välkommen!
-    </Text>
-    <Text
-      style={
-        Object {
-          "fontSize": 20,
-          "paddingBottom": "60%",
-          "paddingLeft": 10,
-          "paddingTop": "5%",
-        }
-      }
-    >
-      
-      Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
-    </Text>
     <View
-      style={
+      enabled={false}
+      hitSlop={
         Object {
-          "flex": 1,
-          "justifyContent": "flex-end",
+          "right": 50,
         }
       }
+      maxDeltaY={20}
+      minOffsetX={5}
+      onGestureEvent={[Function]}
+      onHandlerStateChange={[Function]}
     >
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "#0d6f73",
-            "height": 60,
-            "opacity": 1,
-            "width": "100%",
+            "backgroundColor": "#eee",
+            "flex": 1,
+            "flexDirection": "column-reverse",
+            "overflow": "hidden",
           }
         }
       >
-        <Text
+        <View
           style={
             Object {
-              "color": "#fff",
-              "fontSize": 30,
-              "paddingRight": 10,
-              "paddingTop": 8,
-              "textAlign": "right",
+              "flex": 1,
             }
           }
         >
-          Nästa
-        </Text>
+          <View
+            pointerEvents="auto"
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              accessibilityElementsHidden={false}
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 35,
+                      "justifyContent": "flex-start",
+                      "left": 10,
+                      "marginTop": 50,
+                    }
+                  }
+                >
+                  Välkommen!
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 20,
+                      "paddingBottom": "60%",
+                      "paddingLeft": 10,
+                      "paddingTop": "5%",
+                    }
+                  }
+                >
+                  
+                  Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flex": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "backgroundColor": "#0d6f73",
+                        "height": 60,
+                        "opacity": 1,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 30,
+                          "paddingRight": 10,
+                          "paddingTop": 8,
+                          "textAlign": "right",
+                        }
+                      }
+                    >
+                      Nästa
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          pointerEvents="box-none"
+          style={
+            Object {
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#FFF",
+                "transform": Array [
+                  Object {
+                    "translateX": -750,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              onLayout={[Function]}
+              pointerEvents="box-none"
+              style={
+                Object {
+                  "backgroundColor": "#FFF",
+                  "borderBottomColor": "#A7A7AA",
+                  "borderBottomWidth": 0.5,
+                  "height": 64,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </View>

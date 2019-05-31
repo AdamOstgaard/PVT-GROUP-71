@@ -5,6 +5,10 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 
 const { State: TextInputState } = TextInput;
 export default class WizardVerifyContactScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+ 
   constructor(props){
     super(props);
     this.state = {

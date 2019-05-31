@@ -38,8 +38,8 @@ export default class SettingsScreen extends React.Component {
           style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera sömntider"
-            onPress={() =>
-              this.props.navigation.navigate("HomeScreen",{})}
+            onPress={() => 
+              this.props.navigation.navigate("SleepTimeSettingsScreen",{})}
           ></AppSingleButton>
 
           <AppSingleButton

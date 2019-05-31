@@ -7,36 +7,65 @@ import AppSingleButton from "../components/AppSingleButton";
 import { playSound } from "../SoundPlayer";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { smsSender } from '../utils/SmsSender';
+import { getDurationSettings, getSleepTimeSettings } from '../utils/Settings'
 
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      checkSleep: true,
+      timerPaused: false,
+      focused: false,
       duration: moment.duration(1, "h").asMilliseconds(),
       warningTime: moment.duration(30, "m").asMilliseconds(),
+      sleepSettings: null,
       timerPaused: false
     };
+    this.toggleSleepMode = this.toggleSleepMode.bind(this);
   }
   static navigationOptions = {
     header: null
   };
+  toggleSleepMode = value => {
+    this.setState({ timerPaused: value })
+  }
+
+  toMilliseconds = (h, m) =>
+    moment.duration(h, "h").asMilliseconds() +
+    moment.duration(m, "m").asMilliseconds();
+
+
+  componentWillUnmount() {
+    this.focusListener.remove();
+  }
 
   componentDidMount() {
-    if(!this.props.navigation){
+    if (!this.props.navigation) {
       return;
     }
 
     this.subs = [
-      this.props.navigation.addListener("didFocus", payload =>
-        this.getSettings()
-        )
+      this.props.navigation.addListener("didFocus", payload => {
+        Promise.all([getDurationSettings(), getSleepTimeSettings()]).then(values => {
+          let [duration, sleepSettings] = values;
+          console.log(sleepSettings);
+          this.setState({
+            ...duration,
+            sleepSettings
+          })
+          console.log(this.state.duration)
+        });
+      }
+      )
     ];
   }
 
   componentWillUnmount() {
     this.subs.forEach(sub => sub.remove());
   }
+
+
   render() {
     let pauseText;
     if (this.state.timerPaused) {
@@ -46,36 +75,38 @@ export default class HomeScreen extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <View style ={styles.topContainer}>
+        <View style={styles.topContainer}>
 
-        <AppSingleButton
-          style={styles.topButton}
-          textStyle={styles.topTextStyle}
-          title="Hjälp"
-            onPress={() =>
-              this.props.navigation.navigate("HelpScreen",{})}
-          >
-          </AppSingleButton>
-
-          <View style ={styles.topButton1}>
           <AppSingleButton
-          style={styles.topButton}
-          textStyle={styles.topTextStyle}
-          title="Inställningar"
+            style={styles.topButton}
+            textStyle={styles.topTextStyle}
+            title="Hjälp"
             onPress={() =>
-              this.props.navigation.navigate("SettingsScreen",{})}
+              this.props.navigation.navigate("HelpScreen", {})}
           >
           </AppSingleButton>
+
+          <View style={styles.topButton1}>
+            <AppSingleButton
+              style={styles.topButton}
+              textStyle={styles.topTextStyle}
+              title="Inställningar"
+              onPress={() =>
+                this.props.navigation.navigate("SettingsScreen", {})}
+            >
+            </AppSingleButton>
           </View>
 
         </View>
 
         <View style={styles.timerContainer}>
-        <Text style={styles.sleepOnText}>{pauseText}</Text>
+          <Text style={styles.sleepOnText}>{pauseText}</Text>
           <Timer
+            onTimerSleep={this.toggleSleepMode}
             onReset={reset => {
               this.setState({ timerPaused: reset });
             }}
+            sleepTime={this.state.sleepSettings}
             paused={this.state.timerPaused}
             style={styles.timer}
             startTime={this.state.duration}
@@ -90,26 +121,18 @@ export default class HomeScreen extends React.Component {
             }}
           />
           <View style={styles.sleepButtonContainer}>
-          <TimerSleepButton
-            onResume={this.state.timerPaused}
-            onToggle={enabled => this.setState({ timerPaused: enabled })}
-          />
-        </View>
+            <TimerSleepButton
+              onResume={this.state.timerPaused}
+              onToggle={enabled => this.setState({ timerPaused: enabled })}
+            />
+          </View>
         </View>
 
       </View>
     );
   }
 
-  async getSettings() {
-    try {
-      const duration = await AsyncStorage.getItem("time") || moment.duration(1, "h").asMilliseconds();
-      const warning = await AsyncStorage.getItem("warning") || moment.duration(1, "h").asMilliseconds();
-      const d = JSON.parse(duration);
-      const w = JSON.parse(warning);
-      this.setState({ duration: d, warningTime: w});
-    } catch (error) {}
-  }
+
 }
 
 const showWarningAlert = warning => {
@@ -158,19 +181,19 @@ const styles = StyleSheet.create({
   },
   topButton1: {
     paddingTop: 1,
-    width:"100%",
+    width: "100%",
   },
   topButton: {
-    width:"100%",
+    width: "100%",
     textAlign: "left",
     paddingLeft: 10,
   },
   timerContainer: {
     alignItems: "center",
-    flex:6
+    flex: 6
   },
   sleepButtonContainer: {
-    alignItems:"flex-end"
+    alignItems: "flex-end"
     //left: 240
   },
   sleepOnText: {

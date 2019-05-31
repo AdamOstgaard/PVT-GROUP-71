@@ -136,7 +136,9 @@ exports[`Home screen test Snapshot test renders correctly 1`] = `
         callback={[Function]}
         onPress={[Function]}
         onReset={[Function]}
+        onTimerSleep={[Function]}
         paused={false}
+        sleepTime={null}
         startTime={3600000}
         style={
           Object {

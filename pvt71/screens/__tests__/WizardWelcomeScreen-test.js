@@ -11,17 +11,19 @@ describe("Wizard WelcomeScreen tests", () => {
     });
   });
 
-  describe("Test onPress", () => {
-    it("should call onPress", () => {
-      let mockFn = jest.fn();
-      WizardWelcomeScreen.prototype.handlePress = mockFn;
-      let wrapper = shallow(<WizardWelcomeScreen />);
-      wrapper
-        .find("AppSingleButton")
-        .props()
-        .onPress();
-      expect(mockFn).toHaveBeenCalled();
-      expect(mockFn).toHaveBeenCalledTimes(1);
+  describe("navgation test", () => {
+    it("should navigate to contactwizard", () => {
+      const navigation = {
+        navigate: jest.fn()
+      };
+
+      const spy = jest.spyOn(navigation, "navigate");
+      const wrapper = shallow(<WizardWelcomeScreen navigation={navigation} />);
+      const appButton = wrapper.find("AppSingleButton");
+      appButton.props().onPress();
+
+      expect(spy).toBeCalledWith("WizardVerifyContactScreen");
+      spy.mockRestore();
     });
   });
 });
