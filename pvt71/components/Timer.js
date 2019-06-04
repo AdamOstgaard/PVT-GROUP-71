@@ -3,6 +3,7 @@ import { AppRegistry, Text, View, StyleSheet } from "react-native";
 import moment from "moment";
 import "moment-duration-format";
 
+
 export class Timer extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +43,7 @@ export class Timer extends React.Component {
 
     if (endTime <= this.props.sleepTime.start) {
       endTime += this.toMilliseconds(24, 0);
-      console.log(endTime)
+      //console.log(endTime)
     }
 
     if (prevProps.sleepTime !== this.props.sleepTime) {
@@ -63,7 +64,7 @@ export class Timer extends React.Component {
         sleeping: true
       });
 
-      console.log( 2 * this.props.sleepTime.start - currentTimeInMilliseconds)
+      //console.log( 2 * this.props.sleepTime.start - currentTimeInMilliseconds)
 
       let sleepDuration = endTime - this.props.sleepTime.start - (this.props.sleepTime.start - currentTimeInMilliseconds);
 
@@ -87,6 +88,7 @@ export class Timer extends React.Component {
             if (this.props.onPress) this.props.onPress();
             this.props.onReset(false);
             this.resetTimer();
+            console.log(this.props.startTime);
           }}
           style={styles.timerText}
         >
@@ -125,6 +127,7 @@ export class Timer extends React.Component {
       counter: this.state.counter + 1
     });
 
+    //console.log(this.state.warningTime);
 
     if (this.state.time < this.state.warningTime && this.props.warningCallback && this.state.warningStarted === false) {
       this.setState({ warningStarted: true });

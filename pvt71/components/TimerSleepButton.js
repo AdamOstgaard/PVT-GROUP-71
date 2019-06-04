@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Image, Alert } from "react-native";
+import { TouchableOpacity, StyleSheet, Image, Alert, Button } from "react-native";
 
 export default class TimerSleepButton extends React.Component {
   constructor(props) {

@@ -16,17 +16,16 @@ import HelpScreen from "../screens/HelpScreen";
 
 const AppStack = createStackNavigator({
   HomeScreen: HomeScreen,
-  SleepTimeSettingsScreen: SleepTimeSettingsScreen
+  SleepTimeSettingsScreen: SleepTimeSettingsScreen,
+  TimerSettingsScreen: TimerSettingsScreen,
+  HelpScreen: HelpScreen,
+  SettingsScreen: SettingsScreen,
 });
 const WizardStack = createStackNavigator({
   WizardWelcomeScreen: WizardWelcomeScreen,
   WizardVerifyContactScreen: WizardVerifyContactScreen,
   WizardSettingsScreen: WizardSettingsScreen,
   HomeScreen: HomeScreen,
-  SleepTimeSettingsScreen: SleepTimeSettingsScreen,
-  TimerSettingsScreen: TimerSettingsScreen,
-  HelpScreen: HelpScreen,
-  SettingsScreen: SettingsScreen,
   WarningSettingScreen: WarningSettingScreen
 });
 

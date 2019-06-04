@@ -12,13 +12,13 @@ export default class WizardVerifyContactScreen extends React.Component {
   state = {
     selectedHours: 5,
     SelectedMinutes: 0,
-    warningHours: 1,
-    warningMinutes: 30,
+    warningHours: 0,
+    warningMinutes: 10,
   }
-  updateMinutes = (minutes) =>{
-    this.setState({selectedMinutes: minutes})
-  }
-  ;
+
+  updateWarningMinutes = (minutes) =>{
+    this.setState({warningMinutes: minutes})
+  };
 
   render() {
     const { selectedHours, selectedMinutes, warningHours, warningMinutes } = this.state;
@@ -55,7 +55,7 @@ export default class WizardVerifyContactScreen extends React.Component {
             <Text style={styles.picker}>Minuter</Text>
         </View>
         <View style={styles.boxContainerBottom}>
-        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.selectedMinutes} onValueChange={this.updateMinutes}>
+        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.warningMinutes} onValueChange={this.updateWarningMinutes}>
             <Picker.Item label="10" value={10} ></Picker.Item>
             <Picker.Item label="20" value={20} ></Picker.Item>
             <Picker.Item label="30" value={30} ></Picker.Item>

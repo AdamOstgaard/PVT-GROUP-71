@@ -54,7 +54,6 @@ export default class WarningSettingScreen extends React.Component {
               title="Spara"
               onPress={() => {
                 const duration = this.toMilliseconds(
-                  this.state.selectedHours,
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
@@ -67,8 +66,7 @@ export default class WarningSettingScreen extends React.Component {
     );
   }
 
-  toMilliseconds = (h, m) =>
-    moment.duration(h, "h").asMilliseconds() +
+  toMilliseconds = (m) =>
     moment.duration(m, "m").asMilliseconds();
 
   async saveSettings(time) {
