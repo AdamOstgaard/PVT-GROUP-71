@@ -17,24 +17,32 @@ export default class HomeScreen extends React.Component {
       checkSleep: true,
       timerPaused: false,
       focused: false,
-      duration: moment.duration(1, "h").asMilliseconds(),
-      warningTime: moment.duration(30, "m").asMilliseconds(),
+      times: {
+        duration: moment.duration(11, "m").asMilliseconds(),
+        warningTime: moment.duration(10, "m").asMilliseconds(),
+      },
       sleepSettings: null,
       timerPaused: false
     };
     this.toggleSleepMode = this.toggleSleepMode.bind(this);
+    this.update();
   }
+
   static navigationOptions = {
     header: null
   };
+
+  async update(){
+    let t = await getDurationSettings();
+    this.setState({
+      times: t,
+    })
+  }
+
+
   toggleSleepMode = value => {
     this.setState({ timerPaused: value })
   }
-
-  toMilliseconds = (h, m) =>
-    moment.duration(h, "h").asMilliseconds() +
-    moment.duration(m, "m").asMilliseconds();
-
 
   componentWillUnmount() {
     this.focusListener.remove();
@@ -48,13 +56,11 @@ export default class HomeScreen extends React.Component {
     this.subs = [
       this.props.navigation.addListener("didFocus", payload => {
         Promise.all([getDurationSettings(), getSleepTimeSettings()]).then(values => {
-          let [duration, sleepSettings] = values;
-          console.log(sleepSettings);
+          let [times, sleepSettings] = values;
           this.setState({
-            ...duration,
-            sleepSettings
+            times: times,
+            sleepSettings: sleepSettings,
           })
-          console.log(this.state.duration)
         });
       }
       )
@@ -109,8 +115,8 @@ export default class HomeScreen extends React.Component {
             sleepTime={this.state.sleepSettings}
             paused={this.state.timerPaused}
             style={styles.timer}
-            startTime={this.state.duration}
-            warningTime={this.state.warningTime}
+            startTime={this.state.times.duration}
+            warningTime={this.state.times.warningTime}
             warningCallback={warning => {
               playSound();
               showWarningAlert(warning);
@@ -131,39 +137,20 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-
-
 }
 
 const showWarningAlert = warning => {
   Alert.alert(
     "Timer",
     "Are you ok?",
-    [
-      { text: "Yes, I'm Ok", onPress: () => warning() },
-      {
-        text: "No, I need help!",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
-      }
-    ],
+    [{ text: "Yes, I'm Ok", onPress: () => warning() }],
     { cancelable: false }
   );
 };
+
 const showRestartAlert = restart => {
-  Alert.alert(
-    "Timer",
-    "Are you ok?",
-    [
-      { text: "Yes, I'm Ok", onPress: () => restart() },
-      {
-        text: "No, I need help!",
-        onPress: () => smsSender.contactEmergencyContact(),
-        style: "cancel"
-      }
-    ],
-    { cancelable: false }
-  );
+  smsSender.contactEmergencyContact();
+  restart();
 };
 
 const styles = StyleSheet.create({

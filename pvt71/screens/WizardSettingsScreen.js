@@ -5,23 +5,27 @@ import TimePicker from "react-native-simple-time-picker"
 import { AsyncStorage } from "react-native";
 import moment from "moment";
 
-export default class WizardVerifyContactScreen extends React.Component {
+export default class WizardSettingsScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedHours: 0,
+      selectedMinutes: 11,
+      warningMinutes: 10,
+    }
+  }
   static navigationOptions = {
     header: null,
   }
-  state = {
-    selectedHours: 5,
-    SelectedMinutes: 0,
-    warningHours: 1,
-    warningMinutes: 30,
-  }
+
   updateMinutes = (minutes) =>{
-    this.setState({selectedMinutes: minutes})
-  }
-  ;
+    this.setState({
+      warningMinutes: minutes
+    })
+  };
 
   render() {
-    const { selectedHours, selectedMinutes, warningHours, warningMinutes } = this.state;
+    const { selectedHours, selectedMinutes, warningMinutes } = this.state;
     return (
       <View style={styles.container}>
       <ScrollView>
@@ -38,8 +42,8 @@ export default class WizardVerifyContactScreen extends React.Component {
         </View>
         <View style={styles.boxContainer}>
           <TimePicker
-            selectedHours={selectedHours}
-            selectedMinutes={selectedMinutes}
+            selectedHours={this.state.selectedHours}
+            selectedMinutes={this.state.selectedMinutes}
             onChange={(hours, minutes) =>
               this.setState({
                 selectedHours: hours,
@@ -49,13 +53,13 @@ export default class WizardVerifyContactScreen extends React.Component {
           />
         </View>
         <Text style={styles.infoText}>
-            Här kan du ändra hur många minuter mellan att du får en varning tills att din kontaktperson kontaktas. 
+            Här kan du ändra hur många minuter mellan att du får en varning tills att din kontaktperson kontaktas.
         </Text>
         <View style={styles.warningInfo}>
             <Text style={styles.picker}>Minuter</Text>
         </View>
         <View style={styles.boxContainerBottom}>
-        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.selectedMinutes} onValueChange={this.updateMinutes}>
+        <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.warningMinutes} onValueChange={this.updateMinutes}>
             <Picker.Item label="10" value={10} ></Picker.Item>
             <Picker.Item label="20" value={20} ></Picker.Item>
             <Picker.Item label="30" value={30} ></Picker.Item>
@@ -75,11 +79,11 @@ export default class WizardVerifyContactScreen extends React.Component {
                   this.state.selectedMinutes
                 );
                 const warning = this.toMilliseconds(
-                  this.state.warningHours,
+                  0,
                   this.state.warningMinutes
                 );
                 this.saveSettings(duration, warning);
-                this.props.navigation.navigate("HomeScreen", { duration, warning });
+                this.props.navigation.navigate("HomeScreen");
               }}
             />
           </View>
@@ -92,11 +96,11 @@ export default class WizardVerifyContactScreen extends React.Component {
     moment.duration(h, "h").asMilliseconds() +
     moment.duration(m, "m").asMilliseconds();
 
-
   async saveSettings(time, warning) {
     try {
       await AsyncStorage.setItem("time", JSON.stringify(time));
       await AsyncStorage.setItem("warning", JSON.stringify(warning));
+
     } catch (error) {
       // Error saving data
     }

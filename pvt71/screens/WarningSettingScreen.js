@@ -1,15 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
-//import BottomLeftButton from "../components/BottomLeftButton";
-//import BottomRightButton from "../components/BottomRightButton";
 import AppSingleButton from "../components/AppSingleButton";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
+import { getDurationSettings } from '../utils/Settings'
 
 export default class WarningSettingScreen extends React.Component {
   state = {
-    selectedMinutes: 20
+    selectedMinutes: ''
   }
+
   updateMinutes = (minutes) =>{
     this.setState({selectedMinutes: minutes})
   }
@@ -17,6 +17,13 @@ export default class WarningSettingScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
+
+  async componentDidMount() {
+    let s = await getDurationSettings();
+    this.setState({
+      selectedMinutes: s.warningTime/60000,
+    });
+  }
 
   render() {
     return (
@@ -32,13 +39,13 @@ export default class WarningSettingScreen extends React.Component {
         </View>
         <View style={styles.boxContainerMid2}>
           <Picker style={{height: 84, width:200}} itemStyle={{height: 84}} selectedValue ={this.state.selectedMinutes} onValueChange={this.updateMinutes}>
-            <Picker.Item label="10" value={10} ></Picker.Item>  
+            <Picker.Item label="10" value={10} ></Picker.Item>
             <Picker.Item label="20" value={20} ></Picker.Item>
-            <Picker.Item label="30" value={30} ></Picker.Item>  
+            <Picker.Item label="30" value={30} ></Picker.Item>
             <Picker.Item label="40" value={40} ></Picker.Item>
-            <Picker.Item label="50" value={50} ></Picker.Item>  
+            <Picker.Item label="50" value={50} ></Picker.Item>
             <Picker.Item label="60" value={60} ></Picker.Item>
-          </Picker> 
+          </Picker>
           <View/>
         </View>
         <View style={styles.boxContainerBottom}>
@@ -54,11 +61,11 @@ export default class WarningSettingScreen extends React.Component {
               title="Spara"
               onPress={() => {
                 const duration = this.toMilliseconds(
-                  this.state.selectedHours,
+                  0,
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
-                this.props.navigation.navigate("HomeScreen", { duration });
+                this.props.navigation.navigate("HomeScreen");
               }}
             />
           </View>
@@ -75,6 +82,7 @@ export default class WarningSettingScreen extends React.Component {
     try {
       await AsyncStorage.setItem("warning", JSON.stringify(time));
     } catch (error) {
+      console.log(error);
       // Error saving data
     }
   }
@@ -148,37 +156,4 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "right"
   }
-
-  /*
-  heading: {
-    fontSize: 35,
-    flex: 1,
-    left: 10,
-    marginTop: "10%",
-    marginBottom: "0%"
-  },
-  infoText: {
-    flex: 1,
-    fontSize: 20,
-    marginTop: '0%',
-    marginBottom: '0%',
-    paddingLeft: 10,
-    paddingRight: 20
-  },
-  picker: {
-    flex: 1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: '0%',
-    marginBottom: '0%',
-    
-  
-  },
-  bottom: {
-    position: 'absolute',
-    bottom: 0,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: "flex-end"
-  } */
 });

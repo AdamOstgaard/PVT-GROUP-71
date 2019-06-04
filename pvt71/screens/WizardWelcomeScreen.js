@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AppSingleButton from "../components/AppSingleButton";
+import {Permissions} from "expo";
 
 export default class WizardWelcomeScreen extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class WizardWelcomeScreen extends React.Component {
   };
 
   handlePress()  {
+    Permissions.askAsync(Permissions.LOCATION),
     this.props.navigation.navigate("WizardVerifyContactScreen");
 }
 

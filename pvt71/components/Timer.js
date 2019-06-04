@@ -16,20 +16,29 @@ export class Timer extends React.Component {
       },
       sleeping: false,
       sleepWillStop: false,
-      warningTime: this.props.warningTime,
+      warningT: this.props.warningTime,
       warningStarted: false
     };
   }
 
   componentDidMount() {
     this.startTimer(this.state.time);
-    //console.log("sleeping: " + this.state.sleeping)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //console.log("sleepin is " + this.state.sleeping);
-    const d = new Date();
+    if (prevProps.startTime !== this.props.startTime){
+      this.resetTimer();
+    }
 
+    if (prevProps.warningTime !== this.props.warningTime){
+      this.setState({
+        warningT: this.props.warningTime,
+      });
+      this.resetTimer();
+    }
+
+    /*
+    const d = new Date();
     const hours = d.getHours(); //Current Hours
     const min = d.getMinutes(); //Current Minutes
     const currentTimeInMilliseconds = this.toMilliseconds(hours, min);
@@ -42,7 +51,7 @@ export class Timer extends React.Component {
 
     if (endTime <= this.props.sleepTime.start) {
       endTime += this.toMilliseconds(24, 0);
-      console.log(endTime)
+      //console.log(endTime)
     }
 
     if (prevProps.sleepTime !== this.props.sleepTime) {
@@ -61,7 +70,7 @@ export class Timer extends React.Component {
         sleeping: true
       });
 
-      console.log(2 * this.props.sleepTime.start - currentTimeInMilliseconds)
+      //console.log(2 * this.props.sleepTime.start - currentTimeInMilliseconds)
 
       let sleepDuration = endTime - this.props.sleepTime.start - (this.props.sleepTime.start - currentTimeInMilliseconds);
 
@@ -75,8 +84,8 @@ export class Timer extends React.Component {
         this.startTimer(this.props.startTime);
         this.props.onTimerSleep(false);
       }
-
     }
+    */
   }
 
   toMilliseconds = (h, m, s) =>
@@ -85,6 +94,7 @@ export class Timer extends React.Component {
     moment.duration(s || 0, "s").asMilliseconds();
 
   render() {
+
     return (
       <View style={styles.timerContainer}>
         <Text
@@ -132,7 +142,7 @@ export class Timer extends React.Component {
     });
 
 
-    if (this.state.time < this.state.warningTime && this.props.warningCallback && this.state.warningStarted === false) {
+    if (this.state.time < this.state.warningT && this.props.warningCallback && this.state.warningStarted === false) {
       this.setState({ warningStarted: true });
       this.props.warningCallback(() => this.resetTimer());
     }

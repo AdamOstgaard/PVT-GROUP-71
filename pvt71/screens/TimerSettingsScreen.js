@@ -4,16 +4,31 @@ import AppSingleButton from "../components/AppSingleButton";
 import TimePicker from "react-native-simple-time-picker";
 import { AsyncStorage } from "react-native";
 import moment from "moment";
+import { getDurationSettings } from '../utils/Settings'
+import "moment-duration-format";
+
 
 export default class TimerSettingsScreen extends React.Component {
   state = {
-    selectedHours: 5,
-    selectedMinutes: 0
+    selectedHours: -1,
+    selectedMinutes: -1
   };
 
   static navigationOptions = {
     header: null
   };
+
+
+  async componentDidMount() {
+    let s = await getDurationSettings();
+    let h = parseInt(moment.duration(s.duration).format("h"));
+    let m = parseInt(moment.duration(s.duration).format("mm"));
+    m -= h*60;
+    this.setState({
+      selectedHours: h,
+      selectedMinutes: m
+    });
+  }
 
   render() {
     const { selectedHours, selectedMinutes } = this.state;
@@ -31,8 +46,8 @@ export default class TimerSettingsScreen extends React.Component {
           <Text style={styles.picker}>Minuter</Text>
         </View>
           <TimePicker
-            selectedHours={selectedHours}
-            selectedMinutes={selectedMinutes}
+            selectedHours={this.state.selectedHours}
+            selectedMinutes={this.state.selectedMinutes}
             onChange={(hours, minutes) =>
               this.setState({
                 selectedHours: hours,
@@ -59,7 +74,7 @@ export default class TimerSettingsScreen extends React.Component {
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
-                this.props.navigation.navigate("HomeScreen", { duration });
+                this.props.navigation.navigate("HomeScreen");
               }}
             />
           </View>
