@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BottomLeftButton Test renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#a9a9a9",
+      "height": 60,
+      "opacity": 1,
+      "width": "50%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 30,
+        "paddingLeft": 10,
+        "paddingTop": 8,
+        "textAlign": "left",
+      }
+    }
+  >
+    Next
+  </Text>
+</View>
+`;
