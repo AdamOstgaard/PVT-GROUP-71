@@ -8,11 +8,11 @@ export default class WizardVerifyContactScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
- 
+
   constructor(props){
     super(props);
     this.state = {
-      name: '', 
+      name: '',
       number: '',
       shift: new Animated.Value(0),
     };
@@ -33,21 +33,21 @@ export default class WizardVerifyContactScreen extends React.Component {
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>Lägg till kontaktperson</Text>
           <Text style={styles.infoText}>
-            Du kan alltid ändra och lägga till kontakpersoner senare under inställningar 
+            Du kan alltid ändra och lägga till kontakpersoner senare under inställningar.
           </Text>
         </View>
         <View style = {styles.nameContainer}>
-          <Text style = {styles.infoText}>Namn: </Text>
+          <Text style = {styles.infoText}>Kontaktpersonens namn: </Text>
           <TextInput style={styles.textInput}
-          placeholder="Ange namn här!"
+          placeholder="Ange namn här"
           onChangeText={(name) => this.setState({name})}
           value={this.state.name}
           />
         </View>
         <View style = {styles.numberContainer}>
-          <Text style={styles.infoText}>Telefonnummer: </Text>
+          <Text style={styles.infoText}>Kontaktpersonens mobilnummer: </Text>
           <TextInput style={styles.textInput}
-          placeholder="ange nummer här!"
+          placeholder="Ange mobilnummer här"
           onChangeText={(number) => this.setState({number})}
           value={this.state.number}
         />
@@ -130,12 +130,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     alignItems:'flex-start',
-    
+
   },
   numberContainer:{
     alignItems:'flex-start',
-  
-    
+
+
   },
   infoText: {
     fontSize: 20,

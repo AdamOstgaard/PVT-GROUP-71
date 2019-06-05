@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Alert} from "react-native";
 import AppSingleButton from "../components/AppSingleButton";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default class SettingsScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <View style = {styles.container}>
@@ -30,7 +34,7 @@ export default class SettingsScreen extends React.Component {
           style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera varningsintervall"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("WarningSettingScreen",{})}
           ></AppSingleButton>
 
@@ -38,7 +42,7 @@ export default class SettingsScreen extends React.Component {
           style={styles.linkButton}
           textStyle ={styles.text}
           title="Redigera sömntider"
-            onPress={() => 
+            onPress={() =>
               this.props.navigation.navigate("SleepTimeSettingsScreen",{})}
           ></AppSingleButton>
 
@@ -47,7 +51,7 @@ export default class SettingsScreen extends React.Component {
           textStyle ={styles.text}
           title="Redigera kontaktperson"
             onPress={() =>
-              this.props.navigation.navigate("HomeScreen",{})}
+              showImplementationAlert()}
           ></AppSingleButton>
 
           <AppSingleButton
@@ -55,13 +59,22 @@ export default class SettingsScreen extends React.Component {
           textStyle ={styles.text}
           title="Pausa applikationen"
             onPress={() =>
-              this.props.navigation.navigate("HomeScreen",{})}
+              showImplementationAlert()}
           ></AppSingleButton>
         </ScrollView>
       </View>
     );
   }
 }
+
+const showImplementationAlert = () => {
+  Alert.alert(
+    "Fel",
+    "Den här funktionaliteten har inte blivit integrerad ännu.",
+    [{ text: "Ok" , onPress: () => this.props.navigation.navigate("SettingsScreen", {})}],
+    { cancelable: false }
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

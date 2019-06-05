@@ -231,7 +231,7 @@ exports[`Timer setting screen Snapshot test renders correctly 1`] = `
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          selectedIndex={5}
+          selectedIndex={0}
           style={
             Array [
               Object {
@@ -562,7 +562,7 @@ exports[`Timer setting screen Snapshot test renders correctly 1`] = `
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          selectedIndex={0}
+          selectedIndex={11}
           style={
             Array [
               Object {

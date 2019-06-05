@@ -42,7 +42,7 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         }
       }
     >
-      Du kan alltid ändra och lägga till kontakpersoner senare under inställningar
+      Du kan alltid ändra och lägga till kontakpersoner senare under inställningar.
     </Text>
   </View>
   <View
@@ -62,12 +62,12 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         }
       }
     >
-      Namn: 
+      Kontaktpersonens namn: 
     </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
-      placeholder="Ange namn här!"
+      placeholder="Ange namn här"
       style={
         Object {
           "borderColor": "gray",
@@ -98,12 +98,12 @@ exports[`Wizard Verify Contact Screen tests Snapshot test renders correctly 1`] 
         }
       }
     >
-      Telefonnummer: 
+      Kontaktpersonens mobilnummer: 
     </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
-      placeholder="ange nummer här!"
+      placeholder="Ange mobilnummer här"
       style={
         Object {
           "borderColor": "gray",

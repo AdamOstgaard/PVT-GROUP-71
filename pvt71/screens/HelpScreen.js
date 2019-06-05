@@ -4,20 +4,24 @@ import { StyleSheet, View, Alert, Text, AsyncStorage } from "react-native";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default class SettingsScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+  
     render(){
         return(
             <View style = {styles.container}>
                 <View style ={styles.topButtonContainer}>
-                    <AppSingleButton 
+                    <AppSingleButton
                     style={styles.topButton}
-                    textStyle={styles.textTop} 
+                    textStyle={styles.textTop}
                     title ="Tillbaka"
-                        onPress={() => 
+                        onPress={() =>
                         this.props.navigation.navigate("HomeScreen",{})}
                     ></AppSingleButton>
-                    <Text> Denna sida är otillgänlig pga underhåll</Text>  
+                    <Text> Denna sida är otillgänlig pga underhåll</Text>
                 </View>
-            
+
             </View>
 
 
@@ -40,6 +44,6 @@ export default class SettingsScreen extends React.Component {
         textTop:{
             textAlign: "left"
         }
-       
+
 
     });

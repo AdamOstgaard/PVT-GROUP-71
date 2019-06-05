@@ -7,17 +7,15 @@ import moment from "moment";
 import { getDurationSettings } from '../utils/Settings'
 import "moment-duration-format";
 
-
 export default class TimerSettingsScreen extends React.Component {
   state = {
-    selectedHours: -1,
-    selectedMinutes: -1
+    selectedHours: 0,
+    selectedMinutes: 11
   };
 
   static navigationOptions = {
     header: null
   };
-
 
   async componentDidMount() {
     let s = await getDurationSettings();
@@ -60,9 +58,9 @@ export default class TimerSettingsScreen extends React.Component {
           <View style={styles.bottom}>
             <AppSingleButton
               style ={styles.bottomLeft}
-              textStyle = {styles.leftText}
+              textStyle ={styles.leftText}
               title="Avbryt"
-              onPress={() => this.props.navigation.navigate("HomeScreen")}
+              onPress={() => this.props.navigation.navigate("SettingsScreen")}
             />
             <AppSingleButton
               style ={styles.bottomRight}
@@ -74,7 +72,7 @@ export default class TimerSettingsScreen extends React.Component {
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
-                this.props.navigation.navigate("HomeScreen");
+                this.props.navigation.navigate("SettingsScreen");
               }}
             />
           </View>
