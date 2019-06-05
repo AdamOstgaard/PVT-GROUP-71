@@ -52,8 +52,9 @@ export default class WarningSettingScreen extends React.Component {
           <View style={styles.bottom}>
             <AppSingleButton
               style={styles.leftButton}
+              textStyle={styles.buttonLText}
               title="Avbryt"
-              onPress={() => this.props.navigation.navigate("HomeScreen")}
+              onPress={() => this.props.navigation.navigate("SettingsScreen")}
             />
             <AppSingleButton
               style={styles.rightButton}
@@ -65,7 +66,7 @@ export default class WarningSettingScreen extends React.Component {
                   this.state.selectedMinutes
                 );
                 this.saveSettings(duration);
-                this.props.navigation.navigate("HomeScreen");
+                this.props.navigation.navigate("SettingsScreen");
               }}
             />
           </View>
@@ -148,12 +149,14 @@ const styles = StyleSheet.create({
   leftButton: {
     width:"50%",
     backgroundColor: 'grey'
-
   },
   rightButton: {
     width:"50%",
   },
   buttonText: {
     textAlign: "right"
+  },
+  buttonLText: {
+    textAlign: "left"
   }
 });

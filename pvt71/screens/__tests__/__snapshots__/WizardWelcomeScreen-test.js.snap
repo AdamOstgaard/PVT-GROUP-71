@@ -19,31 +19,33 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <Component
-          style={
-            Object {
-              "fontSize": 35,
-              "justifyContent": "flex-start",
-              "left": 10,
-              "marginTop": 50,
+        <ScrollViewMock>
+          <Component
+            style={
+              Object {
+                "fontSize": 35,
+                "justifyContent": "flex-start",
+                "left": 10,
+                "marginTop": 50,
+              }
             }
-          }
-        >
-          Välkommen!
-        </Component>,
-        <Component
-          style={
-            Object {
-              "fontSize": 20,
-              "paddingBottom": "60%",
-              "paddingLeft": 10,
-              "paddingTop": "5%",
+          >
+            Välkommen!
+          </Component>
+          <Component
+            style={
+              Object {
+                "fontSize": 20,
+                "paddingBottom": "60%",
+                "paddingLeft": 10,
+                "paddingTop": "5%",
+              }
             }
-          }
-        >
-          
-          Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
-        </Component>,
+          >
+            
+            Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.
+          </Component>
+        </ScrollViewMock>,
         <Component
           style={
             Object {
@@ -70,40 +72,78 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": "Välkommen!",
-          "style": Object {
-            "fontSize": 35,
-            "justifyContent": "flex-start",
-            "left": 10,
-            "marginTop": 50,
-          },
-        },
-        "ref": null,
-        "rendered": "Välkommen!",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
           "children": Array [
-            "",
-            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
+            <Component
+              style={
+                Object {
+                  "fontSize": 35,
+                  "justifyContent": "flex-start",
+                  "left": 10,
+                  "marginTop": 50,
+                }
+              }
+            >
+              Välkommen!
+            </Component>,
+            <Component
+              style={
+                Object {
+                  "fontSize": 20,
+                  "paddingBottom": "60%",
+                  "paddingLeft": 10,
+                  "paddingTop": "5%",
+                }
+              }
+            >
+              
+              Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.
+            </Component>,
           ],
-          "style": Object {
-            "fontSize": 20,
-            "paddingBottom": "60%",
-            "paddingLeft": 10,
-            "paddingTop": "5%",
-          },
         },
         "ref": null,
         "rendered": Array [
-          "",
-          "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Välkommen!",
+              "style": Object {
+                "fontSize": 35,
+                "justifyContent": "flex-start",
+                "left": 10,
+                "marginTop": 50,
+              },
+            },
+            "ref": null,
+            "rendered": "Välkommen!",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "",
+                "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.",
+              ],
+              "style": Object {
+                "fontSize": 20,
+                "paddingBottom": "60%",
+                "paddingLeft": 10,
+                "paddingTop": "5%",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              "",
+              "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.",
+            ],
+            "type": [Function],
+          },
         ],
-        "type": [Function],
+        "type": [MockFunction],
       },
       Object {
         "instance": null,
@@ -144,31 +184,33 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <Component
-            style={
-              Object {
-                "fontSize": 35,
-                "justifyContent": "flex-start",
-                "left": 10,
-                "marginTop": 50,
+          <ScrollViewMock>
+            <Component
+              style={
+                Object {
+                  "fontSize": 35,
+                  "justifyContent": "flex-start",
+                  "left": 10,
+                  "marginTop": 50,
+                }
               }
-            }
-          >
-            Välkommen!
-          </Component>,
-          <Component
-            style={
-              Object {
-                "fontSize": 20,
-                "paddingBottom": "60%",
-                "paddingLeft": 10,
-                "paddingTop": "5%",
+            >
+              Välkommen!
+            </Component>
+            <Component
+              style={
+                Object {
+                  "fontSize": 20,
+                  "paddingBottom": "60%",
+                  "paddingLeft": 10,
+                  "paddingTop": "5%",
+                }
               }
-            }
-          >
-            
-            Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.
-          </Component>,
+            >
+              
+              Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.
+            </Component>
+          </ScrollViewMock>,
           <Component
             style={
               Object {
@@ -195,40 +237,78 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "Välkommen!",
-            "style": Object {
-              "fontSize": 35,
-              "justifyContent": "flex-start",
-              "left": 10,
-              "marginTop": 50,
-            },
-          },
-          "ref": null,
-          "rendered": "Välkommen!",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
             "children": Array [
-              "",
-              "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
+              <Component
+                style={
+                  Object {
+                    "fontSize": 35,
+                    "justifyContent": "flex-start",
+                    "left": 10,
+                    "marginTop": 50,
+                  }
+                }
+              >
+                Välkommen!
+              </Component>,
+              <Component
+                style={
+                  Object {
+                    "fontSize": 20,
+                    "paddingBottom": "60%",
+                    "paddingLeft": 10,
+                    "paddingTop": "5%",
+                  }
+                }
+              >
+                
+                Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.
+              </Component>,
             ],
-            "style": Object {
-              "fontSize": 20,
-              "paddingBottom": "60%",
-              "paddingLeft": 10,
-              "paddingTop": "5%",
-            },
           },
           "ref": null,
           "rendered": Array [
-            "",
-            "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall.",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Välkommen!",
+                "style": Object {
+                  "fontSize": 35,
+                  "justifyContent": "flex-start",
+                  "left": 10,
+                  "marginTop": 50,
+                },
+              },
+              "ref": null,
+              "rendered": "Välkommen!",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  "",
+                  "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.",
+                ],
+                "style": Object {
+                  "fontSize": 20,
+                  "paddingBottom": "60%",
+                  "paddingLeft": 10,
+                  "paddingTop": "5%",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                "",
+                "Innan du kan börja använda applikationen behöver du sätta några grundläggande inställningar som nödkontakt, timerintervall och varningstimerintervall. Du behöver också ge applikationen godkännande för att kunna använda sig av din position via GPS. Ingen kommer att ha tillgång till din data förutom i eventuella nödsituationer då din position kan skickas till din nödkontakt.",
+              ],
+              "type": [Function],
+            },
           ],
-          "type": [Function],
+          "type": [MockFunction],
         },
         Object {
           "instance": null,

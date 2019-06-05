@@ -1038,42 +1038,85 @@ exports[`Wizard Setting Screen tests Snapshot test renders correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
+        "flex": 2,
       }
     }
   >
     <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#0d6f73",
-          "height": 60,
-          "opacity": 1,
-          "width": "100%",
+          "bottom": 0,
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "position": "absolute",
         }
       }
     >
-      <Text
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "color": "#fff",
-            "fontSize": 30,
-            "paddingRight": 10,
-            "paddingTop": 8,
-            "textAlign": "right",
+            "backgroundColor": "grey",
+            "height": 60,
+            "opacity": 1,
+            "width": "50%",
           }
         }
       >
-        Nästa
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 30,
+              "paddingRight": 10,
+              "paddingTop": 8,
+              "textAlign": "left",
+            }
+          }
+        >
+          Avbryt
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#0d6f73",
+            "height": 60,
+            "opacity": 1,
+            "width": "50%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 30,
+              "paddingRight": 10,
+              "paddingTop": 8,
+              "textAlign": "right",
+            }
+          }
+        >
+          Spara
+        </Text>
+      </View>
     </View>
   </View>
 </View>

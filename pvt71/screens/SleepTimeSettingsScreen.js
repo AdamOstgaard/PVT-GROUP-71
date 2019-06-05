@@ -59,7 +59,7 @@ export default class SleepTimeSettingsScreen extends React.Component {
       endTime: this.toMilliseconds(this.state.endHour, this.state.endMinute)
     };
     this.saveSettings(sleepTime);
-    this.props.navigation.navigate("HomeScreen");
+    this.props.navigation.navigate("SettingsScreen");
   }
 
   formatTime = time => {
@@ -97,9 +97,22 @@ export default class SleepTimeSettingsScreen extends React.Component {
             {this.formatTime(this.state.endMinute)}
           </Text>
         </View>
-        <View style={styles.bottom}>
-          <AppSingleButton title="Nästa" onPress={this.handleSave} />
-        </View>
+        <View style={styles.boxContainerBottom}>
+          <View style={styles.bottom}>
+            <AppSingleButton
+              style={styles.leftButton}
+              textStyle={styles.buttonLText}
+              title="Avbryt"
+              onPress={() => this.props.navigation.navigate("SettingsScreen")}
+            />
+            <AppSingleButton
+              style={styles.rightButton}
+              textStyle={styles.buttonText}
+              title="Spara"
+              onPress={this.handleSave}
+            />
+          </View>
+      </View>
       </View>
     );
   }
@@ -126,7 +139,26 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   bottom: {
+    position: "absolute",
+    bottom: 0,
     flex: 1,
+    flexDirection: "row",
     justifyContent: "flex-end"
+  },
+  boxContainerBottom: {
+    flex: 2
+  },
+  leftButton: {
+    width:"50%",
+    backgroundColor: 'grey'
+  },
+  rightButton: {
+    width:"50%",
+  },
+  buttonText: {
+    textAlign: "right"
+  },
+  buttonLText: {
+    textAlign: "left"
   }
 });
