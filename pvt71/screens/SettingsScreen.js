@@ -71,7 +71,7 @@ const showImplementationAlert = () => {
   Alert.alert(
     "Fel",
     "Den här funktionaliteten har inte blivit integrerad ännu.",
-    [{ text: "Ok" , onPress: () => this.props.navigation.navigate("SettingsScreen", {})}],
+    [{ text: "Ok" , onPress: () => {}}],
     { cancelable: false }
   );
 };
