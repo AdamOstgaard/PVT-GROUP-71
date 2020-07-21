@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "codecov": "^3.3.0",
+    "codecov": "^3.7.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
     "jest-expo": "^32.0.0",
